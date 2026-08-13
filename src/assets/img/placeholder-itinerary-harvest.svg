@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Harvest &amp; Music placeholder image">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8a5a12"/>
+      <stop offset="1" stop-color="#d9a441"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <path d="M0 432 L224 330 L400 396 L592 300 L800 372 L800 600 L0 600 Z" fill="rgba(0,0,0,0.14)"/>
+  <circle cx="656" cy="132" r="54" fill="rgba(255,255,255,0.22)"/>
+  <text x="400" y="294" fill="rgba(255,255,255,0.96)" font-family="system-ui,Segoe UI,Roboto,sans-serif" font-size="66" font-weight="700" text-anchor="middle">Harvest &amp; Music</text>
+  <text x="400" y="366" fill="rgba(255,255,255,0.75)" font-family="system-ui,Segoe UI,Roboto,sans-serif" font-size="31" font-weight="600" letter-spacing="2" text-anchor="middle">PLACEHOLDER</text>
+</svg>

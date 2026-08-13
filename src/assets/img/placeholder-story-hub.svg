@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Fall Stories placeholder image">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3a2d5a"/>
+      <stop offset="1" stop-color="#b8420f"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#g)"/>
+  <path d="M0 648 L448 495 L800 594 L1184 450 L1600 558 L1600 900 L0 900 Z" fill="rgba(0,0,0,0.14)"/>
+  <circle cx="1312" cy="198" r="81" fill="rgba(255,255,255,0.22)"/>
+  <text x="800" y="444" fill="rgba(255,255,255,0.96)" font-family="system-ui,Segoe UI,Roboto,sans-serif" font-size="99" font-weight="700" text-anchor="middle">Fall Stories</text>
+  <text x="800" y="549" fill="rgba(255,255,255,0.75)" font-family="system-ui,Segoe UI,Roboto,sans-serif" font-size="47" font-weight="600" letter-spacing="2" text-anchor="middle">PLACEHOLDER</text>
+</svg>

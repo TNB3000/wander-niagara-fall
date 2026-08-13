@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1600" viewBox="0 0 900 1600" role="img" aria-label="Fall Video placeholder image">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7a2e12"/>
+      <stop offset="1" stop-color="#c9822c"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1600" fill="url(#g)"/>
+  <path d="M0 1152 L252 880 L450 1056 L666 800 L900 992 L900 1600 L0 1600 Z" fill="rgba(0,0,0,0.14)"/>
+  <circle cx="738" cy="352" r="81" fill="rgba(255,255,255,0.22)"/>
+  <text x="450" y="794" fill="rgba(255,255,255,0.96)" font-family="system-ui,Segoe UI,Roboto,sans-serif" font-size="99" font-weight="700" text-anchor="middle">Fall Video</text>
+  <text x="450" y="899" fill="rgba(255,255,255,0.75)" font-family="system-ui,Segoe UI,Roboto,sans-serif" font-size="47" font-weight="600" letter-spacing="2" text-anchor="middle">PLACEHOLDER</text>
+</svg>
