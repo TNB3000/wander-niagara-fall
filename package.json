@@ -1,0 +1,16 @@
+{
+  "name": "wander-niagara-fall",
+  "version": "1.0.0",
+  "description": "Wander Niagara — Fall in St. Catharines & the Benchlands campaign microsite. Static, mobile-first, tracking-heavy landing pages for paid media.",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "eleventy --serve",
+    "dev": "eleventy --serve",
+    "build": "eleventy",
+    "clean": "rm -rf _site"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
