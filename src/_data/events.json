@@ -1,0 +1,12 @@
+{
+  "_note": "Dated event rows. Audience pages show the first 3; /events/ shows 6. `url` is the outbound event/business link. All [PLACEHOLDER] until the client picks the real fall events. `seeAllUrl` powers the 'See all fall events' link.",
+  "seeAllUrl": "https://www.wanderniagara.com/events/",
+  "items": [
+    { "date": "2026-09-19", "dateLabel": "Sep 19", "title": "Grape & Wine Harvest Kick-Off [PLACEHOLDER]", "venue": "Montebello Park, St. Catharines", "url": "https://example.com/events/grape-wine-kickoff" },
+    { "date": "2026-09-26", "dateLabel": "Sep 26", "title": "Benchlands Fall Studio Tour [PLACEHOLDER]", "venue": "Various studios, the Bench", "url": "https://example.com/events/studio-tour" },
+    { "date": "2026-10-04", "dateLabel": "Oct 4", "title": "Harvest Farmers' Market Day [PLACEHOLDER]", "venue": "St. Catharines Market", "url": "https://example.com/events/harvest-market" },
+    { "date": "2026-10-11", "dateLabel": "Oct 11", "title": "Colours of the Canal Walk [PLACEHOLDER]", "venue": "Welland Canals Parkway", "url": "https://example.com/events/canal-walk" },
+    { "date": "2026-10-25", "dateLabel": "Oct 25", "title": "Bench Live: Autumn Sessions [PLACEHOLDER]", "venue": "FirstOntario PAC", "url": "https://example.com/events/autumn-sessions" },
+    { "date": "2026-11-21", "dateLabel": "Nov 21", "title": "Downtown Holiday Lighting [PLACEHOLDER]", "venue": "St. Paul Street", "url": "https://example.com/events/holiday-lighting" }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "_note": "Themed business modules. variant → themes[] → items[]. Every item is an OUTBOUND link (url). Add businesses here with NO template changes. `module` tagging for analytics is applied by the template. Names are plausible-but-fictional, marked [PLACEHOLDER]; the client supplies the real list (Whereabouts data / CSV) and images.",
+  "couples": {
+    "themes": [
+      {
+        "key": "wine-craft-sips",
+        "title": "Wine & Craft Sips",
+        "items": [
+          { "name": "Bench & Barrel Estate Winery [PLACEHOLDER]", "blurb": "Escarpment reds and a fireside tasting room.", "url": "https://example.com/bench-and-barrel", "img": "/assets/img/placeholder-biz-1.svg" },
+          { "name": "Twenty Mile Cider House [PLACEHOLDER]", "blurb": "Small-batch cider flights and a patio.", "url": "https://example.com/twenty-mile-cider", "img": "/assets/img/placeholder-biz-2.svg" },
+          { "name": "Lock 3 Craft Brewing [PLACEHOLDER]", "blurb": "Canal-side taproom, seasonal ales.", "url": "https://example.com/lock-3-brewing", "img": "/assets/img/placeholder-biz-3.svg" },
+          { "name": "Short Hills Distillery [PLACEHOLDER]", "blurb": "Barrel-aged spirits and cocktail pairings.", "url": "https://example.com/short-hills-distillery", "img": "/assets/img/placeholder-biz-4.svg" }
+        ]
+      },
+      {
+        "key": "table-for-two",
+        "title": "Table for Two",
+        "items": [
+          { "name": "The Bench Bistro [PLACEHOLDER]", "blurb": "Farm-to-table tasting menu.", "url": "https://example.com/bench-bistro", "img": "/assets/img/placeholder-biz-5.svg" },
+          { "name": "Merritt & Vine [PLACEHOLDER]", "blurb": "Wine bar with a chef's counter.", "url": "https://example.com/merritt-and-vine", "img": "/assets/img/placeholder-biz-6.svg" },
+          { "name": "Harbour Room [PLACEHOLDER]", "blurb": "Lakeside dining at Port Dalhousie.", "url": "https://example.com/harbour-room", "img": "/assets/img/placeholder-biz-1.svg" }
+        ]
+      },
+      {
+        "key": "boutique-stays",
+        "title": "Boutique Stays",
+        "items": [
+          { "name": "The Escarpment Inn [PLACEHOLDER]", "blurb": "Vineyard-view rooms on the bench.", "url": "https://example.com/escarpment-inn", "img": "/assets/img/placeholder-biz-2.svg" },
+          { "name": "Canalside Suites [PLACEHOLDER]", "blurb": "Boutique suites steps from the water.", "url": "https://example.com/canalside-suites", "img": "/assets/img/placeholder-biz-3.svg" },
+          { "name": "Maplewood Farmhouse B&B [PLACEHOLDER]", "blurb": "Restored farmhouse, big breakfasts.", "url": "https://example.com/maplewood-bnb", "img": "/assets/img/placeholder-biz-4.svg" }
+        ]
+      },
+      {
+        "key": "arts-evenings-out",
+        "title": "Arts & Evenings Out",
+        "items": [
+          { "name": "FirstOntario PAC [PLACEHOLDER]", "blurb": "Concerts, theatre and comedy downtown.", "url": "https://example.com/pac", "img": "/assets/img/placeholder-biz-5.svg" },
+          { "name": "Niagara Artists Centre [PLACEHOLDER]", "blurb": "Contemporary galleries and events.", "url": "https://example.com/nac", "img": "/assets/img/placeholder-biz-6.svg" },
+          { "name": "Bench Live Music Room [PLACEHOLDER]", "blurb": "Intimate live sets most weekends.", "url": "https://example.com/bench-live", "img": "/assets/img/placeholder-biz-1.svg" }
+        ]
+      }
+    ]
+  },
+  "families": {
+    "themes": [
+      {
+        "key": "fall-colours-easy-trails",
+        "title": "Fall Colours & Easy Trails",
+        "items": [
+          { "name": "Short Hills Park Loop [PLACEHOLDER]", "blurb": "Stroller-friendly trail to a lookout.", "url": "https://example.com/short-hills-loop", "img": "/assets/img/placeholder-biz-1.svg" },
+          { "name": "Twelve Mile Creek Trail [PLACEHOLDER]", "blurb": "Flat, shaded, colour-packed walk.", "url": "https://example.com/twelve-mile-trail", "img": "/assets/img/placeholder-biz-2.svg" },
+          { "name": "Decew Falls Lookout [PLACEHOLDER]", "blurb": "Short walk to a waterfall view.", "url": "https://example.com/decew-falls", "img": "/assets/img/placeholder-biz-3.svg" }
+        ]
+      },
+      {
+        "key": "farms-markets",
+        "title": "Farms & Markets",
+        "items": [
+          { "name": "Benchland Pumpkin Farm [PLACEHOLDER]", "blurb": "Pick-your-own patch and wagon rides.", "url": "https://example.com/benchland-pumpkin", "img": "/assets/img/placeholder-biz-4.svg" },
+          { "name": "St. Catharines Market [PLACEHOLDER]", "blurb": "Saturday market, harvest produce.", "url": "https://example.com/stc-market", "img": "/assets/img/placeholder-biz-5.svg" },
+          { "name": "Orchard Lane Apples [PLACEHOLDER]", "blurb": "Apple picking and cider donuts.", "url": "https://example.com/orchard-lane", "img": "/assets/img/placeholder-biz-6.svg" },
+          { "name": "Maze Acres Corn Maze [PLACEHOLDER]", "blurb": "Corn maze and a petting barn.", "url": "https://example.com/maze-acres", "img": "/assets/img/placeholder-biz-1.svg" }
+        ]
+      },
+      {
+        "key": "big-days-out",
+        "title": "Big Days Out",
+        "items": [
+          { "name": "Canal Discovery Centre [PLACEHOLDER]", "blurb": "Watch ships transit the Welland Canal.", "url": "https://example.com/canal-centre", "img": "/assets/img/placeholder-biz-2.svg" },
+          { "name": "Wild Waterway Adventures [PLACEHOLDER]", "blurb": "Family paddling and nature stops.", "url": "https://example.com/wild-waterway", "img": "/assets/img/placeholder-biz-3.svg" },
+          { "name": "Benchlands Fun Park [PLACEHOLDER]", "blurb": "Rides, mini-golf and a snack barn.", "url": "https://example.com/benchlands-fun", "img": "/assets/img/placeholder-biz-4.svg" }
+        ]
+      },
+      {
+        "key": "holiday-fun",
+        "title": "Holiday Fun",
+        "items": [
+          { "name": "Downtown Tree Lighting [PLACEHOLDER]", "blurb": "Kick off the season on St. Paul St.", "url": "https://example.com/tree-lighting", "img": "/assets/img/placeholder-biz-5.svg" },
+          { "name": "Holiday Market at the Market [PLACEHOLDER]", "blurb": "Makers, gifts and hot chocolate.", "url": "https://example.com/holiday-market", "img": "/assets/img/placeholder-biz-6.svg" },
+          { "name": "Skate the Canal Plaza [PLACEHOLDER]", "blurb": "Outdoor rink and warm-up hut.", "url": "https://example.com/skate-plaza", "img": "/assets/img/placeholder-biz-1.svg" }
+        ]
+      }
+    ]
+  }
+}

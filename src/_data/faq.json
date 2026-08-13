@@ -1,0 +1,35 @@
+{
+  "_note": "FAQ copy is [PLACEHOLDER] — Mackenzie is writing final answers. Structure feeds both the on-page accordion AND the schema.org FAQPage JSON-LD (for AEO). Keep answers plain-language, grade 5-7. Provide per-variant arrays; `default` is the fallback used by /stories/ and articles.",
+  "default": [
+    { "q": "Where is St. Catharines and the Benchlands?", "a": "It's in the Niagara region of Ontario, on the wine-country 'bench' below the Niagara Escarpment. It's about a 1 hour 15 minute drive from Toronto. [PLACEHOLDER]" },
+    { "q": "When is the best time to see fall colours?", "a": "Colour usually peaks from early to mid-October, but the season runs from late September into November. [PLACEHOLDER]" },
+    { "q": "How do I get here?", "a": "Most visitors drive in via the QEW. Seasonal GO Transit rail and bus service also runs on weekends. [PLACEHOLDER — confirm schedule]" },
+    { "q": "Do I need to book wineries and restaurants ahead?", "a": "On fall weekends, yes — tastings and dinner reservations fill up. Booking a few days ahead is a good idea. [PLACEHOLDER]" },
+    { "q": "Is it good for families?", "a": "Yes. There are farms, corn mazes, easy trails and family attractions across the Benchlands. [PLACEHOLDER]" },
+    { "q": "Where should I stay?", "a": "Options range from boutique inns on the bench to canal-side suites and farmhouse B&Bs. [PLACEHOLDER]" }
+  ],
+  "couples": [
+    { "q": "Is this a good fall trip for couples or a group of friends?", "a": "Yes. Wine country, boutique stays, chef's tables and live music make an easy adults' weekend. [PLACEHOLDER]" },
+    { "q": "How many wineries can we visit in a weekend?", "a": "A relaxed pace is three to four a day. Our 2-day wine itinerary maps out a route. [PLACEHOLDER]" },
+    { "q": "Can we get around without driving after tastings?", "a": "Local wine tour shuttles and taxis run through the bench. Plan a driver or a tour. [PLACEHOLDER]" },
+    { "q": "What's on in the evenings?", "a": "Theatre, concerts, gallery nights and live music rooms downtown and on the bench. [PLACEHOLDER]" },
+    { "q": "When do fall colours peak for winery views?", "a": "Early to mid-October is usually the sweet spot on the escarpment. [PLACEHOLDER]" },
+    { "q": "Where should we stay?", "a": "Vineyard-view inns and canal-side boutique suites are popular. Book early on weekends. [PLACEHOLDER]" }
+  ],
+  "families": [
+    { "q": "What is there for kids in the fall?", "a": "Pumpkin patches, corn mazes, petting barns, wagon rides and easy nature trails. [PLACEHOLDER]" },
+    { "q": "Are the trails stroller-friendly?", "a": "Several are flat and short. Our fall colours day trip highlights the easiest ones. [PLACEHOLDER]" },
+    { "q": "Is it an easy day trip from Toronto?", "a": "Yes — it's about 1 hour 15 minutes each way, so a day trip works well. [PLACEHOLDER]" },
+    { "q": "What can we do over a full weekend?", "a": "Pair farms and markets one day with a big attraction day the next. [PLACEHOLDER]" },
+    { "q": "When do the farms and corn mazes open?", "a": "Most run from late September through October. Check each farm's dates. [PLACEHOLDER]" },
+    { "q": "Where should families stay?", "a": "Farmhouse B&Bs and family suites near the canal are good bases. [PLACEHOLDER]" }
+  ],
+  "events": [
+    { "q": "What fall events are happening in St. Catharines?", "a": "Harvest festivals, studio tours, markets, live music and holiday lightings. See the events list. [PLACEHOLDER]" },
+    { "q": "Are the events free?", "a": "Many are free; some shows and tastings are ticketed. Check each listing. [PLACEHOLDER]" },
+    { "q": "Do I need tickets in advance?", "a": "For concerts and ticketed tastings, yes. Festivals and markets are usually walk-up. [PLACEHOLDER]" },
+    { "q": "Where do most events take place?", "a": "Downtown St. Catharines, the Welland Canals Parkway and across the bench. [PLACEHOLDER]" },
+    { "q": "Is there parking near events?", "a": "Downtown has garages and lots; festival sites add seasonal parking. [PLACEHOLDER]" },
+    { "q": "How do I see everything that's on?", "a": "Use the 'See all fall events' link for the full, updated list. [PLACEHOLDER]" }
+  ]
+}
