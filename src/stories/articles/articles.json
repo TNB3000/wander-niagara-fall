@@ -1,0 +1,13 @@
+{
+  "layout": "layouts/article.njk",
+  "variant": "stories",
+  "permalink": "/stories/{{ page.fileSlug }}/",
+  "stickyCtaLabel": "Keep exploring",
+  "stickyCtaHref": "#keep-exploring",
+  "headerCtaLabel": "Read more stories",
+  "headerCtaHref": "/stories/",
+  "headerHomeHref": "/stories/",
+  "anchors": [
+    { "label": "All stories", "href": "/stories/" }
+  ]
+}

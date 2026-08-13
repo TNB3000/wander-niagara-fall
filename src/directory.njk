@@ -1,0 +1,49 @@
+---
+layout: base.njk
+permalink: /directory/
+variant: directory
+title: "Directory"
+description: "Browse local businesses across St. Catharines & the Benchlands."
+stickyCtaLabel: "Back to fall itineraries"
+stickyCtaHref: "/couples/#itineraries"
+headerCtaLabel: "Plan your fall visit"
+headerCtaHref: "/couples/"
+headerHomeHref: "/"
+anchors:
+  - { label: "Listings", href: "#listings" }
+  - { label: "FAQ", href: "#faq" }
+faqKey: default
+---
+<section class="section" id="listings" data-module="directory">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Local businesses</p>
+      <h2>{{ site.name }} directory</h2>
+      <p>Browse places to eat, sip, stay and explore across the bench.</p>
+      {% if not site.featureFlags.directoryPage %}
+      <p class="nl-fineprint" style="color:var(--muted)">
+        ⚠︎ This internal directory page is built but <strong>not linked in nav</strong>
+        (<code>featureFlags.directoryPage = false</code>). Every "directory" CTA site-wide
+        currently points at <code>{{ site.directoryUrl }}</code>. Flip the flag / change
+        <code>directoryUrl</code> to switch. See README.
+      </p>
+      {% endif %}
+    </div>
+
+    {# --- Whereabouts listings module (lazy embed slot) --- #}
+    <div data-embed="whereabouts-listings">
+      <div class="embed-slot" style="min-height:340px">
+        <div>
+          <strong>Whereabouts listings module slot</strong>
+          Paste the listings embed into <code>embeds.whereabouts.listingsEmbed</code>. Loads lazily.
+        </div>
+      </div>
+      {% if embeds.whereabouts.listingsEmbed %}
+      <template>{{ embeds.whereabouts.listingsEmbed | safe }}</template>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% include "partials/faq.njk" %}
+{% include "partials/newsletter-inline.njk" %}
