@@ -1,0 +1,23 @@
+{# AUDIENCE / EVENTS PAGE LAYOUT. One template for /couples/, /families/, /events/.
+   Only content, order and copy vary — driven by front-matter + _data.
+   `eventsFirst: true` promotes the events module to position 2 (the /events/ variant). #}
+{% extends "base.njk" %}
+
+{% block content %}
+  {% include "partials/hero.njk" %}
+
+  {% if eventsFirst %}
+    {% include "partials/events.njk" %}
+    {% include "partials/itineraries.njk" %}
+    {% include "partials/themes.njk" %}
+  {% else %}
+    {% include "partials/itineraries.njk" %}
+    {% include "partials/themes.njk" %}
+    {% include "partials/events.njk" %}
+  {% endif %}
+
+  {% include "partials/stories-feature.njk" %}
+  {% include "partials/map.njk" %}
+  {% include "partials/faq.njk" %}
+  {% include "partials/newsletter-inline.njk" %}
+{% endblock %}

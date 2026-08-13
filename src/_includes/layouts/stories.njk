@@ -1,0 +1,69 @@
+{# STORIES HUB — visual blog hub AND a standalone ad landing page. Same header,
+   sticky CTA, tracking, FAQ + footer as the audience pages. Large image-led
+   article cards, with lazy embed slots (CrowdRiff, Whereabouts) between groups. #}
+{% extends "base.njk" %}
+
+{% block content %}
+  {% include "partials/hero.njk" %}
+
+  <section class="section" id="stories-list" data-module="stories">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Fall stories</p>
+        <h2>{{ storiesListTitle or "Reasons to visit this fall" }}</h2>
+        <p>{{ storiesListIntro or "Guides, local picks and seasonal inspiration from the bench." }}</p>
+      </div>
+
+      <div class="story-grid">
+        {% for post in collections.articles %}
+        <article class="story-card {% if loop.first %}story-card--big{% endif %}">
+          <img src="{{ post.data.image or '/assets/img/placeholder-story-1.svg' }}" alt="{{ post.data.title }}"
+               width="1200" height="800" loading="{{ 'eager' if loop.first else 'lazy' }}" decoding="async">
+          <div class="story-card__scrim"></div>
+          <div class="story-card__body">
+            <p class="eyebrow" style="color:#f0dcc6">{{ post.data.category or "Fall" }}</p>
+            <h3>{{ post.data.title }}</h3>
+            <p>{{ post.data.excerpt }}</p>
+            <a class="stretched" href="{{ post.url }}" aria-label="Read: {{ post.data.title }}"></a>
+          </div>
+        </article>
+
+        {# --- CrowdRiff UGC gallery slot, dropped in between article groups --- #}
+        {% if loop.index == 2 %}
+        <div class="story-card--big" data-embed="crowdriff" style="min-height:auto">
+          <div class="embed-slot">
+            <div>
+              <strong>CrowdRiff gallery slot</strong>
+              Paste the gallery id into <code>embeds.crowdriff.galleryId</code>. Loads lazily.
+            </div>
+          </div>
+          {% if embeds.crowdriff.galleryId %}
+          <template>
+            <div data-crowdriff-hash="{{ embeds.crowdriff.galleryId }}" data-crowdriff-src="crowdriff"></div>
+            <script src="https://starling.crowdriff.com/js/crowdriff.js" async></script>
+          </template>
+          {% endif %}
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+
+      {# --- Whereabouts listings slot below the articles --- #}
+      <div class="mt-2" data-embed="whereabouts-listings">
+        <div class="embed-slot">
+          <div>
+            <strong>Whereabouts content/listings slot</strong>
+            Paste an embed into <code>embeds.whereabouts.listingsEmbed</code>. Loads lazily.
+          </div>
+        </div>
+        {% if embeds.whereabouts.listingsEmbed %}
+        <template>{{ embeds.whereabouts.listingsEmbed | safe }}</template>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  {% include "partials/map.njk" %}
+  {% include "partials/faq.njk" %}
+  {% include "partials/newsletter-inline.njk" %}
+{% endblock %}

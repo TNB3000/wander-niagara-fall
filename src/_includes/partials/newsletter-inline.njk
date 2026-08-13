@@ -1,0 +1,28 @@
+{# INLINE NEWSLETTER — the non-popup fallback (always rendered at page bottom).
+   Same Mailchimp form as the exit-intent modal. Payoff copy is [PLACEHOLDER]. #}
+<section class="section" id="newsletter-inline">
+  <div class="wrap">
+    <div class="newsletter">
+      <h2>{{ nlTitle or "Get our fall guide in your inbox" }}</h2>
+      <p>{{ nlBlurb or "Itineraries, events and local picks for the bench this season. [PLACEHOLDER copy — final TBD]" }}</p>
+      <form class="nl-form" data-nl-loc="inline"
+            {% if embeds.mailchimp.actionUrl %}action="{{ embeds.mailchimp.actionUrl }}"{% endif %}
+            method="post" target="_blank" novalidate>
+        <label class="visually-hidden" for="nl-email-inline">Email address</label>
+        <input id="nl-email-inline" type="email" name="EMAIL" placeholder="you@email.com" required autocomplete="email">
+        {# Mailchimp anti-bot honeypot — real users leave this empty. #}
+        {% if embeds.mailchimp.honeypot %}
+        <div aria-hidden="true" style="position:absolute;left:-5000px">
+          <input type="text" name="{{ embeds.mailchimp.honeypot }}" tabindex="-1" value="">
+        </div>
+        {% endif %}
+        <button class="btn" type="submit">Send me the guide</button>
+      </form>
+      {% if not embeds.mailchimp.actionUrl %}
+      <p class="nl-fineprint">⚠︎ Mailchimp not connected yet — paste the form action URL into <code>embeds.mailchimp.actionUrl</code>.</p>
+      {% else %}
+      <p class="nl-fineprint">No spam. Unsubscribe anytime. [PLACEHOLDER consent line]</p>
+      {% endif %}
+    </div>
+  </div>
+</section>

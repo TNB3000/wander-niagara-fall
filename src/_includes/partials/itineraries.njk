@@ -1,0 +1,31 @@
+{# ITINERARY CARDS — 3 per page, the primary conversion. Each opens a
+   Whereabouts itinerary (outbound). data-module="itinerary" for analytics. #}
+{% set items = itineraries[variant] %}
+{% if items %}
+<section class="section" id="itineraries" data-module="itinerary">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Start here</p>
+      <h2>{{ itinerariesTitle or "Fall itineraries, mapped out" }}</h2>
+      <p>{{ itinerariesIntro or "Ready-made routes you can follow stop by stop." }}</p>
+    </div>
+    <div class="itin-grid itin">
+      {% for it in items %}
+      <article class="card">
+        <div class="card__media">
+          <img src="{{ it.img }}" alt="{{ it.title }}" width="800" height="600" loading="lazy" decoding="async">
+        </div>
+        <div class="card__body">
+          <h3 class="card__title">{{ it.title }}</h3>
+          <p class="card__meta"><span>🍂 {{ it.duration }}</span><span>📍 {{ it.stops }} stops</span></p>
+          <p class="card__blurb">{{ it.blurb }}</p>
+          <div class="card__cta">
+            <a class="btn" href="{{ it.url }}" data-module="itinerary" data-card-label="{{ it.title }}">{{ it.cta }}</a>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}

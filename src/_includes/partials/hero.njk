@@ -1,0 +1,41 @@
+{# HERO — two modes via `hero.mode` front-matter:
+   (a) "video": 9:16 muted, captioned, click-to-play with poster (NEVER autoplay-sound)
+   (b) "static": photo hero (default until client confirms video assets)
+   Overlay: kicker (always "St. Catharines & the Benchlands") + headline + sub + 1 CTA. #}
+{% set h = hero or {} %}
+<section class="hero {% if h.mode == 'video' and h.video %}hero--video{% endif %}" id="hero">
+  <div class="hero__media">
+    {% if h.mode == 'video' and h.video %}
+      <video preload="none" muted playsinline poster="{{ h.poster or '/assets/img/placeholder-hero-poster.svg' }}"
+             width="1080" height="1920">
+        <source src="{{ h.video }}" type="video/mp4">
+        {% if h.captions %}<track kind="captions" src="{{ h.captions }}" srclang="en" label="English" default>{% endif %}
+      </video>
+    {% else %}
+      <img src="{{ h.img or '/assets/img/placeholder-hero-couples.svg' }}"
+           alt="{{ h.alt or 'Fall in St. Catharines and the Benchlands' }}"
+           width="1600" height="1067" fetchpriority="high" decoding="async">
+    {% endif %}
+  </div>
+  <div class="hero__scrim"></div>
+
+  {% if h.mode == 'video' and h.video %}
+    <button class="hero__play" type="button" aria-label="Play the fall video">
+      <span class="hero__play-badge">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      </span>
+    </button>
+    <span class="hero__cap">Muted · tap to play with sound · captioned</span>
+  {% endif %}
+
+  <div class="wrap hero__inner">
+    <p class="kicker">{{ site.kicker }}</p>
+    <h1>{{ headline or "Fall, at your pace." }}</h1>
+    <p class="hero__sub">{{ sub or "Wine, colour, farms and events across the bench." }}</p>
+    <div class="hero__cta">
+      <a class="btn" href="{{ heroCtaHref or '#itineraries' }}" data-module="hero">{{ heroCtaLabel or "See fall itineraries" }}</a>
+    </div>
+    {# Sentinel: when this scrolls out of view, the sticky bottom CTA appears. #}
+    <span id="hero-cta-sentinel" aria-hidden="true"></span>
+  </div>
+</section>

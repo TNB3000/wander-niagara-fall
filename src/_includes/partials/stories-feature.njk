@@ -1,0 +1,16 @@
+{# STORIES FEATURE CARD — large visual card linking to the /stories/ hub. #}
+<section class="section" id="stories">
+  <div class="wrap">
+    <div class="feature">
+      <img src="/assets/img/placeholder-story-hub.svg" alt="Fall stories from the bench" width="1600" height="900" loading="lazy" decoding="async">
+      <div class="feature__scrim"></div>
+      <div class="feature__body">
+        <p class="eyebrow" style="color:#f0dcc6">Read &amp; get inspired</p>
+        <h3>{{ storiesFeatureTitle or "Fall stories from the bench" }}</h3>
+        <p>{{ storiesFeatureBlurb or "Guides, local picks and reasons to visit this season." }}</p>
+        <p style="margin:.7rem 0 0"><a class="btn" href="/stories/" data-module="stories">Read fall stories</a></p>
+        <a class="stretched" href="/stories/" aria-label="Read fall stories"></a>
+      </div>
+    </div>
+  </div>
+</section>

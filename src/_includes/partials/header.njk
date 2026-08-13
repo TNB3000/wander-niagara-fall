@@ -1,0 +1,22 @@
+{# Slim sticky anchor menu. NOT site nav — every link scrolls to an on-page
+   section. `anchors` comes from page front-matter. Collapses to horizontal
+   scroll chips on mobile. #}
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="{{ headerHomeHref or '#top' }}" aria-label="{{ site.name }}">
+      {# Logo slot — client supplies final SVG; placeholder wordmark for now #}
+      <img class="logo-img" src="/assets/img/logo.svg" alt="{{ site.name }}" width="200" height="40" loading="eager" decoding="async">
+    </a>
+
+    {% if anchors %}
+    <nav class="anchor-nav" aria-label="On this page">
+      {% for a in anchors %}<a class="chip" href="{{ a.href }}">{{ a.label }}</a>{% endfor %}
+    </nav>
+    {% endif %}
+
+    <a class="btn btn--small header-cta" href="{{ headerCtaHref or '#itineraries' }}" data-module="header">
+      {{ headerCtaLabel or "See fall itineraries" }}
+    </a>
+  </div>
+</header>
+<span id="top"></span>

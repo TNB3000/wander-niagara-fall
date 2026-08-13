@@ -1,0 +1,36 @@
+{# FAQ accordion (native <details>) + schema.org FAQPage JSON-LD for AEO.
+   Questions come from _data/faq.json by `faqKey` (falls back to default). #}
+{% set items = faq[faqKey] if faq[faqKey] else faq.default %}
+{% if items %}
+<section class="section" id="faq" data-module="faq">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Good to know</p>
+      <h2>{{ faqTitle or "Fall visit FAQ" }}</h2>
+    </div>
+    <div class="faq">
+      {% for qa in items %}
+      <details{% if loop.first %} open{% endif %}>
+        <summary>{{ qa.q }}</summary>
+        <p>{{ qa.a }}</p>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for qa in items %}{
+      "@type": "Question",
+      "name": {{ qa.q | dump | safe }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ qa.a | dump | safe }} }
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}

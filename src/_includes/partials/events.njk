@@ -1,0 +1,30 @@
+{# EVENTS STRIP — dated rows + "See all fall events". `eventRows` controls count
+   (3 on audience pages; 6 on /events/). On /events/ this module is rendered in
+   position 2 (directly under the hero) — ordering is handled by the layout. #}
+{% set rows = eventRows or 3 %}
+<section class="section" id="events" data-module="events">
+  <div class="wrap">
+    <div class="head-row section__head">
+      <div>
+        <p class="eyebrow">Mark your calendar</p>
+        <h2>{{ eventsTitle or "What's on this fall" }}</h2>
+      </div>
+      <a class="section__link" href="{{ events.seeAllUrl }}" data-module="events" data-card-label="See all fall events">See all fall events &rarr;</a>
+    </div>
+    <div class="events-list">
+      {% for ev in events.items %}{% if loop.index0 < rows %}
+      <a class="event-row" href="{{ ev.url }}" data-module="events" data-card-label="{{ ev.title }}">
+        <span class="event-date">
+          <span class="m">{{ ev.dateLabel.split(" ")[0] }}</span>
+          <span class="d">{{ ev.dateLabel.split(" ")[1] }}</span>
+        </span>
+        <span class="event-info">
+          <strong>{{ ev.title }}</strong>
+          <span>{{ ev.venue }}</span>
+        </span>
+        <span class="event-go" aria-hidden="true">&rarr;</span>
+      </a>
+      {% endif %}{% endfor %}
+    </div>
+  </div>
+</section>

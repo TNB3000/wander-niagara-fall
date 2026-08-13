@@ -1,0 +1,39 @@
+{# MAP + HOW TO GET HERE — lazy embed slot for the client's interactive map
+   (Whereabouts) + a compact drive-times block. Keep to one screen. #}
+<section class="section section--tint" id="map">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Find your way</p>
+      <h2>{{ mapTitle or "Explore the map &amp; getting here" }}</h2>
+    </div>
+    <div class="map-grid">
+      {# --- Map embed slot (lazy). Real embed pasted into embeds.mapEmbed. --- #}
+      <div class="embed-wrap" data-embed="map">
+        <div class="embed-slot embed-map">
+          <div>
+            <strong>Interactive map embed slot</strong>
+            Paste the Whereabouts map into <code>embeds.mapEmbed</code>.<br>
+            Loads lazily when it scrolls into view.
+          </div>
+        </div>
+        {% if embeds.whereabouts.mapEmbed %}
+        <template>{{ embeds.whereabouts.mapEmbed | safe }}</template>
+        {% endif %}
+      </div>
+
+      {# --- Getting here --- #}
+      <div class="getting-here">
+        <h3 style="margin-top:0">Getting here</h3>
+        <ul>
+          {% for o in site.gettingHere.origins %}
+          <li>
+            <span class="from">{{ o.from }}</span>
+            <span><span class="time">{{ o.time }}</span> <span class="note">{{ o.note }}</span></span>
+          </li>
+          {% endfor %}
+        </ul>
+        <p class="transit">{{ site.gettingHere.transit }}</p>
+      </div>
+    </div>
+  </div>
+</section>
