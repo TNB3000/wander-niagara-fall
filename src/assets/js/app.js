@@ -5,6 +5,10 @@
 (function () {
   "use strict";
 
+  // Design behaviors gate (.js on <html> is set inline in <head> to avoid a
+  // reveal flash; this is the belt-and-suspenders for cached templates).
+  document.documentElement.classList.add("js");
+
   // ---- Config (emitted by the template as a JSON <script>) ----
   var cfg = {};
   try {
@@ -238,6 +242,42 @@
       if (!form.getAttribute("action")) { e.preventDefault(); return; } // not configured yet
       track("newsletter_submit", { page_variant: variant, location: form.getAttribute("data-nl-loc") || "inline" });
     });
+  });
+
+  // ---------------------------------------------------------------------------
+  // 9. Stamp-in reveals — one orchestrated entrance per section (letterpress
+  //    "stamp"). Elements are visible by default without JS (.js gate in CSS).
+  // ---------------------------------------------------------------------------
+  var stamps = document.querySelectorAll(".stamp");
+  if (stamps.length && "IntersectionObserver" in window &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var sio = new IntersectionObserver(function(entries, obs){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        en.target.classList.add("is-stamped"); obs.unobserve(en.target);
+      });
+    }, { rootMargin: "0px 0px -8% 0px" });
+    stamps.forEach(function(s){ sio.observe(s); });
+  } else {
+    stamps.forEach(function(s){ s.classList.add("is-stamped"); });
+  }
+
+  // ---------------------------------------------------------------------------
+  // 10. Honest event badges — computed from each row's real data-date, never
+  //     painted on. "Today" on the day; "This weekend" for Fri–Sun within 6 days.
+  // ---------------------------------------------------------------------------
+  document.querySelectorAll(".event-row[data-date]").forEach(function(row){
+    var badge = row.querySelector(".event-badge");
+    if (!badge) return;
+    var d = new Date(row.getAttribute("data-date") + "T12:00:00");
+    if (isNaN(d)) return;
+    var now = new Date();
+    var days = Math.floor((d - new Date(now.getFullYear(), now.getMonth(), now.getDate())) / 86400000);
+    var dow = d.getDay(); // 0 Sun … 6 Sat
+    if (days === 0) { badge.textContent = "Today"; badge.hidden = false; }
+    else if (days > 0 && days <= 6 && (dow === 5 || dow === 6 || dow === 0)) {
+      badge.textContent = "This weekend"; badge.hidden = false;
+    }
   });
 
   // ---- utils ----

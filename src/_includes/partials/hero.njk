@@ -1,9 +1,10 @@
-{# HERO — two modes via `hero.mode` front-matter:
-   (a) "video": 9:16 muted, captioned, click-to-play with poster (NEVER autoplay-sound)
-   (b) "static": photo hero (default until client confirms video assets)
-   Overlay: kicker (always "St. Catharines & the Benchlands") + headline + sub + 1 CTA. #}
+{# HERO — three modes via `hero.mode` front-matter:
+   (a) "scene" (default): the authored litho landscape of the Bench
+   (b) "static": photo hero (when the client supplies real photography)
+   (c) "video": 9:16 muted, captioned, click-to-play with poster (NEVER autoplay-sound)
+   Overlay: region ribbon + woodtype headline + sub + CTA. #}
 {% set h = hero or {} %}
-<section class="hero {% if h.mode == 'video' and h.video %}hero--video{% endif %}" id="hero">
+<section class="hero {% if h.mode == 'video' and h.video %}hero--video{% endif %}{% if variant %} hero--{{ variant }}{% endif %}" id="hero">
   <div class="hero__media">
     {% if h.mode == 'video' and h.video %}
       <video preload="none" muted playsinline poster="{{ h.poster or '/assets/img/placeholder-hero-poster.svg' }}"
@@ -11,10 +12,11 @@
         <source src="{{ h.video }}" type="video/mp4">
         {% if h.captions %}<track kind="captions" src="{{ h.captions }}" srclang="en" label="English" default>{% endif %}
       </video>
-    {% else %}
-      <img src="{{ h.img or '/assets/img/placeholder-hero-couples.svg' }}"
-           alt="{{ h.alt or 'Fall in St. Catharines and the Benchlands' }}"
+    {% elif h.mode == 'static' and h.img %}
+      <img src="{{ h.img }}" alt="{{ h.alt or 'Fall in St. Catharines and the Benchlands' }}"
            width="1600" height="1067" fetchpriority="high" decoding="async">
+    {% else %}
+      {% include "partials/scene.njk" %}
     {% endif %}
   </div>
   <div class="hero__scrim"></div>
@@ -29,8 +31,8 @@
   {% endif %}
 
   <div class="wrap hero__inner">
-    <p class="kicker">{{ site.kicker }}</p>
-    <h1>{{ headline or "Fall, at your pace." }}</h1>
+    <p class="region-line">{{ site.kicker }}</p>
+    <h1>{{ (headline or "Fall, at your pace.") | safe }}</h1>
     <p class="hero__sub">{{ sub or "Wine, colour, farms and events across the bench." }}</p>
     <div class="hero__cta">
       <a class="btn" href="{{ heroCtaHref or '#itineraries' }}" data-module="hero">{{ heroCtaLabel or "See fall itineraries" }}</a>

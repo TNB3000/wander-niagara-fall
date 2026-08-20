@@ -17,25 +17,20 @@ faqKey: default
 <section class="section" id="listings" data-module="directory">
   <div class="wrap">
     <div class="section__head">
-      <p class="eyebrow">Local businesses</p>
-      <h2>{{ site.name }} directory</h2>
+      <h2><span class="rule-l"></span>{{ site.name }} directory</h2>
       <p>Browse places to eat, sip, stay and explore across the bench.</p>
-      {% if not site.featureFlags.directoryPage %}
-      <p class="nl-fineprint" style="color:var(--muted)">
-        ⚠︎ This internal directory page is built but <strong>not linked in nav</strong>
-        (<code>featureFlags.directoryPage = false</code>). Every "directory" CTA site-wide
-        currently points at <code>{{ site.directoryUrl }}</code>. Flip the flag / change
-        <code>directoryUrl</code> to switch. See README.
-      </p>
-      {% endif %}
+      {# Builder note: this internal directory page builds but is not linked in nav while
+         featureFlags.directoryPage = false; every "directory" CTA site-wide points at
+         site.directoryUrl. Flip the flag / change directoryUrl to switch. See README. #}
     </div>
 
     {# --- Whereabouts listings module (lazy embed slot) --- #}
     <div data-embed="whereabouts-listings">
+      {# Builder note: paste the listings embed into embeds.whereabouts.listingsEmbed — loads lazily. #}
       <div class="embed-slot" style="min-height:340px">
         <div>
-          <strong>Whereabouts listings module slot</strong>
-          Paste the listings embed into <code>embeds.whereabouts.listingsEmbed</code>. Loads lazily.
+          <strong>The business directory</strong>
+          [PLACEHOLDER — live listings ship with launch]
         </div>
       </div>
       {% if embeds.whereabouts.listingsEmbed %}

@@ -1,19 +1,18 @@
-{# THEMED BUSINESS MODULES — visitpa-style horizontal scrollers (CSS scroll-snap).
-   4 themes per page, 3–6 cards each. Every card is an OUTBOUND link.
-   Fully data-driven from _data/businesses.json — add businesses with no template edits. #}
+{# THEMED BUSINESS MODULES — the packing line: horizontal scroll-snap rows of
+   small labels on a leaf-green ground. Every card is an OUTBOUND link.
+   Fully data-driven from _data/businesses.json. #}
 {% set themes = (businesses[variant].themes) if businesses[variant] else [] %}
 {% if themes %}
-<section class="section section--tint" id="explore" data-module="theme">
+<section class="section section--leaf" id="explore" data-module="theme">
   <div class="wrap">
-    <div class="section__head">
-      <p class="eyebrow">Explore the bench</p>
-      <h2>{{ themesTitle or "Where to go this fall" }}</h2>
-      <p>{{ themesIntro or "Handpicked local spots. Tap any to visit their site." }}</p>
+    <div class="section__head stamp">
+      <h2><span class="rule-l"></span>{{ themesTitle or "Where to go this fall" }}</h2>
+      <p class="muted">{{ themesIntro or "Handpicked local spots. Tap any to visit their site." }}</p>
     </div>
 
     {% for theme in themes %}
     <div class="theme">
-      <h3 class="theme__title">{{ theme.title }}</h3>
+      <h3 class="theme__title"><svg aria-hidden="true"><use href="#i-{{ theme.icon or 'star' }}"></use></svg>{{ theme.title }}</h3>
       <div class="scroller" role="list" aria-label="{{ theme.title }}">
         {% for biz in theme.items %}
         <a class="biz-card" role="listitem" href="{{ biz.url }}"

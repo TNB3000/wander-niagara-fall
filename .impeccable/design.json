@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-19T00:00:00Z",
+  "title": "Design System: Wander Niagara — Fall on the Bench",
+  "extensions": {
+    "colorMeta": {
+      "press": { "role": "neutral", "displayName": "Press Ink", "canonical": "#26150f", "tonalRamp": ["#26150f", "#3a2418", "#4f3322", "#66442e", "#7d563b", "#9d7455", "#c4a184", "#ead3ba"] },
+      "stock": { "role": "neutral", "displayName": "Label Stock", "canonical": "#f7edd6", "tonalRamp": ["#4a3d21", "#6b5930", "#8c7543", "#ab9159", "#c7ac74", "#ddc493", "#ecdab7", "#f7edd6"] },
+      "stock-2": { "role": "neutral", "displayName": "Aged Stock", "canonical": "#eddcb6", "tonalRamp": ["#45391a", "#645326", "#836d34", "#a08745", "#bba15c", "#d2ba7d", "#e2cc9c", "#eddcb6"] },
+      "persimmon": { "role": "primary", "displayName": "Persimmon", "canonical": "#c93a20", "tonalRamp": ["#4a1209", "#6d1c0e", "#8c2513", "#a02c16", "#c93a20", "#d8452b", "#eb7d63", "#f7c3b5"] },
+      "goldenrod": { "role": "primary", "displayName": "Goldenrod", "canonical": "#eba51f", "tonalRamp": ["#4d3305", "#755009", "#9c6c0c", "#c8880e", "#eba51f", "#f2ba4e", "#f7d086", "#fbe7c2"] },
+      "concord": { "role": "secondary", "displayName": "Concord Purple", "canonical": "#3e2459", "tonalRamp": ["#1c0f2c", "#2c1843", "#3e2459", "#553579", "#6f4b99", "#8f6db4", "#b497d1", "#dbc9ec"] },
+      "leaf": { "role": "secondary", "displayName": "Leaf Green", "canonical": "#2f6b3a", "tonalRamp": ["#122a17", "#1c4023", "#24522c", "#2f6b3a", "#3f8a4d", "#5aa967", "#8cc795", "#c8e5cc"] },
+      "sky": { "role": "secondary", "displayName": "Litho Sky", "canonical": "#bfdce9", "tonalRamp": ["#1e3a48", "#2f556a", "#43728c", "#5c8fab", "#7dabc4", "#9fc4d8", "#bfdce9", "#ddeef6"] },
+      "on-concord-2": { "role": "neutral", "displayName": "Concord Tint", "canonical": "#cbb8e0" },
+      "on-leaf-2": { "role": "neutral", "displayName": "Leaf Tint", "canonical": "#bfdcb9" },
+      "on-persimmon-2": { "role": "neutral", "displayName": "Persimmon Tint", "canonical": "#ffd9ce" },
+      "on-goldenrod-2": { "role": "neutral", "displayName": "Goldenrod Shade", "canonical": "#543a06" },
+      "on-stock-2": { "role": "neutral", "displayName": "Stock Shade", "canonical": "#7a5d34" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Woodtype Display (Ultra)", "purpose": "Hero h1 only; max 14ch; hard litho drop shadow on the hero." },
+      "headline": { "displayName": "Section Headline (Ultra)", "purpose": "h2 section titles with a 3px stencil rule extending from the title." },
+      "title": { "displayName": "Label Caps (Barlow Condensed)", "purpose": "h3, buttons, nav, stamps, meta — always uppercase, tracked .03–.18em." },
+      "body": { "displayName": "Body (Source Sans 3)", "purpose": "Copy at 1rem/1.55; article prose 1.14rem/1.72 at 42rem measure." },
+      "script": { "displayName": "Flourish (Yellowtail)", "purpose": "One word inside the hero headline, rotated -3deg, goldenrod. Never a label." },
+      "label": { "displayName": "Ribbon Caps", "purpose": "Region-line ribbon and lot stamps; .16–.18em tracking." }
+    },
+    "shadows": [
+      { "name": "shadow", "value": "0 10px 26px rgba(38, 21, 15, 0.2)", "purpose": "Rest state of plates, crates, and cards — ink-tinted paper lift." },
+      { "name": "shadow-lift", "value": "0 16px 34px rgba(38, 21, 15, 0.28)", "purpose": "Hover lift on interactive cards; modal panel." },
+      { "name": "stamp-ledge", "value": "0 3px 0 var(--press), 0 10px 18px rgba(38,21,15,.22)", "purpose": "Button rest state: hard rubber-stamp ledge plus soft throw; collapses on :active with translateY(3px)." }
+    ],
+    "motion": [
+      { "name": "spring", "value": "cubic-bezier(.32, 1.28, .53, 1)", "purpose": "Damped iOS-style spring for every press, lift, scale, modal, and sticky-CTA move (.28–.42s). Pinned brief: mimic iOS functionality." },
+      { "name": "easeout", "value": "cubic-bezier(.16, 1, .3, 1)", "purpose": "Stamp-in entrances: .5s opacity+scale settle, once per element via IntersectionObserver; .js-gated and reduced-motion safe." },
+      { "name": "color-ease", "value": ".15s ease", "purpose": "Hover fill/background color changes only." }
+    ],
+    "breakpoints": [
+      { "name": "crate-2col", "value": "640px" },
+      { "name": "brand-compact-max", "value": "680px" },
+      { "name": "stories-2col", "value": "720px" },
+      { "name": "map-split", "value": "860px" },
+      { "name": "sticky-cta-off", "value": "900px" },
+      { "name": "crate-3col", "value": "940px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Crate-Stamp Button (Primary)",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Persimmon rubber-stamp CTA: caps, ink border, ledge shadow, presses down on :active.",
+      "html": "<a class=\"ds-btn\" href=\"#\">See fall itineraries</a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 1.06rem; letter-spacing: .07em; text-transform: uppercase; text-decoration: none; cursor: pointer; line-height: 1; padding: .85rem 1.3rem .8rem; border-radius: 6px; background: var(--persimmon, #c93a20); color: var(--stock, #f7edd6); border: 2px solid var(--press, #26150f); box-shadow: 0 3px 0 var(--press, #26150f), 0 10px 18px rgba(38,21,15,.22); transition: transform .28s cubic-bezier(.32,1.28,.53,1), box-shadow .28s cubic-bezier(.32,1.28,.53,1), background .15s ease; } .ds-btn:hover { background: var(--persimmon-deep, #a02c16); } .ds-btn:focus-visible { outline: 3px solid var(--goldenrod, #eba51f); outline-offset: 2px; } .ds-btn:active { transform: translateY(3px); box-shadow: 0 0 0 var(--press, #26150f), 0 4px 8px rgba(38,21,15,.2); }"
+    },
+    {
+      "name": "Crate-Stamp Button (Gold)",
+      "kind": "button",
+      "refersTo": "button-gold",
+      "description": "Goldenrod stamp variant for use on persimmon/ink grounds.",
+      "html": "<a class=\"ds-btn-gold\" href=\"#\">Plan your visit</a>",
+      "css": ".ds-btn-gold { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 1.06rem; letter-spacing: .07em; text-transform: uppercase; text-decoration: none; cursor: pointer; line-height: 1; padding: .85rem 1.3rem .8rem; border-radius: 6px; background: var(--goldenrod, #eba51f); color: var(--press, #26150f); border: 2px solid var(--press, #26150f); box-shadow: 0 3px 0 var(--press, #26150f), 0 10px 18px rgba(38,21,15,.22); transition: transform .28s cubic-bezier(.32,1.28,.53,1), box-shadow .28s cubic-bezier(.32,1.28,.53,1), background .15s ease; } .ds-btn-gold:hover { background: var(--goldenrod-deep, #c8880e); } .ds-btn-gold:active { transform: translateY(3px); box-shadow: 0 0 0 var(--press, #26150f), 0 4px 8px rgba(38,21,15,.2); }"
+    },
+    {
+      "name": "Region Line",
+      "kind": "custom",
+      "refersTo": "region-line",
+      "description": "The packing-house ribbon: caps with 26x2px bars either side. The sanctioned text-above-a-heading (kickers are banned).",
+      "html": "<p class=\"ds-region-line\">St. Catharines · Lincoln · The Bench</p>",
+      "css": ".ds-region-line { display: inline-flex; align-items: center; gap: .55em; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: .88rem; letter-spacing: .18em; text-transform: uppercase; color: var(--goldenrod, #eba51f); margin: 0; } .ds-region-line::before, .ds-region-line::after { content: \"\"; width: 26px; height: 2px; background: currentColor; opacity: .85; }"
+    },
+    {
+      "name": "Lot Stamp",
+      "kind": "chip",
+      "refersTo": "lot",
+      "description": "Rotated grade mark: 2px currentColor border, -2deg tilt.",
+      "html": "<span class=\"ds-lot\">Lot №1 · Couples</span>",
+      "css": ".ds-lot { display: inline-block; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; padding: .28rem .55rem .22rem; border: 2px solid currentColor; border-radius: 4px; transform: rotate(-2deg); color: var(--goldenrod, #eba51f); }"
+    },
+    {
+      "name": "Label Plate",
+      "kind": "card",
+      "refersTo": "plate",
+      "description": "The double-rule crate label: 2px press border with an inset 1px inner rule.",
+      "html": "<div class=\"ds-plate\"><h3 class=\"ds-plate-title\">Getting Here</h3><p class=\"ds-plate-body\">Toronto — 1 hr 10 · Buffalo — 45 min · Hamilton — 30 min.</p></div>",
+      "css": ".ds-plate { position: relative; background: var(--stock, #f7edd6); color: var(--press, #26150f); border: 2px solid var(--press, #26150f); border-radius: 8px; box-shadow: 0 10px 26px rgba(38,21,15,.2); padding: 1.2rem 1.3rem 1.3rem; } .ds-plate::after { content: \"\"; position: absolute; inset: 5px; pointer-events: none; border: 1px solid var(--press, #26150f); border-radius: 4px; opacity: .55; } .ds-plate-title { font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; font-size: 1.2rem; margin: 0 0 .4em; } .ds-plate-body { margin: 0; font-family: 'Source Sans 3', sans-serif; line-height: 1.55; color: var(--on-stock-2, #7a5d34); }"
+    },
+    {
+      "name": "Crate Card",
+      "kind": "card",
+      "refersTo": "crate",
+      "description": "Itinerary crate label: whole-ink ground, lot stamp, woodtype title, gold grade line, block CTA; lifts on hover, presses on active.",
+      "html": "<article class=\"ds-crate\"><span class=\"ds-crate-lot\">Lot №1</span><h3 class=\"ds-crate-title\">The Couples' Crate</h3><p class=\"ds-crate-grade\">Wine · Dinner · Escarpment</p><p class=\"ds-crate-blurb\">A slow day on the Bench: cellar doors, a long lunch, colour at golden hour.</p><a class=\"ds-crate-btn\" href=\"#\">Open this crate</a></article>",
+      "css": ".ds-crate { position: relative; display: flex; flex-direction: column; gap: .55rem; background: var(--concord, #3e2459); color: var(--stock, #f7edd6); border: 2px solid var(--press, #26150f); border-radius: 8px; box-shadow: 0 10px 26px rgba(38,21,15,.2); padding: 2.6rem 1.15rem 1.25rem; text-align: center; max-width: 320px; transition: transform .3s cubic-bezier(.32,1.28,.53,1), box-shadow .3s cubic-bezier(.32,1.28,.53,1); } .ds-crate:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(38,21,15,.28); } .ds-crate:active { transform: scale(.985); } .ds-crate-lot { position: absolute; top: .8rem; left: .8rem; display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; padding: .28rem .55rem .22rem; border: 2px solid currentColor; border-radius: 4px; transform: rotate(-2deg); color: var(--goldenrod, #eba51f); } .ds-crate-title { font-family: Ultra, 'Rockwell Extra Bold', serif; font-weight: 400; font-size: 1.45rem; line-height: 1.08; margin: 0; } .ds-crate-grade { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: .88rem; letter-spacing: .14em; text-transform: uppercase; color: var(--goldenrod, #eba51f); margin: 0; } .ds-crate-blurb { font-family: 'Source Sans 3', sans-serif; font-size: .97rem; margin: 0; color: var(--on-concord-2, #cbb8e0); } .ds-crate-btn { margin-top: .5rem; display: inline-flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.06rem; letter-spacing: .07em; text-transform: uppercase; text-decoration: none; line-height: 1; padding: .85rem 1.3rem .8rem; border-radius: 6px; background: var(--persimmon, #c93a20); color: var(--stock, #f7edd6); border: 2px solid var(--press, #26150f); box-shadow: 0 3px 0 var(--press, #26150f), 0 10px 18px rgba(38,21,15,.22); transition: transform .28s cubic-bezier(.32,1.28,.53,1), box-shadow .28s cubic-bezier(.32,1.28,.53,1), background .15s ease; } .ds-crate-btn:hover { background: var(--persimmon-deep, #a02c16); } .ds-crate-btn:active { transform: translateY(3px); box-shadow: 0 0 0 var(--press, #26150f); }"
+    },
+    {
+      "name": "Nav Chip",
+      "kind": "nav",
+      "refersTo": "nav-chip",
+      "description": "Header anchor chip on the press-ink bar; scales down on press.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-chip\" href=\"#\">Itineraries</a><a class=\"ds-chip\" href=\"#\">Events</a><a class=\"ds-chip\" href=\"#\">Wineries</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 6px; background: var(--press, #26150f); padding: 12px; border-bottom: 3px solid var(--goldenrod, #eba51f); } .ds-chip { flex: 0 0 auto; text-decoration: none; font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 600; font-size: .9rem; letter-spacing: .08em; text-transform: uppercase; padding: .36rem .7rem .3rem; border-radius: 5px; color: var(--stock-2, #eddcb6); border: 1px solid rgba(247, 237, 214, .32); white-space: nowrap; transition: background .15s ease, transform .28s cubic-bezier(.32,1.28,.53,1); } .ds-chip:hover { background: rgba(247,237,214,.14); } .ds-chip:active { transform: scale(.94); }"
+    },
+    {
+      "name": "Event Row",
+      "kind": "custom",
+      "refersTo": "event-row",
+      "description": "Goldenrod bill-of-dates row: press-ink date block, title, rotated New badge.",
+      "html": "<a class=\"ds-event\" href=\"#\"><span class=\"ds-event-date\"><span class=\"ds-event-m\">Oct</span><span class=\"ds-event-d\">24</span></span><span class=\"ds-event-info\"><strong>Spark Gala ft. National Ballet of Canada <span class=\"ds-event-badge\">New</span></strong><span>FirstOntario PAC, St. Catharines</span></span><span class=\"ds-event-go\">→</span></a>",
+      "css": ".ds-event { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem; padding: .95rem .3rem; background: var(--goldenrod, #eba51f); border-bottom: 2px solid rgba(38,21,15,.35); text-decoration: none; color: var(--press, #26150f); font-family: 'Source Sans 3', sans-serif; transition: background .15s ease; } .ds-event:hover { background: rgba(247,237,214,.35); } .ds-event:active { background: rgba(247,237,214,.55); } .ds-event-date { text-align: center; min-width: 60px; background: var(--press, #26150f); color: var(--stock, #f7edd6); border-radius: 6px; padding: .4rem .35rem .35rem; line-height: 1.05; } .ds-event-m { display: block; font-family: 'Barlow Condensed', sans-serif; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--goldenrod, #eba51f); } .ds-event-d { display: block; font-family: Ultra, 'Rockwell Extra Bold', serif; font-size: 1.3rem; } .ds-event-info strong { display: block; font-size: 1.04rem; line-height: 1.25; } .ds-event-info > span { color: var(--on-goldenrod-2, #543a06); font-size: .88rem; } .ds-event-badge { display: inline-block; margin-left: .5rem; vertical-align: 2px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; background: var(--persimmon, #c93a20); color: var(--stock, #f7edd6); border-radius: 4px; padding: .18rem .4rem .12rem; transform: rotate(-2deg); } .ds-event-go { font-size: 1.3rem; }"
+    },
+    {
+      "name": "Email Input",
+      "kind": "input",
+      "refersTo": "nl-input",
+      "description": "Newsletter field: stock ground, 2px press border, persimmon caret, goldenrod focus ring.",
+      "html": "<input class=\"ds-input\" type=\"email\" placeholder=\"you@example.com\" aria-label=\"Email address\">",
+      "css": ".ds-input { padding: .8rem 1rem; border-radius: 6px; border: 2px solid var(--press, #26150f); font: inherit; font-family: 'Source Sans 3', sans-serif; color: var(--press, #26150f); background: var(--stock, #f7edd6); caret-color: var(--persimmon, #c93a20); min-width: 220px; } .ds-input::placeholder { color: var(--on-stock-2, #7a5d34); } .ds-input:focus-visible { outline: 3px solid var(--goldenrod, #eba51f); outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Fruit-Crate Label",
+    "overview": "Every surface on this site is a lithographed fruit-crate label from the Niagara fruit belt's packing-house era. The page is a stack of labels: flat, saturated inks (concord purple, leaf green, persimmon, goldenrod) own whole sections edge-to-edge over aged label stock, framed by double-rule plates, stamped with rotated lot marks, and lettered in Ultra woodtype with Barlow Condensed caps and a single Yellowtail script flourish. Depth is printed, not lit — soft paper-lift shadows and a halftone-dot scrim, never glassy gradients or blurs. Scenery is authored flat-ink SVG lithography, retinted per audience variant like different print runs of the same plate; real photography appears only inside bordered plates and cards, like tipped-in prints. The build is mobile-first with a binding iOS-feel constraint: presses spring back, sections stamp in once on scroll, horizontal scrollers snap, and a sticky bottom CTA rises like a sheet. It deliberately refuses the photo-hero-plus-card-grid tourism default: the first viewport is a full-bleed litho scene, a region ribbon, and crate-stamp CTAs under a slim press-ink header.",
+    "keyCharacteristics": [
+      "Flat litho inks own entire sections; no gradients as color, no translucency as material.",
+      "Everything is a printed object: double-rule plates, 2px press-ink borders, rotated lot stamps.",
+      "One motion grammar: stamp in once, spring back on press.",
+      "Authored SVG scenes and icons in one visual weight; photos live inside plates.",
+      "Browser chrome is themed to the world (selection, caret, scrollbars, focus ring, theme-color)."
+    ],
+    "rules": [
+      { "name": "The Whole-Ink Rule", "body": "An ink owns its entire section (.section--concord/--leaf/--gold/--sky/--stock2), edge to edge, like a stack of labels. Accent colors are not sprinkled onto white pages; the ground changes instead.", "section": "colors" },
+      { "name": "The No-Gray Rule", "body": "Muted text on an ink ground is never gray or plain opacity — it uses that ground's tinted secondary (--on-concord-2 etc.). Gray on ink reads as screen, not print.", "section": "colors" },
+      { "name": "The Press-Ink Line Rule", "body": "Every border, rule, and stamp outline is --press (or currentColor on ink grounds) at 2px (--rule). No 1px hairline gray borders.", "section": "colors" },
+      { "name": "The One-Flourish Rule", "body": "Yellowtail appears once per page — a single word inside the display headline. It is never a label, button, or body face.", "section": "typography" },
+      { "name": "The Caps-Do-Labels Rule", "body": "Any small functional text (buttons, nav, stamps, meta, dates, ribbons) is Barlow Condensed uppercase with tracking. Body case + small size is not a label style here.", "section": "typography" },
+      { "name": "The Ribbon-Not-Kicker Rule", "body": "Text above a heading is the region-line ribbon or a rotated lot stamp. Plain floating kickers/eyebrows are banned — the ribbon and stamp are the label grammar that replaced them.", "section": "typography" },
+      { "name": "The Ink-Shadow Rule", "body": "All shadows are tinted with press ink rgba(38,21,15,…). Neutral black shadows read as UI, not print.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do give every new section a whole ink: pick one of .section--concord/--leaf/--gold/--sky/--stock2 (or plain stock) and let it own the band edge-to-edge, with tinted-secondary muted text for that ground.",
+      "Do frame every new container as a printed object: 2px press-ink border, 8px radius, ink-tinted shadow; use the double-rule ::after inset for label-grade surfaces.",
+      "Do run every press/lift interaction on --spring and every entrance through the .stamp/.is-stamped system — once per element, JS-gated, reduced-motion safe.",
+      "Do letter small functional text in Barlow Condensed uppercase with tracking, and reach for the region-line ribbon or a rotated lot stamp when a heading needs a label above it.",
+      "Do author new icons and scenery in the sprite's flat litho weight (filled currentColor silhouettes, opacity steps for depth) and keep photos inside bordered plates with dark-ink scrims.",
+      "Do keep it mobile-first: snap scrollers for horizontal content, safe-area insets, block buttons on cards, the sticky CTA pattern for primary actions."
+    ],
+    "donts": [
+      "Don't add kickers or eyebrows — plain small text floating above a heading is banned; the region-line ribbon and lot stamp are the only sanctioned label grammar (the ribbon explicitly replaced the kicker in critical.css).",
+      "Don't use gray for muted text on an ink ground, neutral-black shadows, or 1px gray hairlines — tinted secondaries, press-ink shadows, and 2px press rules only.",
+      "Don't use gradients as surface color, translucent/glass materials, or blur; scrims over imagery are the halftone-dot + concord-ink gradient pair only.",
+      "Don't let Yellowtail out of the hero flourish, set Ultra above weight 400 or in body sizes, or introduce a fifth typeface.",
+      "Don't default to a photo hero with a white card grid — the first viewport is the authored litho scene (retint the plate per variant rather than swapping it) unless real photography is explicitly supplied for a static/video hero mode.",
+      "Don't autoplay video with sound; the video hero stays a muted, captioned, click-to-play facade with a stamped play badge.",
+      "Don't animate an entrance more than once, animate without the .js gate, or ignore prefers-reduced-motion."
+    ]
+  }
+}

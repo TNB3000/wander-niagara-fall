@@ -1,11 +1,10 @@
-{# Slim sticky anchor menu. NOT site nav — every link scrolls to an on-page
-   section. `anchors` comes from page front-matter. Collapses to horizontal
-   scroll chips on mobile. #}
+{# Slim sticky anchor bar in press ink. NOT site nav — every link scrolls to an
+   on-page section. `anchors` comes from page front-matter. Chips scroll on mobile. #}
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="{{ headerHomeHref or '#top' }}" aria-label="{{ site.name }}">
-      {# Logo slot — client supplies final SVG; placeholder wordmark for now #}
-      <img class="logo-img" src="/assets/img/logo.svg" alt="{{ site.name }}" width="200" height="40" loading="eager" decoding="async">
+      <svg class="roundel" aria-hidden="true"><use href="#i-roundel"></use></svg>
+      <span class="wordmark">Wander Niagara<small>St. Catharines &amp; the Benchlands</small></span>
     </a>
 
     {% if anchors %}
@@ -14,7 +13,7 @@
     </nav>
     {% endif %}
 
-    <a class="btn btn--small header-cta" href="{{ headerCtaHref or '#itineraries' }}" data-module="header">
+    <a class="btn btn--gold btn--small header-cta" href="{{ headerCtaHref or '#itineraries' }}" data-module="header">
       {{ headerCtaLabel or "See fall itineraries" }}
     </a>
   </div>

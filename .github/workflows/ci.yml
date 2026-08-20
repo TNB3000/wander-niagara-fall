@@ -21,5 +21,7 @@ jobs:
           for p in index couples families events stories directory; do
             test -f "_site/$p/index.html" -o -f "_site/index.html" || { echo "Missing $p"; exit 1; }
           done
-          test -f _site/CNAME || { echo "Missing CNAME in build output"; exit 1; }
+          # No custom domain yet — the preview lives at the GitHub Pages project
+          # URL. Restore this CNAME assertion when a real domain is wired up:
+          # test -f _site/CNAME || { echo "Missing CNAME in build output"; exit 1; }
           echo "Build check passed."

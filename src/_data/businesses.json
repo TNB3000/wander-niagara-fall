@@ -1,42 +1,42 @@
 {
-  "_note": "Themed business modules. variant → themes[] → items[]. Every item is an OUTBOUND link (url). Add businesses here with NO template changes. `module` tagging for analytics is applied by the template. Names are plausible-but-fictional, marked [PLACEHOLDER]; the client supplies the real list (Whereabouts data / CSV) and images.",
+  "_note": "Themed business modules. Names and photos are real (client photo library, credited via EXIF origin). Every `url` currently points at the live wanderniagara.com directory — swap in each business's own site URL when the client confirms outbound destinations.",
   "couples": {
     "themes": [
       {
-        "key": "wine-craft-sips",
         "title": "Wine & Craft Sips",
+        "icon": "grapes",
         "items": [
-          { "name": "Bench & Barrel Estate Winery [PLACEHOLDER]", "blurb": "Escarpment reds and a fireside tasting room.", "url": "https://example.com/bench-and-barrel", "img": "/assets/img/placeholder-biz-1.svg" },
-          { "name": "Twenty Mile Cider House [PLACEHOLDER]", "blurb": "Small-batch cider flights and a patio.", "url": "https://example.com/twenty-mile-cider", "img": "/assets/img/placeholder-biz-2.svg" },
-          { "name": "Lock 3 Craft Brewing [PLACEHOLDER]", "blurb": "Canal-side taproom, seasonal ales.", "url": "https://example.com/lock-3-brewing", "img": "/assets/img/placeholder-biz-3.svg" },
-          { "name": "Short Hills Distillery [PLACEHOLDER]", "blurb": "Barrel-aged spirits and cocktail pairings.", "url": "https://example.com/short-hills-distillery", "img": "/assets/img/placeholder-biz-4.svg" }
+          { "name": "180 Estate Winery", "blurb": "Barrel cellar, big views, and a stop on the Fall Wine Trail.", "img": "/assets/img/photos/biz-180-estate.jpg", "url": "https://www.wanderniagara.com/directory/" },
+          { "name": "Megalomaniac Winery", "blurb": "Tastings on the escarpment brow above Vineland.", "img": "/assets/img/photos/biz-megalomaniac.jpg", "url": "https://www.wanderniagara.com/directory/" },
+          { "name": "Fielding Estates Winery", "blurb": "Wine on the bench, craft cider on the side.", "img": "/assets/img/photos/biz-fielding-cider.jpg", "url": "https://www.wanderniagara.com/directory/" },
+          { "name": "Newark Brewing Co.", "blurb": "Flights and snacks on the Benchlands ale trail.", "img": "/assets/img/photos/biz-newark-brewing.jpg", "url": "https://www.wanderniagara.com/directory/" }
         ]
       },
       {
-        "key": "table-for-two",
         "title": "Table for Two",
+        "icon": "glass",
         "items": [
-          { "name": "The Bench Bistro [PLACEHOLDER]", "blurb": "Farm-to-table tasting menu.", "url": "https://example.com/bench-bistro", "img": "/assets/img/placeholder-biz-5.svg" },
-          { "name": "Merritt & Vine [PLACEHOLDER]", "blurb": "Wine bar with a chef's counter.", "url": "https://example.com/merritt-and-vine", "img": "/assets/img/placeholder-biz-6.svg" },
-          { "name": "Harbour Room [PLACEHOLDER]", "blurb": "Lakeside dining at Port Dalhousie.", "url": "https://example.com/harbour-room", "img": "/assets/img/placeholder-biz-1.svg" }
+          { "name": "Fat Rabbit", "blurb": "St. Catharines' Michelin-recognized tasting-menu room.", "img": "/assets/img/photos/biz-fat-rabbit.jpg", "url": "https://www.wanderniagara.com/directory/" },
+          { "name": "Bar Les Incompétents", "blurb": "Fat Rabbit's little sibling — oysters, plates and good wine.", "img": "/assets/img/photos/biz-les-incompetents.jpg", "url": "https://www.wanderniagara.com/directory/" },
+          { "name": "Winery patios", "blurb": "Long lunches over the vines — 180 Estate's patio, pictured.", "img": "/assets/img/photos/biz-180-patio.jpg", "url": "https://www.wanderniagara.com/directory/" }
         ]
       },
       {
-        "key": "boutique-stays",
         "title": "Boutique Stays",
+        "icon": "inn",
         "items": [
-          { "name": "The Escarpment Inn [PLACEHOLDER]", "blurb": "Vineyard-view rooms on the bench.", "url": "https://example.com/escarpment-inn", "img": "/assets/img/placeholder-biz-2.svg" },
-          { "name": "Canalside Suites [PLACEHOLDER]", "blurb": "Boutique suites steps from the water.", "url": "https://example.com/canalside-suites", "img": "/assets/img/placeholder-biz-3.svg" },
-          { "name": "Maplewood Farmhouse B&B [PLACEHOLDER]", "blurb": "Restored farmhouse, big breakfasts.", "url": "https://example.com/maplewood-bnb", "img": "/assets/img/placeholder-biz-4.svg" }
+          { "name": "Inn the Orchard", "blurb": "A private inn tucked into a working Benchlands orchard.", "img": "/assets/img/photos/biz-inn-orchard.jpg", "url": "https://www.wanderniagara.com/directory/" },
+          { "name": "Lounge Inn Jordan", "blurb": "Calm, modern rooms steps from Jordan Village.", "img": "/assets/img/photos/biz-lounge-inn.jpg", "url": "https://www.wanderniagara.com/directory/" },
+          { "name": "Inn On The Twenty", "blurb": "Jordan Village's landmark stay on Main Street.", "img": "/assets/img/photos/biz-jordan-village.jpg", "url": "https://www.wanderniagara.com/directory/" }
         ]
       },
       {
-        "key": "arts-evenings-out",
         "title": "Arts & Evenings Out",
+        "icon": "star",
         "items": [
-          { "name": "FirstOntario PAC [PLACEHOLDER]", "blurb": "Concerts, theatre and comedy downtown.", "url": "https://example.com/pac", "img": "/assets/img/placeholder-biz-5.svg" },
-          { "name": "Niagara Artists Centre [PLACEHOLDER]", "blurb": "Contemporary galleries and events.", "url": "https://example.com/nac", "img": "/assets/img/placeholder-biz-6.svg" },
-          { "name": "Bench Live Music Room [PLACEHOLDER]", "blurb": "Intimate live sets most weekends.", "url": "https://example.com/bench-live", "img": "/assets/img/placeholder-biz-1.svg" }
+          { "name": "Montebello Park concerts", "blurb": "Grape & Wine season fills the park with live music.", "img": "/assets/img/photos/biz-concert-park.jpg", "url": "https://www.wanderniagara.com/directory/" },
+          { "name": "Live music nights", "blurb": "Festival stages and venue shows run all season.", "img": "/assets/img/photos/biz-concert-crowd.jpg", "url": "https://www.wanderniagara.com/directory/" },
+          { "name": "Downtown St. Catharines", "blurb": "Pubs, patios and late plates after the show.", "img": "/assets/img/photos/biz-pub-friends.jpg", "url": "https://www.wanderniagara.com/directory/" }
         ]
       }
     ]
@@ -44,40 +44,69 @@
   "families": {
     "themes": [
       {
-        "key": "fall-colours-easy-trails",
         "title": "Fall Colours & Easy Trails",
+        "icon": "leaf",
         "items": [
-          { "name": "Short Hills Park Loop [PLACEHOLDER]", "blurb": "Stroller-friendly trail to a lookout.", "url": "https://example.com/short-hills-loop", "img": "/assets/img/placeholder-biz-1.svg" },
-          { "name": "Twelve Mile Creek Trail [PLACEHOLDER]", "blurb": "Flat, shaded, colour-packed walk.", "url": "https://example.com/twelve-mile-trail", "img": "/assets/img/placeholder-biz-2.svg" },
-          { "name": "Decew Falls Lookout [PLACEHOLDER]", "blurb": "Short walk to a waterfall view.", "url": "https://example.com/decew-falls", "img": "/assets/img/placeholder-biz-3.svg" }
+          { "name": "Ball's Falls Conservation Area", "blurb": "Flat trails, two waterfalls, and full fall colour.", "img": "/assets/img/photos/biz-balls-falls-hike.jpg", "url": "https://www.wanderniagara.com/directory/" },
+          { "name": "The falls lookout", "blurb": "The classic Ball's Falls view — an easy walk from the lot.", "img": "/assets/img/photos/biz-balls-falls-lookout.jpg", "url": "https://www.wanderniagara.com/directory/" },
+          { "name": "Twenty Valley in colour", "blurb": "Creekside footbridges under the turning canopy.", "img": "/assets/img/photos/biz-fall-bridge.jpg", "url": "https://www.wanderniagara.com/directory/" }
         ]
       },
       {
-        "key": "farms-markets",
         "title": "Farms & Markets",
+        "icon": "pumpkin",
         "items": [
-          { "name": "Benchland Pumpkin Farm [PLACEHOLDER]", "blurb": "Pick-your-own patch and wagon rides.", "url": "https://example.com/benchland-pumpkin", "img": "/assets/img/placeholder-biz-4.svg" },
-          { "name": "St. Catharines Market [PLACEHOLDER]", "blurb": "Saturday market, harvest produce.", "url": "https://example.com/stc-market", "img": "/assets/img/placeholder-biz-5.svg" },
-          { "name": "Orchard Lane Apples [PLACEHOLDER]", "blurb": "Apple picking and cider donuts.", "url": "https://example.com/orchard-lane", "img": "/assets/img/placeholder-biz-6.svg" },
-          { "name": "Maze Acres Corn Maze [PLACEHOLDER]", "blurb": "Corn maze and a petting barn.", "url": "https://example.com/maze-acres", "img": "/assets/img/placeholder-biz-1.svg" }
+          { "name": "Romagnoli Family Farm", "blurb": "A roadside stand stacked with the week's harvest.", "img": "/assets/img/photos/biz-romagnoli.jpg", "url": "https://www.wanderniagara.com/directory/" },
+          { "name": "Harvest markets", "blurb": "Heirloom pumpkins, squash and baskets of plums.", "img": "/assets/img/photos/biz-market-pumpkins.jpg", "url": "https://www.wanderniagara.com/directory/" },
+          { "name": "Pumpkin patches", "blurb": "Pick-your-own patches run through Halloween.", "img": "/assets/img/photos/biz-pumpkin-patch.jpg", "url": "https://www.wanderniagara.com/directory/" }
         ]
       },
       {
-        "key": "big-days-out",
         "title": "Big Days Out",
+        "icon": "ferris",
         "items": [
-          { "name": "Canal Discovery Centre [PLACEHOLDER]", "blurb": "Watch ships transit the Welland Canal.", "url": "https://example.com/canal-centre", "img": "/assets/img/placeholder-biz-2.svg" },
-          { "name": "Wild Waterway Adventures [PLACEHOLDER]", "blurb": "Family paddling and nature stops.", "url": "https://example.com/wild-waterway", "img": "/assets/img/placeholder-biz-3.svg" },
-          { "name": "Benchlands Fun Park [PLACEHOLDER]", "blurb": "Rides, mini-golf and a snack barn.", "url": "https://example.com/benchlands-fun", "img": "/assets/img/placeholder-biz-4.svg" }
+          { "name": "Henley Island & Port Dalhousie", "blurb": "Regatta water, lakefront walks and the old carousel.", "img": "/assets/img/photos/biz-rowing.jpg", "url": "https://www.wanderniagara.com/directory/" },
+          { "name": "Ball's Falls Thanksgiving Festival", "blurb": "The season's big family weekend — barn, vendors, food trucks.", "img": "/assets/img/photos/biz-thanksgiving-festival.jpg", "url": "https://www.wanderniagara.com/directory/" },
+          { "name": "Fling on King", "blurb": "A street party of music and midway fun in Beamsville.", "img": "/assets/img/photos/biz-fling-on-king.jpg", "url": "https://www.wanderniagara.com/directory/" }
         ]
       },
       {
-        "key": "holiday-fun",
         "title": "Holiday Fun",
+        "icon": "lantern",
         "items": [
-          { "name": "Downtown Tree Lighting [PLACEHOLDER]", "blurb": "Kick off the season on St. Paul St.", "url": "https://example.com/tree-lighting", "img": "/assets/img/placeholder-biz-5.svg" },
-          { "name": "Holiday Market at the Market [PLACEHOLDER]", "blurb": "Makers, gifts and hot chocolate.", "url": "https://example.com/holiday-market", "img": "/assets/img/placeholder-biz-6.svg" },
-          { "name": "Skate the Canal Plaza [PLACEHOLDER]", "blurb": "Outdoor rink and warm-up hut.", "url": "https://example.com/skate-plaza", "img": "/assets/img/placeholder-biz-1.svg" }
+          { "name": "Jingle Bar", "blurb": "The Benchlands' pop-up holiday bottle shop and bar.", "img": "/assets/img/photos/biz-jingle-bar.jpg", "url": "https://www.wanderniagara.com/directory/" },
+          { "name": "Festival rides for little ones", "blurb": "Barrel trains and small-kid fun at the fall festivals.", "img": "/assets/img/photos/biz-barrel-train.jpg", "url": "https://www.wanderniagara.com/directory/" }
+        ]
+      }
+    ]
+  },
+  "events": {
+    "themes": [
+      {
+        "title": "Sip between shows",
+        "icon": "grapes",
+        "items": [
+          { "name": "180 Estate Winery", "blurb": "Barrel cellar and big views near the festival routes.", "img": "/assets/img/photos/biz-180-estate.jpg", "url": "https://www.wanderniagara.com/directory/" },
+          { "name": "Megalomaniac Winery", "blurb": "Tastings on the escarpment brow above Vineland.", "img": "/assets/img/photos/biz-megalomaniac.jpg", "url": "https://www.wanderniagara.com/directory/" },
+          { "name": "Newark Brewing Co.", "blurb": "Flights and snacks on the Benchlands ale trail.", "img": "/assets/img/photos/biz-newark-brewing.jpg", "url": "https://www.wanderniagara.com/directory/" }
+        ]
+      },
+      {
+        "title": "Eat well between events",
+        "icon": "glass",
+        "items": [
+          { "name": "Fat Rabbit", "blurb": "St. Catharines' Michelin-recognized tasting-menu room.", "img": "/assets/img/photos/biz-fat-rabbit.jpg", "url": "https://www.wanderniagara.com/directory/" },
+          { "name": "Bar Les Incompétents", "blurb": "Oysters, plates and good wine downtown.", "img": "/assets/img/photos/biz-les-incompetents.jpg", "url": "https://www.wanderniagara.com/directory/" },
+          { "name": "Downtown St. Catharines", "blurb": "Pubs, patios and late plates after the show.", "img": "/assets/img/photos/biz-pub-friends.jpg", "url": "https://www.wanderniagara.com/directory/" }
+        ]
+      },
+      {
+        "title": "Stay over",
+        "icon": "inn",
+        "items": [
+          { "name": "Inn the Orchard", "blurb": "A private inn tucked into a working Benchlands orchard.", "img": "/assets/img/photos/biz-inn-orchard.jpg", "url": "https://www.wanderniagara.com/directory/" },
+          { "name": "Lounge Inn Jordan", "blurb": "Calm, modern rooms steps from Jordan Village.", "img": "/assets/img/photos/biz-lounge-inn.jpg", "url": "https://www.wanderniagara.com/directory/" },
+          { "name": "Inn On The Twenty", "blurb": "Jordan Village's landmark stay on Main Street.", "img": "/assets/img/photos/biz-jordan-village.jpg", "url": "https://www.wanderniagara.com/directory/" }
         ]
       }
     ]

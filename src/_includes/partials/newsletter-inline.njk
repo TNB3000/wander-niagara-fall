@@ -18,8 +18,9 @@
         {% endif %}
         <button class="btn" type="submit">Send me the guide</button>
       </form>
+      {# Builder note: signup activates once embeds.mailchimp.actionUrl is pasted in. #}
       {% if not embeds.mailchimp.actionUrl %}
-      <p class="nl-fineprint">⚠︎ Mailchimp not connected yet — paste the form action URL into <code>embeds.mailchimp.actionUrl</code>.</p>
+      <p class="nl-fineprint">[PLACEHOLDER — signup goes live at launch] No spam. Unsubscribe anytime.</p>
       {% else %}
       <p class="nl-fineprint">No spam. Unsubscribe anytime. [PLACEHOLDER consent line]</p>
       {% endif %}
