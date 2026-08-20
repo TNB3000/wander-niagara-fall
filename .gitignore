@@ -11,3 +11,4 @@ _site/
 .impeccable/*.mjs
 .impeccable/*.py
 .impeccable/origins.txt
+.impeccable/questions/
