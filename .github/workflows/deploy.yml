@@ -27,7 +27,10 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
-      - run: npm run build
+      # Client preview lives at the GitHub Pages project URL (no custom domain
+      # yet), so the build needs the repo-name path prefix. When a custom
+      # domain is wired up later: restore src/CNAME and drop the --pathprefix.
+      - run: npx @11ty/eleventy --pathprefix=/wander-niagara-fall/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

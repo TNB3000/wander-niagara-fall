@@ -2,11 +2,16 @@
 // CommonJS (package.json has no "type":"module").
 const fs = require("fs");
 const path = require("path");
+const { HtmlBasePlugin } = require("@11ty/eleventy");
 
 module.exports = function (eleventyConfig) {
+  // Rewrites absolute /paths in built HTML when a pathPrefix is set
+  // (GitHub Pages project URL: --pathprefix=/wander-niagara-fall/).
+  // No-op for local dev and for a future custom domain.
+  eleventyConfig.addPlugin(HtmlBasePlugin);
+
   // ---- Passthrough copy (assets ship as-is; keep paths relative) ----
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
-  eleventyConfig.addPassthroughCopy("src/CNAME");
   eleventyConfig.addPassthroughCopy("src/favicon.svg");
   eleventyConfig.addPassthroughCopy("src/robots.txt");
 
