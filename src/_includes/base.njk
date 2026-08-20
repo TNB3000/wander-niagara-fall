@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#26150F">
   <title>{{ title }}{% if title %} — {% endif %}{{ site.name }}</title>
   <meta name="description" content="{{ description or site.description }}">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
@@ -18,12 +19,23 @@
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
+  <!-- Fonts: crate-label lettering (Ultra), label caps (Barlow Condensed),
+       script flourish (Yellowtail), body (Source Sans 3). Non-render-blocking. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Ultra&family=Barlow+Condensed:wght@600;700&family=Yellowtail&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ultra&family=Barlow+Condensed:wght@600;700&family=Yellowtail&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap"></noscript>
+
   <!-- Preconnect to third-party embed origins (lazy-loaded later) -->
   {% for origin in embeds.preconnect %}<link rel="preconnect" href="{{ origin }}" crossorigin>
   {% endfor %}
 
   <!-- LCP: preload hero image with high priority -->
   {% if heroPreloadImg %}<link rel="preload" as="image" href="{{ heroPreloadImg }}" fetchpriority="high">{% endif %}
+
+  <!-- Design-behavior gate: stamp-in reveals only apply when JS will run -->
+  <script>document.documentElement.classList.add('js')</script>
 
   <!-- Critical CSS inlined; main CSS deferred (non-render-blocking) -->
   <style>{{ "src/assets/css/critical.css" | readFile | safe }}</style>
@@ -70,7 +82,24 @@
   {% block head %}{% endblock %}
 </head>
 <body class="{{ bodyClass }}">
+<!--
+THESIS: Fall on the Bench sold the way the fruit belt always sold itself — a
+litho crate label per plan; refuses the photo-hero-plus-card-grid tourism default.
+OWN-WORLD: fruit-crate lithography: concord, leaf, persimmon and goldenrod inks
+owning whole sections over label stock; double-rule plates; Ultra woodtype with
+Barlow Condensed caps and a Yellowtail flourish; flat authored litho scenes;
+lot stamps. Signature motion: stamp-&-spring — sections stamp in once,
+presses spring back like iOS.
+STORY: an ad-tapper recognizes the region's packing-house heritage, picks
+their crate (couples or families), and clicks out to a real plan.
+FIRST VIEWPORT: full-bleed litho orchard-and-escarpment scene, region ribbon,
+FALL, in woodtype with a script "your way", two crate-stamp CTAs; slim press-ink header.
+FORM: fruit-crate lithography — №1 of 7, chosen as the pick; seed 762c6017.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish
+review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
+-->
   <a class="skip" href="#main">Skip to content</a>
+  {% include "partials/sprite.njk" %}
   {% include "partials/header.njk" %}
   <main id="main">
     {% block content %}{{ content | safe }}{% endblock %}

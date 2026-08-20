@@ -1,25 +1,30 @@
-{# ITINERARY CARDS — 3 per page, the primary conversion. Each opens a
-   Whereabouts itinerary (outbound). data-module="itinerary" for analytics. #}
+{# ITINERARY CRATES — 3 per page, the primary conversion. Each card is a full
+   crate label (own ink ground, fruit medallion, lot stamp, grade line) opening
+   a Whereabouts itinerary (outbound). data-module="itinerary" for analytics. #}
 {% set items = itineraries[variant] %}
 {% if items %}
 <section class="section" id="itineraries" data-module="itinerary">
   <div class="wrap">
-    <div class="section__head">
-      <p class="eyebrow">Start here</p>
-      <h2>{{ itinerariesTitle or "Fall itineraries, mapped out" }}</h2>
-      <p>{{ itinerariesIntro or "Ready-made routes you can follow stop by stop." }}</p>
+    <div class="section__head stamp">
+      <h2><span class="rule-l"></span>{{ itinerariesTitle or "Fall itineraries, mapped out" }}</h2>
+      <p class="muted">{{ itinerariesIntro or "Ready-made routes you can follow stop by stop." }}</p>
     </div>
     <div class="itin-grid itin">
+      {% set grounds = ["crate--concord", "crate--leaf", "crate--persimmon"] %}
       {% for it in items %}
-      <article class="card">
-        <div class="card__media">
-          <img src="{{ it.img }}" alt="{{ it.title }}" width="800" height="600" loading="lazy" decoding="async">
+      <article class="crate {{ grounds[loop.index0 % 3] }} stamp">
+        <span class="lot crate__lot">Lot №{{ loop.index }}</span>
+        <div class="crate__art">
+          <svg aria-hidden="true"><use href="#i-{{ it.icon or 'leaf' }}"></use></svg>
         </div>
-        <div class="card__body">
-          <h3 class="card__title">{{ it.title }}</h3>
-          <p class="card__meta"><span>🍂 {{ it.duration }}</span><span>📍 {{ it.stops }} stops</span></p>
-          <p class="card__blurb">{{ it.blurb }}</p>
-          <div class="card__cta">
+        <div class="crate__body">
+          <h3 class="crate__title">{{ it.title }}</h3>
+          <p class="crate__grade">
+            <svg aria-hidden="true"><use href="#i-clock"></use></svg>{{ it.duration }}
+            <svg aria-hidden="true"><use href="#i-pin"></use></svg>{{ it.stops }} stops
+          </p>
+          <p class="crate__blurb">{{ it.blurb }}</p>
+          <div class="crate__cta">
             <a class="btn" href="{{ it.url }}" data-module="itinerary" data-card-label="{{ it.title }}">{{ it.cta }}</a>
           </div>
         </div>

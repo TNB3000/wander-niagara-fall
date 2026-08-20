@@ -1,0 +1,24 @@
+{# WINERIES — THE CELLAR LIST. Live winery roster from the Whereabouts
+   operators widget, framed as a crate label on the concord ground. The embed
+   is lazy: app.js expands the <template> when the section scrolls into view. #}
+<section class="section section--concord" id="wineries" data-module="wineries">
+  <div class="wrap">
+    <div class="section__head stamp">
+      <h2><span class="rule-l"></span>{{ wineriesTitle or "The cellar list" }}</h2>
+      <p class="muted">{{ wineriesIntro or "Every winery below is live from the region's roster — names, doors and details kept current, not copied onto a brochure." }}</p>
+    </div>
+    <div class="plate cellar__frame stamp" data-embed="whereabouts-wineries">
+      <div class="embed-slot" style="min-height:300px">
+        <div>
+          <strong>Pulling the cellar list…</strong>
+          Live from the region's roster. If it's slow, the full directory is one tap below.
+        </div>
+      </div>
+      {% if embeds.whereabouts.wineriesWidget %}
+      <template>{{ embeds.whereabouts.wineriesWidget | safe }}</template>
+      {% endif %}
+    </div>
+    <p class="cellar__note muted">Bench wineries grow on the Niagara Escarpment — a UNESCO biosphere.
+      <a class="section__link" href="{{ site.directoryUrl }}" data-module="wineries" data-card-label="Full directory">Browse the full directory &rarr;</a></p>
+  </div>
+</section>

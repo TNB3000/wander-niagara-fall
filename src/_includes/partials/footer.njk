@@ -1,10 +1,12 @@
-{# Minimal footer — logo, one line, privacy, social. No sitemap-style nav. #}
+{# Footer — the crate bottom: roundel, region line, privacy, social. #}
 <footer class="site-footer">
   <div class="wrap">
     <div>
       <span class="brand" aria-label="{{ site.name }}">
-        <img class="logo-img" src="/assets/img/logo.svg" alt="{{ site.name }}" width="200" height="40" loading="lazy" decoding="async">
+        <svg class="roundel" style="width:40px;height:40px" aria-hidden="true"><use href="#i-roundel"></use></svg>
+        <span class="wordmark">Wander Niagara</span>
       </span>
+      <p class="footer-region">Grown &amp; packed in St. Catharines &amp; the Benchlands, Ont.</p>
       <p class="footer-note">{{ site.campaign }}. A {{ site.name }} campaign. &copy; {{ site.year }}.</p>
       <p class="footer-note"><a href="{{ site.privacyUrl }}" data-module="footer">Privacy</a></p>
     </div>

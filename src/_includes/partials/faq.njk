@@ -4,9 +4,8 @@
 {% if items %}
 <section class="section" id="faq" data-module="faq">
   <div class="wrap">
-    <div class="section__head">
-      <p class="eyebrow">Good to know</p>
-      <h2>{{ faqTitle or "Fall visit FAQ" }}</h2>
+    <div class="section__head stamp">
+      <h2><span class="rule-l"></span>{{ faqTitle or "Fall visit FAQ" }}</h2>
     </div>
     <div class="faq">
       {% for qa in items %}

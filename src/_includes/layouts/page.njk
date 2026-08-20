@@ -1,6 +1,7 @@
 {# AUDIENCE / EVENTS PAGE LAYOUT. One template for /couples/, /families/, /events/.
    Only content, order and copy vary — driven by front-matter + _data.
-   `eventsFirst: true` promotes the events module to position 2 (the /events/ variant). #}
+   `eventsFirst: true` promotes the events module to position 2 (the /events/ variant).
+   `showWineries: true` adds the live Whereabouts cellar list. #}
 {% extends "base.njk" %}
 
 {% block content %}
@@ -14,6 +15,10 @@
     {% include "partials/itineraries.njk" %}
     {% include "partials/themes.njk" %}
     {% include "partials/events.njk" %}
+  {% endif %}
+
+  {% if showWineries %}
+    {% include "partials/wineries.njk" %}
   {% endif %}
 
   {% include "partials/stories-feature.njk" %}

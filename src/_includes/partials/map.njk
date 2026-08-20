@@ -1,19 +1,18 @@
-{# MAP + HOW TO GET HERE — lazy embed slot for the client's interactive map
-   (Whereabouts) + a compact drive-times block. Keep to one screen. #}
-<section class="section section--tint" id="map">
+{# MAP + HOW TO GET HERE — lazy embed slot for the interactive map (Whereabouts)
+   + drive-times as a shipping manifest. Keep to one screen. #}
+<section class="section section--stock2" id="map">
   <div class="wrap">
-    <div class="section__head">
-      <p class="eyebrow">Find your way</p>
-      <h2>{{ mapTitle or "Explore the map &amp; getting here" }}</h2>
+    <div class="section__head stamp">
+      <h2><span class="rule-l"></span>{{ mapTitle or "The map & getting here" }}</h2>
     </div>
     <div class="map-grid">
       {# --- Map embed slot (lazy). Real embed pasted into embeds.mapEmbed. --- #}
-      <div class="embed-wrap" data-embed="map">
+      <div class="embed-wrap stamp" data-embed="map">
+        {# Builder note: paste the Whereabouts map into embeds.whereabouts.mapEmbed — loads lazily. #}
         <div class="embed-slot embed-map">
           <div>
-            <strong>Interactive map embed slot</strong>
-            Paste the Whereabouts map into <code>embeds.mapEmbed</code>.<br>
-            Loads lazily when it scrolls into view.
+            <strong>The interactive map</strong>
+            [PLACEHOLDER — the regional map ships with launch]
           </div>
         </div>
         {% if embeds.whereabouts.mapEmbed %}
@@ -21,8 +20,8 @@
         {% endif %}
       </div>
 
-      {# --- Getting here --- #}
-      <div class="getting-here">
+      {# --- Getting here: the shipping manifest --- #}
+      <div class="getting-here plate stamp">
         <h3 style="margin-top:0">Getting here</h3>
         <ul>
           {% for o in site.gettingHere.origins %}

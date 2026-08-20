@@ -30,6 +30,11 @@ module.exports = {
     listingsEmbed: "", // e.g. '<div data-whereabouts-listings="XXImportid"></div>'
     // Interactive map embed (client's existing map). Paste raw embed HTML/iframe.
     mapEmbed: "", // e.g. '<div data-whereabouts-map="XXmapid"></div>'
+    // Wineries roster — the Whereabouts operators widget ("The cellar list"
+    // section). Loaded lazily by app.js when the section scrolls into view.
+    wineriesWidget:
+      '<whereabouts-operators-widget widget-id="6a85fa0786787426fc53deae" access-id="6a733c9f069c5aa5556f466c"></whereabouts-operators-widget>' +
+      '<script src="https://api.prod.next.whereabouts.tech/embeddable/widget/operator/main.js" type="module"></script>',
   },
 
   // ---- CrowdRiff -----------------------------------------------------------
@@ -54,6 +59,7 @@ module.exports = {
   // ---- Preconnect origins --------------------------------------------------
   // Hosts we hint the browser to connect to early. Trim any you don't use.
   preconnect: [
+    "https://api.prod.next.whereabouts.tech",
     "https://www.googletagmanager.com",
     "https://connect.facebook.net",
     "https://embed.whereabouts.co",
