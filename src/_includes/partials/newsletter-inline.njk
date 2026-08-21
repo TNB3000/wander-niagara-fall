@@ -1,16 +1,14 @@
-{# INLINE NEWSLETTER — the non-popup fallback (always rendered at page bottom).
-   Same Mailchimp form as the exit-intent modal. Payoff copy is [PLACEHOLDER]. #}
-<section class="section" id="newsletter-inline">
+{# Newsletter — simple inline form, per the client mockup. #}
+<section class="section" id="newsletter">
   <div class="wrap">
-    <div class="newsletter">
+    <div class="nl">
       <h2>{{ nlTitle or "Get our fall guide in your inbox" }}</h2>
-      <p>{{ nlBlurb or "Itineraries, events and local picks for the bench this season. [PLACEHOLDER copy — final TBD]" }}</p>
-      <form class="nl-form" data-nl-loc="inline"
+      {# Builder note: form activates once embeds.mailchimp.actionUrl is pasted in. #}
+      <form data-nl-loc="inline"
             {% if embeds.mailchimp.actionUrl %}action="{{ embeds.mailchimp.actionUrl }}"{% endif %}
             method="post" target="_blank" novalidate>
-        <label class="visually-hidden" for="nl-email-inline">Email address</label>
-        <input id="nl-email-inline" type="email" name="EMAIL" placeholder="you@email.com" required autocomplete="email">
-        {# Mailchimp anti-bot honeypot — real users leave this empty. #}
+        <label class="visually-hidden" for="nl-email">Email address</label>
+        <input id="nl-email" type="email" name="EMAIL" placeholder="you@email.com" required autocomplete="email">
         {% if embeds.mailchimp.honeypot %}
         <div aria-hidden="true" style="position:absolute;left:-5000px">
           <input type="text" name="{{ embeds.mailchimp.honeypot }}" tabindex="-1" value="">
@@ -18,11 +16,10 @@
         {% endif %}
         <button class="btn" type="submit">Send me the guide</button>
       </form>
-      {# Builder note: signup activates once embeds.mailchimp.actionUrl is pasted in. #}
       {% if not embeds.mailchimp.actionUrl %}
-      <p class="nl-fineprint">[PLACEHOLDER — signup goes live at launch] No spam. Unsubscribe anytime.</p>
+      <p class="fine">[PLACEHOLDER — signup goes live at launch] No spam. Unsubscribe anytime.</p>
       {% else %}
-      <p class="nl-fineprint">No spam. Unsubscribe anytime. [PLACEHOLDER consent line]</p>
+      <p class="fine">No spam. Unsubscribe anytime.</p>
       {% endif %}
     </div>
   </div>

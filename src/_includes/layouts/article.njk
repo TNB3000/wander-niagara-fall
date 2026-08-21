@@ -1,5 +1,6 @@
-{# ARTICLE TEMPLATE — hero image, readable body (short measure, generous type),
-   inline image support, a "keep exploring" module, sticky CTA. #}
+{# BLOG POST — hyper simple, per the client: "the headline is just the article
+   title, then it's the freaking article, I plug in photos, and then some of the
+   little whereabouts pieces embedded in there as well." #}
 {% extends "base.njk" %}
 
 {% block head %}
@@ -8,36 +9,39 @@
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": {{ title | dump | safe }},
-  "image": "{{ site.url }}{{ image or '/assets/img/placeholder-story-1.svg' }}",
-  "datePublished": "{{ date or '2026-09-01' }}",
-  "author": { "@type": "Organization", "name": "{{ author or site.name }}" },
-  "publisher": { "@type": "Organization", "name": "{{ site.name }}", "logo": { "@type": "ImageObject", "url": "{{ site.url }}/assets/img/logo.svg" } },
+  "image": "{{ site.url }}{{ image }}",
+  "datePublished": "{{ date or '2026-09-07' }}",
+  "author": { "@type": "Organization", "name": "{{ site.name }}" },
   "mainEntityOfPage": "{{ site.url }}{{ page.url }}"
 }
 </script>
 {% endblock %}
 
 {% block content %}
-  <div class="article-hero">
-    <img src="{{ image or '/assets/img/placeholder-story-1.svg' }}" alt="{{ title }}"
-         width="1200" height="800" fetchpriority="high" decoding="async">
-    <div class="article-hero__scrim"></div>
-    <div class="wrap article-hero__inner">
-      <p class="region-line">{{ site.kicker }}</p>
-      <h1>{{ title }}</h1>
+  <div class="wrap article-head">
+    <h1>{{ title }}</h1>
+    <p class="meta">{{ category or "Fall" }} · {{ readTime or "5 min read" }} · {{ site.name }}</p>
+  </div>
+
+  {% if image %}
+  <div class="wrap article-hero">
+    <img src="{{ image }}" alt="{{ heroAlt or title }}" width="1600" height="1000" fetchpriority="high" decoding="async">
+  </div>
+  {% endif %}
+
+  <div class="wrap">
+    <div class="prose">
+      {{ content | safe }}
     </div>
   </div>
 
-  <article class="section">
+  <section class="section" id="widget">
     <div class="wrap">
-      <p class="article-meta">{{ category or "Fall" }} · {{ readTime or "4 min read" }}{% if author %} · {{ author }}{% endif %}</p>
-      <div class="prose">
-        {{ content | safe }}
-      </div>
-      <p class="center mt-2"><a class="section__link" href="/stories/" data-module="stories">&larr; All fall stories</a></p>
+      {% set slotLabel = widgetLabel or "Whereabouts — related itineraries & listings widget" %}
+      {% set slotCells = 4 %}
+      {% include "partials/widget-slot.njk" %}
     </div>
-  </article>
+  </section>
 
-  {% include "partials/explore-more.njk" %}
   {% include "partials/newsletter-inline.njk" %}
 {% endblock %}

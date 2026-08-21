@@ -1,0 +1,14 @@
+{# Getting here — compact drive-time card, per the client mockup. #}
+<section class="section" id="map">
+  <div class="wrap">
+    <div class="section__head"><h2>Getting here</h2></div>
+    <div class="mapcard">
+      <ul class="drive">
+        {% for o in site.gettingHere.origins %}
+        <li><b>{{ o.from }}</b><span>{{ o.time }} · {{ o.note }}</span></li>
+        {% endfor %}
+      </ul>
+      <p class="note">{{ site.gettingHere.transit }}</p>
+    </div>
+  </div>
+</section>

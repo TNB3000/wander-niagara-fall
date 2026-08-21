@@ -1,21 +1,13 @@
-{# Slim sticky anchor bar in press ink. NOT site nav — every link scrolls to an
-   on-page section. `anchors` comes from page front-matter. Chips scroll on mobile. #}
+{# Yellow sticky header — brand, on-page nav, one CTA. Per the client mockup. #}
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="{{ headerHomeHref or '#top' }}" aria-label="{{ site.name }}">
-      <svg class="roundel" aria-hidden="true"><use href="#i-roundel"></use></svg>
-      <span class="wordmark">Wander Niagara<small>St. Catharines &amp; the Benchlands</small></span>
-    </a>
-
+    <a class="brand" href="{{ headerHomeHref or '/' }}">Wander Niagara</a>
     {% if anchors %}
-    <nav class="anchor-nav" aria-label="On this page">
-      {% for a in anchors %}<a class="chip" href="{{ a.href }}">{{ a.label }}</a>{% endfor %}
+    <nav class="nav" aria-label="On this page">
+      {% for a in anchors %}<a href="{{ a.href }}">{{ a.label }}</a>{% endfor %}
     </nav>
     {% endif %}
-
-    <a class="btn btn--gold btn--small header-cta" href="{{ headerCtaHref or '#itineraries' }}" data-module="header">
-      {{ headerCtaLabel or "See fall itineraries" }}
-    </a>
+    <a class="btn btn--sm header-cta" href="{{ headerCtaHref or '#itineraries' }}" data-module="header">{{ headerCtaLabel or "See itineraries" }}</a>
   </div>
 </header>
 <span id="top"></span>

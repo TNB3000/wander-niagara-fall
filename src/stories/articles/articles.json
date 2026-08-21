@@ -2,12 +2,12 @@
   "layout": "layouts/article.njk",
   "variant": "stories",
   "permalink": "/stories/{{ page.fileSlug }}/",
-  "stickyCtaLabel": "Keep exploring",
-  "stickyCtaHref": "#keep-exploring",
-  "headerCtaLabel": "Read more stories",
-  "headerCtaHref": "/stories/",
-  "headerHomeHref": "/stories/",
+  "headerHomeHref": "/",
+  "headerCtaLabel": "Plan your visit",
+  "headerCtaHref": "/",
   "anchors": [
-    { "label": "All stories", "href": "/stories/" }
+    { "label": "Families", "href": "/families/" },
+    { "label": "Couples & Friends", "href": "/couples/" },
+    { "label": "Events", "href": "/events/" }
   ]
 }

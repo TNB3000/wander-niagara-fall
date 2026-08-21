@@ -1,35 +1,44 @@
 ---
-layout: layouts/page.njk
+layout: base.njk
 permalink: /events/
 variant: events
 title: "Fall Events"
-description: "Fall events in St. Catharines & the Benchlands — festivals, studio tours, markets, live music and holiday lightings. See what's on."
-headline: "See what's on this fall"
-sub: "Festivals, studio tours, markets, live music and holiday lightings."
-hero:
-  mode: scene
-  video: ""
-  poster: /assets/img/placeholder-hero-poster.svg
-  captions: ""
-  alt: "A fall festival crowd in a St. Catharines park"
+description: "Fall events in St. Catharines & the Benchlands — festivals, studio tours, markets, live music and holiday lightings."
+headerHomeHref: "/"
+headerCtaLabel: "Plan your visit"
+headerCtaHref: "/"
 anchors:
   - { label: "Events", href: "#events" }
-  - { label: "Itineraries", href: "#itineraries" }
-  - { label: "Explore", href: "#explore" }
-  - { label: "Stories", href: "#stories" }
-  - { label: "FAQ", href: "#faq" }
-headerCtaLabel: "See what's on"
-headerCtaHref: "#events"
-heroCtaLabel: "See what's on"
-heroCtaHref: "#events"
-stickyCtaLabel: "See what's on"
-stickyCtaHref: "#events"
-# --- Events-first variant: promote the events module to position 2, show 6 rows ---
-eventsFirst: true
-eventRows: 6
-eventsTitle: "Fall events, dated"
-itinerariesIntro: "Turn the season's events into a ready-made weekend."
-themesTitle: "Around the events"
-themesIntro: "Where to sip, eat and explore between events."
+  - { label: "Families", href: "/families/" }
+  - { label: "Couples & Friends", href: "/couples/" }
+heroImg: /assets/img/photos/biz-concert-park.jpg
+heroAlt: "An evening concert crowd at Montebello Park"
 faqKey: events
 ---
+{% set headline = "See what's on this fall" %}
+{% set sub = "Festivals, studio tours, markets, live music and holiday lightings." %}
+{% set heroCtaLabel = "Browse the events" %}
+{% set heroCtaHref = "#events" %}
+{% include "partials/hero.njk" %}
+
+<section class="section" id="calendar">
+  <div class="wrap">
+    {% set slotLabel = "Whereabouts — events calendar widget" %}
+    {% set slotCells = 8 %}
+    {% include "partials/widget-slot.njk" %}
+  </div>
+</section>
+
+{% set eventRows = 12 %}
+{% set eventsTitle = "Fall events, dated" %}
+{% set eventsSeeAllHref = "https://www.wanderniagara.com/events/" %}
+{% include "partials/events.njk" %}
+
+{% set blogHref = "/stories/whats-on-this-fall/" %}
+{% set blogTitle = "What's On This Fall: The Guide" %}
+{% set blogBlurb = "The season's festivals, markets and shows, in one read. [PLACEHOLDER — Mac to provide copy]" %}
+{% set blogImg = "/assets/img/photos/biz-fling-on-king.jpg" %}
+{% include "partials/blog-feature.njk" %}
+
+{% include "partials/faq.njk" %}
+{% include "partials/newsletter-inline.njk" %}

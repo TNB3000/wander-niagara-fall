@@ -1,28 +1,26 @@
-{# AUDIENCE / EVENTS PAGE LAYOUT. One template for /couples/, /families/, /events/.
-   Only content, order and copy vary — driven by front-matter + _data.
-   `eventsFirst: true` promotes the events module to position 2 (the /events/ variant).
-   `showWineries: true` adds the live Whereabouts cellar list. #}
+{# AUDIENCE PAGE LAYOUT — /families/ and /couples/. Same template, audience
+   content. Structure per the client mockup: hero → itineraries → themed photo
+   cards → widget zone → events → aligned blog post → getting here → FAQ → newsletter. #}
 {% extends "base.njk" %}
 
 {% block content %}
   {% include "partials/hero.njk" %}
+  {% include "partials/itineraries.njk" %}
+  {% include "partials/themes.njk" %}
 
-  {% if eventsFirst %}
-    {% include "partials/events.njk" %}
-    {% include "partials/itineraries.njk" %}
-    {% include "partials/themes.njk" %}
-  {% else %}
-    {% include "partials/itineraries.njk" %}
-    {% include "partials/themes.njk" %}
-    {% include "partials/events.njk" %}
+  {% if widgetLabel %}
+  <section class="section" id="widget" data-module="widget">
+    <div class="wrap">
+      {% set slotLabel = widgetLabel %}
+      {% set slotCells = 8 %}
+      {% include "partials/widget-slot.njk" %}
+    </div>
+  </section>
   {% endif %}
 
-  {% if showWineries %}
-    {% include "partials/wineries.njk" %}
-  {% endif %}
-
-  {% include "partials/stories-feature.njk" %}
-  {% include "partials/map.njk" %}
+  {% include "partials/events.njk" %}
+  {% include "partials/blog-feature.njk" %}
+  {% include "partials/getting-here.njk" %}
   {% include "partials/faq.njk" %}
   {% include "partials/newsletter-inline.njk" %}
 {% endblock %}

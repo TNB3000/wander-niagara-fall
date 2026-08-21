@@ -1,0 +1,17 @@
+{# Whereabouts widget zone — a plain wireframe grid, per the client:
+   "just put a grid there… don't extrapolate what it's going to look like."
+   Set `slotLabel` (and optionally `slotCells`, default 4) before including.
+   When the real embed exists in _data/embeds.js, the lazy loader (app.js)
+   swaps this facade for the widget via the data-embed/template pattern. #}
+<div class="widget-slot" {% if slotEmbed %}data-embed="{{ slotEmbed }}"{% endif %}>
+  {# .embed-slot is the removal hook app.js uses when the real embed activates #}
+  <div class="embed-slot">
+    <p class="widget-slot__label">{{ slotLabel or "Whereabouts widget" }}</p>
+    <div class="widget-slot__grid" aria-hidden="true">
+      {% for i in range(0, slotCells or 4) %}<i></i>{% endfor %}
+    </div>
+  </div>
+  {% if slotEmbedCode %}
+  <template>{{ slotEmbedCode | safe }}</template>
+  {% endif %}
+</div>
