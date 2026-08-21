@@ -40,6 +40,27 @@ Two claims a neighboring destination site could not truthfully copy:
 - Live regional data (businesses, events, itineraries) comes from Whereabouts widgets; the site does not maintain its own listings database.
 - Widget embed codes are not yet on hand — pending from the user.
 
+## Site Architecture (client-confirmed 2026-08-21)
+
+Seven pages, per the client (Mackenzie Keast, Wander Niagara) on the Aug 21 call and follow-up email:
+1. Landing page ("Fall") — segments visitors into two audience paths
+2. /families/ + one aligned family blog post
+3. /couples/ + aligned couples blog post(s)
+4. /events/ + one aligned events blog post
+
+No stories hub, no directory page. Audience pages share one template — same layout, audience-specific content. Ads A/B test audience page vs. aligned blog post. Creative goes live **September 11, 2026** (Globe & Mail).
+
+## Design Direction (client-pinned 2026-08-21, supersedes all prior visual work)
+
+- **Hyper-simplified, wireframe aesthetic.** The client's own mockup (`families-simplified_3.html`, Aug 21) is the binding spec: "I would rather it look more like a wireframe than a designed website… strip away almost everything so it's literally just great imagery, some great call-to-action copy, and that's about it."
+- References: Quebec DMOs — tourisme-charlevoix.com and chaudiereappalaches.com (bold imagery, clear CTAs, minimal chrome).
+- Explicitly **not** a brand refresh — the 2027 rebuild will follow a branding exercise; this must not look like one.
+- Mockup system: Inter; white/warm-paper grounds; ink green #243910; yellow #EFEF45 header; orange #F26A2E accent; black pill buttons; 6px-radius photo cards.
+- **Whereabouts widget zones render as plain grid placeholders** — "just put a grid there… don't extrapolate what it's going to look like."
+- Copy: Mac provides final copy; current copy is placeholder-quality.
+- Pending from client: WordPress admin access (hosting investigation), GitHub account (repo access), intro to Stan (tracking pixels).
+- Whereabouts licensing: work proceeds now, billing starts Jan 1, 2027.
+
 ## Brand Commitments
 
 - Product name: **Wander Niagara** (this repo: the "Fall in St. Catharines & the Benchlands" campaign microsite at `fall.wanderniagara.com`).

@@ -1,30 +1,19 @@
-{# THEMED BUSINESS MODULES — the packing line: horizontal scroll-snap rows of
-   small labels on a leaf-green ground. Every card is an OUTBOUND link.
-   Fully data-driven from _data/businesses.json. #}
+{# Themed photo-card scrollers on warm paper, per the client mockup.
+   Data-driven from _data/businesses.json; every card is an outbound link. #}
 {% set themes = (businesses[variant].themes) if businesses[variant] else [] %}
 {% if themes %}
-<section class="section section--leaf" id="explore" data-module="theme">
+<section class="section section--warm" id="explore" data-module="theme">
   <div class="wrap">
-    <div class="section__head stamp">
-      <h2><span class="rule-l"></span>{{ themesTitle or "Where to go this fall" }}</h2>
-      <p class="muted">{{ themesIntro or "Handpicked local spots. Tap any to visit their site." }}</p>
-    </div>
-
+    <div class="section__head"><h2>{{ themesTitle or "Where to go this fall" }}</h2></div>
     {% for theme in themes %}
     <div class="theme">
-      <h3 class="theme__title"><svg aria-hidden="true"><use href="#i-{{ theme.icon or 'star' }}"></use></svg>{{ theme.title }}</h3>
-      <div class="scroller" role="list" aria-label="{{ theme.title }}">
+      <h3>{{ theme.title }}</h3>
+      <div class="scroller">
         {% for biz in theme.items %}
-        <a class="biz-card" role="listitem" href="{{ biz.url }}"
-           data-module="theme" data-card-label="{{ theme.title }} — {{ biz.name }}">
-          <div class="biz-card__media">
-            <img src="{{ biz.img }}" alt="{{ biz.name }}" width="600" height="450" loading="lazy" decoding="async">
-          </div>
-          <div class="biz-card__body">
-            <p class="biz-card__name">{{ biz.name }}</p>
-            <p class="biz-card__blurb">{{ biz.blurb }}</p>
-            <p class="biz-card__go">Visit &rarr;</p>
-          </div>
+        <a class="card" href="{{ biz.url }}" data-module="theme" data-card-label="{{ theme.title }} — {{ biz.name }}">
+          <img src="{{ biz.img }}" alt="{{ biz.name }}" width="600" height="400" loading="lazy" decoding="async">
+          <h4>{{ biz.name }}</h4>
+          <p>{{ biz.blurb }}</p>
         </a>
         {% endfor %}
       </div>

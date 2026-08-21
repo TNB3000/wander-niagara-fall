@@ -5,76 +5,45 @@ variant: home
 title: ""
 description: "Fall in St. Catharines & the Benchlands — plan a couples' getaway, a family day out, or catch the season's events."
 headerHomeHref: "/"
-headerCtaLabel: "See fall itineraries"
-headerCtaHref: "#pick"
-stickyCtaLabel: "Pick your kind of fall"
-stickyCtaHref: "#pick"
+headerCtaLabel: "See what's on"
+headerCtaHref: "/events/"
 anchors:
-  - { label: "Plans", href: "#pick" }
-  - { label: "Wineries", href: "#wineries" }
-  - { label: "Events", href: "#events" }
-  - { label: "Stories", href: "#stories" }
-  - { label: "Map", href: "#map" }
-faqKey: default
+  - { label: "Families", href: "/families/" }
+  - { label: "Couples & Friends", href: "/couples/" }
+  - { label: "Events", href: "/events/" }
+heroImg: /assets/img/photos/stories-hub.jpg
+heroAlt: "Fall vineyards rolling across the Niagara bench"
 ---
-{% set headline %}Fall, <span class="flourish">your way</span>{% endset %}
-{% set sub = "Wine, colour, farms and events across Niagara's flip side — picked, packed and mapped for your kind of weekend." %}
-{% set heroCtaLabel = "Pick your kind of fall" %}
-{% set heroCtaHref = "#pick" %}
+{% set headline = "Fall, at your pace." %}
+{% set sub = "Wine, colour, farms and events across Niagara's flip side. Pick your kind of fall. [PLACEHOLDER copy — Mac to provide]" %}
+{% set heroCtaLabel = "Pick your path" %}
+{% set heroCtaHref = "#paths" %}
 {% include "partials/hero.njk" %}
 
-{# --- The audience pick: three crates, three kinds of fall --- #}
-<section class="section" id="pick" data-module="home">
+<section class="section" id="paths" data-module="home">
   <div class="wrap">
-    <div class="section__head stamp">
-      <h2><span class="rule-l"></span>Pick your crate</h2>
-      <p class="muted">Every plan below is packed for a different crew. Open yours.</p>
+    <div class="paths">
+      <a class="path" href="/families/" data-module="home" data-card-label="Families">
+        <img src="/assets/img/photos/story-family-fall.jpg" alt="" width="1600" height="1000" loading="lazy" decoding="async">
+        <span class="path__body">
+          <h2>Families</h2>
+          <p>Colour, farms, corn mazes and big days out.</p>
+          <span class="btn">Plan a family fall</span>
+        </span>
+      </a>
+      <a class="path" href="/couples/" data-module="home" data-card-label="Couples & Friends">
+        <img src="/assets/img/photos/biz-megalomaniac.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async">
+        <span class="path__body">
+          <h2>Couples &amp; Friends</h2>
+          <p>Wine, long dinners, boutique stays and nights out.</p>
+          <span class="btn">Plan a getaway</span>
+        </span>
+      </a>
     </div>
-    <div class="itin-grid">
-      <article class="crate crate--concord stamp">
-        <span class="lot crate__lot">Lot №1</span>
-        <div class="crate__art"><svg aria-hidden="true"><use href="#i-grapes"></use></svg></div>
-        <div class="crate__body">
-          <h3 class="crate__title">Couples &amp; friends</h3>
-          <p class="crate__grade">Wine · long dinners · live nights</p>
-          <p class="crate__blurb">Escarpment wineries, chef's tables, boutique stays and evenings out.</p>
-          <div class="crate__cta">
-            <a class="btn" href="/couples/" data-module="home" data-card-label="Couples & friends">Open the couples' crate</a>
-          </div>
-        </div>
-      </article>
-      <article class="crate crate--leaf stamp">
-        <span class="lot crate__lot">Lot №2</span>
-        <div class="crate__art"><svg aria-hidden="true"><use href="#i-ferris"></use></svg></div>
-        <div class="crate__body">
-          <h3 class="crate__title">Families</h3>
-          <p class="crate__grade">Colours · farms · big days out</p>
-          <p class="crate__blurb">Easy trails, pumpkin patches, corn mazes and family attractions.</p>
-          <div class="crate__cta">
-            <a class="btn" href="/families/" data-module="home" data-card-label="Families">Open the family crate</a>
-          </div>
-        </div>
-      </article>
-      <article class="crate crate--persimmon stamp">
-        <span class="lot crate__lot">Lot №3</span>
-        <div class="crate__art"><svg aria-hidden="true"><use href="#i-star"></use></svg></div>
-        <div class="crate__body">
-          <h3 class="crate__title">What's on</h3>
-          <p class="crate__grade">Festivals · markets · music</p>
-          <p class="crate__blurb">The season's dated events — festivals, studio tours and lightings.</p>
-          <div class="crate__cta">
-            <a class="btn" href="/events/" data-module="home" data-card-label="What's on">See the season's dates</a>
-          </div>
-        </div>
-      </article>
-    </div>
-    <p class="center mt-2"><a class="section__link" href="/stories/" data-module="home">Or read the fall stories first &rarr;</a></p>
   </div>
 </section>
 
-{% include "partials/wineries.njk" %}
+{% set eventRows = 3 %}
 {% include "partials/events.njk" %}
-{% include "partials/stories-feature.njk" %}
-{% include "partials/map.njk" %}
-{% include "partials/faq.njk" %}
+{% include "partials/getting-here.njk" %}
 {% include "partials/newsletter-inline.njk" %}

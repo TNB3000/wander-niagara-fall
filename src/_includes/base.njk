@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#26150F">
+  <meta name="theme-color" content="#EFEF45">
   <title>{{ title }}{% if title %} — {% endif %}{{ site.name }}</title>
   <meta name="description" content="{{ description or site.description }}">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
@@ -14,33 +14,26 @@
   <meta property="og:title" content="{{ title or site.campaign }}">
   <meta property="og:description" content="{{ description or site.description }}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-  {% if heroPreloadImg %}<meta property="og:image" content="{{ site.url }}{{ heroPreloadImg }}">{% endif %}
+  {% if heroImg %}<meta property="og:image" content="{{ site.url }}{{ heroImg }}">{% endif %}
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <!-- Fonts: crate-label lettering (Ultra), label caps (Barlow Condensed),
-       script flourish (Yellowtail), body (Source Sans 3). Non-render-blocking. -->
+  <!-- Inter only — the wireframe system's single face -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Ultra&family=Barlow+Condensed:wght@600;700&family=Yellowtail&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ultra&family=Barlow+Condensed:wght@600;700&family=Yellowtail&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap"></noscript>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
 
   <!-- Preconnect to third-party embed origins (lazy-loaded later) -->
   {% for origin in embeds.preconnect %}<link rel="preconnect" href="{{ origin }}" crossorigin>
   {% endfor %}
 
-  <!-- LCP: preload hero image with high priority -->
-  {% if heroPreloadImg %}<link rel="preload" as="image" href="{{ heroPreloadImg }}" fetchpriority="high">{% endif %}
+  {% if heroImg %}<link rel="preload" as="image" href="{{ heroImg }}" fetchpriority="high">{% endif %}
 
-  <!-- Design-behavior gate: stamp-in reveals only apply when JS will run -->
-  <script>document.documentElement.classList.add('js')</script>
-
-  <!-- Critical CSS inlined; main CSS deferred (non-render-blocking) -->
+  <!-- Single stylesheet, inlined -->
   <style>{{ "src/assets/css/critical.css" | readFile | safe }}</style>
-  <link rel="preload" href="/assets/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="/assets/css/main.css"></noscript>
 
   <!-- Analytics config slot (read by app.js). IDs come from _data/embeds.js -->
   <script type="application/json" id="wn-config">
@@ -58,62 +51,41 @@
   }
   </script>
 
-  <!-- Site-wide structured data: Organization + BreadcrumbList (AEO) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "{{ site.name }}",
     "url": "{{ site.url }}",
-    "logo": "{{ site.url }}/assets/img/logo.svg",
     "sameAs": [{% for s in site.social %}"{{ s.url }}"{% if not loop.last %}, {% endif %}{% endfor %}]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "{{ site.name }}", "item": "{{ site.url }}/" }{% if title %},
-      { "@type": "ListItem", "position": 2, "name": "{{ title }}", "item": "{{ site.url }}{{ page.url }}" }{% endif %}
-    ]
   }
   </script>
   {% block head %}{% endblock %}
 </head>
-<body class="{{ bodyClass }}">
+<body>
 <!--
-THESIS: Fall on the Bench sold the way the fruit belt always sold itself — a
-litho crate label per plan; refuses the photo-hero-plus-card-grid tourism default.
-OWN-WORLD: fruit-crate lithography: concord, leaf, persimmon and goldenrod inks
-owning whole sections over label stock; double-rule plates; Ultra woodtype with
-Barlow Condensed caps and a Yellowtail flourish; flat authored litho scenes;
-lot stamps. Signature motion: stamp-&-spring — sections stamp in once,
-presses spring back like iOS.
-STORY: an ad-tapper recognizes the region's packing-house heritage, picks
-their crate (couples or families), and clicks out to a real plan.
-FIRST VIEWPORT: full-bleed litho orchard-and-escarpment scene, region ribbon,
-FALL, in woodtype with a script "your way", two crate-stamp CTAs; slim press-ink header.
-FORM: fruit-crate lithography — №1 of 7, chosen as the pick; seed 762c6017.
-FINISH: unreviewed and undocumented is unfinished; this build ends with the finish
-review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
+THESIS: the client's wireframe, built exactly — great imagery, clear CTA copy,
+and nothing else; refuses every "designed website" instinct including our own
+prior world.
+OWN-WORLD: client-pinned spec (families-simplified_3.html, 2026-08-21) with
+Tourisme Charlevoix / Chaudière-Appalaches as references: Inter, white and
+warm-paper grounds, ink green, the yellow header, black pill buttons,
+6px photo cards, full-bleed photography. Whereabouts widget zones are plain
+wireframe grids, never designed. Motion: none beyond hover.
+STORY: an ad-tapper lands, sees one bold photo and one clear action, picks
+their path (families / couples & friends / events), and clicks out.
+FIRST VIEWPORT: yellow header bar, full-bleed fall photo, one bold Inter-800
+headline, one pill CTA.
+FORM: pinned by the client — no roll; the brief beats the catalog, always.
+FINISH: fidelity to the client mockup is the bar; every divergence from it
+must be justified by the mockup's own system or the client's words.
 -->
   <a class="skip" href="#main">Skip to content</a>
-  {% include "partials/sprite.njk" %}
   {% include "partials/header.njk" %}
   <main id="main">
     {% block content %}{{ content | safe }}{% endblock %}
   </main>
   {% include "partials/footer.njk" %}
-
-  {% if stickyCtaLabel %}
-  <div class="sticky-cta" role="region" aria-label="Quick action">
-    <a class="btn" href="{{ stickyCtaHref or '#itineraries' }}" data-module="sticky-cta">{{ stickyCtaLabel }}</a>
-  </div>
-  {% endif %}
-
-  {% include "partials/newsletter-modal.njk" %}
-
   <script src="/assets/js/app.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,16 @@
+{# Aligned blog-post feature — one bold photo card linking to this audience's
+   article. Set `blogHref`, `blogTitle`, `blogBlurb`, `blogImg` in front matter. #}
+{% if blogHref %}
+<section class="section" id="story">
+  <div class="wrap">
+    <div class="feature">
+      <img src="{{ blogImg or '/assets/img/photos/stories-hub.jpg' }}" alt="" width="1600" height="1000" loading="lazy" decoding="async">
+      <div class="feature__body">
+        <h2>{{ blogTitle }}</h2>
+        <p>{{ blogBlurb }}</p>
+        <a class="btn" href="{{ blogHref }}" data-module="stories" data-card-label="{{ blogTitle }}">Read the article</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}

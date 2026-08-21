@@ -1,27 +1,20 @@
-{# EVENTS — the goldenrod bill of dates. `eventRows` controls count (3 on
-   audience pages; 6 on /events/). Rows carry an honest ON NOW / THIS WEEKEND
-   badge: app.js computes it client-side from data-date; nothing is painted on. #}
+{# Events — green section with simple date rows, per the client mockup.
+   `eventRows` controls count (3 on audience pages; all on /events/). #}
 {% set rows = eventRows or 3 %}
-<section class="section section--gold" id="events" data-module="events">
+<section class="section section--green" id="events" data-module="events">
   <div class="wrap">
-    <div class="head-row section__head stamp">
-      <div>
-        <h2><span class="rule-l"></span>{{ eventsTitle or "What's on this fall" }}</h2>
-      </div>
-      <a class="section__link" href="{{ events.seeAllUrl }}" data-module="events" data-card-label="See all fall events">See all fall events &rarr;</a>
+    <div class="section__head head-row">
+      <h2>{{ eventsTitle or "What's on this fall" }}</h2>
+      <a class="tlink" href="{{ eventsSeeAllHref or '/events/' }}" data-module="events" data-card-label="See all fall events">See all fall events</a>
     </div>
-    <div class="events-list">
+    <div class="events">
       {% for ev in events.items %}{% if loop.index0 < rows %}
-      <a class="event-row" href="{{ ev.url }}" data-module="events" data-card-label="{{ ev.title }}" {% if ev.date %}data-date="{{ ev.date }}"{% endif %}>
-        <span class="event-date">
-          <span class="m">{{ ev.dateLabel.split(" ")[0] }}</span>
-          <span class="d">{{ ev.dateLabel.split(" ")[1] }}</span>
+      <a class="event" href="{{ ev.url }}" data-module="events" data-card-label="{{ ev.title }}">
+        <span class="event__date">{{ ev.dateLabel }}</span>
+        <span>
+          <span class="event__name">{{ ev.title }}</span>
+          <span class="event__where">{{ ev.venue }}</span>
         </span>
-        <span class="event-info">
-          <strong>{{ ev.title }}<span class="event-badge" hidden></span></strong>
-          <span>{{ ev.venue }}</span>
-        </span>
-        <span class="event-go" aria-hidden="true">&rarr;</span>
       </a>
       {% endif %}{% endfor %}
     </div>
