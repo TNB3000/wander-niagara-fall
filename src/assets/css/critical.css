@@ -300,27 +300,41 @@ p:last-child{margin-bottom:0}
 .prose a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--yellow);text-decoration-thickness:2px;text-underline-offset:3px}
 .prose blockquote{margin:1.5em 0;padding:1.1rem 1.35rem;background:var(--paper-warm);border-radius:6px;color:var(--ink-soft)}
 
-/* Funders band */
-.funders{background:var(--paper-warm);padding-block:clamp(2rem,4vw,3rem);border-top:1px solid var(--line)}
-.funders__title{font-size:1.0625rem;font-weight:700;margin-bottom:1.5rem}
-.funders__logos{display:flex;gap:clamp(1.5rem,4vw,3rem);flex-wrap:wrap;align-items:center}
-.funders__logos img{height:52px;width:auto}
+/* Funders band — identical to wanderniagara.com (#EEE, yellow boxed heading, 6 logos) */
+.funders{background:#EEEEEE;padding:80px 20px}
+.funders__wrap{max-width:1200px;margin-inline:auto}
+.funders__title.boxed{
+  display:inline-block;background:#FFD300;color:#222;
+  font:900 30px/1.2 var(--sans);text-transform:uppercase;letter-spacing:normal;
+  padding:20px;margin:0 0 15px;
+}
+.funders__grid{display:grid;grid-template-columns:repeat(6,1fr);gap:0}
+.funders__grid>*{display:flex;align-items:center;justify-content:center;padding:0 15px 30px;text-decoration:none}
+.funders__grid img{width:100%;max-width:170px;height:100px;object-fit:contain}
+@media (max-width:1023px){.funders__grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:639px){.funders__grid{grid-template-columns:1fr}.funders{padding:60px 20px}.funders__title.boxed{font-size:24px}}
 
-/* Footer */
-.site-footer{background:var(--ink);color:#fff;padding-block:clamp(3rem,6vw,4.5rem);font-size:.9375rem}
-.site-footer__grid{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
-.foot-h{font-size:.8125rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:1rem}
-.foot-list{list-style:none;margin:0;padding:0}
-.foot-list li{margin:0 0 .5rem}
-.foot-list a{color:rgba(255,255,255,.62);text-decoration:none}
-.foot-list a:hover{color:#fff}
-.foot-brand{display:flex;flex-direction:column;gap:1.25rem;align-items:flex-start}
-.foot-wander{height:56px;width:auto}
-.foot-tiao{height:48px;width:auto}
-.foot-legal{margin-top:clamp(2rem,4vw,3rem)}
-.foot-legal p{color:rgba(255,255,255,.62);margin:0}
-.foot-legal a{color:rgba(255,255,255,.62)}
-.foot-legal a:hover{color:#fff}
+/* Footer — identical to wanderniagara.com (black, 4 columns, yellow glyphs, centred copy) */
+.site-footer{background:#000;color:#fff;padding:50px 0;font-size:16px}
+.site-footer__row{max-width:1200px;margin-inline:auto;padding-inline:15px;display:grid;grid-template-columns:3fr 3fr 3fr 2fr;gap:0;align-items:start}
+.site-footer__col{text-align:center;padding-inline:15px}
+.site-footer h4{font:700 21px/1.3 var(--sans);color:#fff;margin:0 0 15px}
+.social{display:flex;justify-content:center;gap:10px}
+.social a{color:#FFD300;display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px}
+.social svg{height:22px;width:auto;fill:currentColor}
+.social a:hover{color:#fff}
+.foot-tiao{height:100px;width:auto;display:inline-block}
+.foot-wander{max-width:170px;height:auto;display:inline-block}
+.memLinks{margin-top:10px;text-align:center;font-size:15px;line-height:1.8}
+.memLinks a{color:#fff;text-decoration:none}
+.memLinks a:hover{text-decoration:underline}
+.site-footer__copy{padding:40px 15px 0}
+.site-footer__copy p{font-size:13px;color:#fff;text-align:center;margin:0 0 15px}
+.site-footer__copy a{color:#FFD300;text-decoration:underline}
+@media (max-width:1023px){
+  .site-footer__row{grid-template-columns:1fr;gap:30px}
+  .site-footer__col{padding-inline:0}
+}
 
 .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
