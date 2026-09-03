@@ -1,14 +1,60 @@
-{# Ink footer — brand, one line, privacy, social text links. Per the client mockup. #}
-<footer class="site-footer">
+{# FOOTER — mirrors the current wanderniagara.com footer (Sept 3 call):
+   funders band, Follow St. Catharines / Follow Niagara Benchlands socials,
+   compact Explore anchor list (the doc's nine category labels), TIAO + Wander
+   logos, copyright + privacy + FAQ. Partner links deliberately excluded. #}
+<section class="funders" aria-label="Funders">
   <div class="wrap">
+    <h2 class="funders__title">Thank You to Our Funders</h2>
+    <div class="funders__logos">
+      <img src="/assets/img/logos/funder-ontario.png" alt="Government of Ontario" width="360" height="124" loading="lazy" decoding="async">
+      <img src="/assets/img/logos/funder-visit-niagara.png" alt="Visit Niagara Canada" width="360" height="124" loading="lazy" decoding="async">
+      <img src="/assets/img/logos/funder-lincoln.png" alt="Town of Lincoln" width="360" height="124" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__grid">
     <div>
-      <span class="brand">Wander Niagara</span>
-      <p>{{ site.campaign }}. A {{ site.name }} campaign. &copy; {{ site.year }}.</p>
-      <p><a href="{{ site.privacyUrl }}" data-module="footer">Privacy</a></p>
+      <h3 class="foot-h">Follow St. Catharines</h3>
+      <ul class="foot-list">
+        <li><a href="https://www.facebook.com/Love-STC-104402534831853" target="_blank" rel="noopener" data-module="footer" data-card-label="STC Facebook">Facebook</a></li>
+        <li><a href="https://twitter.com/loveSTC_" target="_blank" rel="noopener" data-module="footer" data-card-label="STC X">X (Twitter)</a></li>
+        <li><a href="https://www.instagram.com/lovestc_/" target="_blank" rel="noopener" data-module="footer" data-card-label="STC Instagram">Instagram</a></li>
+        <li><a href="https://www.youtube.com/channel/UCp01QDn7_G8fgiUsb6gWUjg" target="_blank" rel="noopener" data-module="footer" data-card-label="STC YouTube">YouTube</a></li>
+      </ul>
     </div>
-    <div class="foot-links">
-      {% for s in site.social %}<a href="{{ s.url }}" data-module="footer" data-card-label="{{ s.label }}">{{ s.label }}</a>
-      {% endfor %}
+    <div>
+      <h3 class="foot-h">Follow Niagara Benchlands</h3>
+      <ul class="foot-list">
+        <li><a href="https://facebook.com/niagarabenchlands" target="_blank" rel="noopener" data-module="footer" data-card-label="Benchlands Facebook">Facebook</a></li>
+        <li><a href="https://x.com/BenchlandsON" target="_blank" rel="noopener" data-module="footer" data-card-label="Benchlands X">X (Twitter)</a></li>
+        <li><a href="https://instagram.com/niagarabenchlands" target="_blank" rel="noopener" data-module="footer" data-card-label="Benchlands Instagram">Instagram</a></li>
+        <li><a href="https://www.youtube.com/@NiagaraBenchlands" target="_blank" rel="noopener" data-module="footer" data-card-label="Benchlands YouTube">YouTube</a></li>
+      </ul>
     </div>
+    <div>
+      <h3 class="foot-h">Explore</h3>
+      <ul class="foot-list foot-list--explore">
+        <li><a href="/families/">Family Adventures</a></li>
+        <li><a href="/families/#fall-colours">See Fall Colours</a></li>
+        <li><a href="/couples-and-friends/#wineries">Wineries</a></li>
+        <li><a href="/couples-and-friends/#wineries">Craft Beer and Cider</a></li>
+        <li><a href="/families/#fall-colours">Outdoor Activities</a></li>
+        <li><a href="/families/#farms-markets">Farms and Markets</a></li>
+        <li><a href="/couples-and-friends/#shopping">Shopping</a></li>
+        <li><a href="/events/">Festivals and Events</a></li>
+        <li><a href="/#stay">Where to Stay</a></li>
+      </ul>
+    </div>
+    <div class="foot-brand">
+      <img class="foot-wander" src="/assets/img/logos/wander-white.png" alt="Wander — St. Catharines &amp; Niagara Benchlands" width="273" height="120" loading="lazy" decoding="async">
+      <a href="https://www.tiaontario.ca/cpages/homepage" target="_blank" rel="noopener" data-module="footer" data-card-label="TIAO">
+        <img class="foot-tiao" src="/assets/img/logos/tiao.png" alt="Tourism Industry Association of Ontario" width="360" height="214" loading="lazy" decoding="async">
+      </a>
+    </div>
+  </div>
+  <div class="wrap foot-legal">
+    <p>&copy; {{ site.year }} {{ site.name }}. <a href="/privacy/">Privacy Policy</a> · <a href="/events/#faq">FAQ</a></p>
   </div>
 </footer>

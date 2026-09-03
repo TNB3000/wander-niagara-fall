@@ -12,3 +12,4 @@ _site/
 .impeccable/*.py
 .impeccable/origins.txt
 .impeccable/questions/
+.impeccable/fetch/
