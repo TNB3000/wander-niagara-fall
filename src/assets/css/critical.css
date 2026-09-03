@@ -238,11 +238,12 @@ p:last-child{margin-bottom:0}
 .draft-mark{font-style:normal;font-weight:500;font-size:.8125rem;letter-spacing:.02em;color:var(--orange);vertical-align:middle}
 
 /* Getting here */
-.here-grid{display:grid;gap:var(--gap);grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:start;margin-bottom:clamp(2rem,4vw,3rem)}
-.map-slot img{border-radius:6px;width:100%}
-.regions{display:grid;gap:var(--gap);grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-.regions h3{margin-bottom:.6rem}
-.regions p{color:var(--ink-soft)}
+.region-map{margin:0 0 clamp(2rem,4vw,3rem)}
+.region-map img{width:100%;height:auto}
+.here-grid{display:grid;gap:var(--gap);grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:start}
+.here-grid h3{margin:0 0 .6rem}
+.here-grid h3 + .region-copy{margin-bottom:1.5rem}
+.region-copy{color:var(--ink-soft)}
 .mapcard{
   background:var(--paper-warm);
   border-radius:6px;

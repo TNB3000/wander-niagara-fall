@@ -41,7 +41,7 @@ module.exports = {
     CROWDRIFF_GALLERY:    { label: "Crowdriff — curated fall photography gallery", embed: "" },
     MAILCHIMP_SIGNUP:     { label: "Mailchimp — email signup embed", embed: "" },
     FAQ_CONTENT:          { label: "FAQ — content pending from the client (reused from the current site's events guide)", embed: "" },
-    GETTING_HERE_MAP:     { label: "Illustrated regional map — image pending from Mackenzie", embed: "" },
+    GETTING_HERE_MAP:     { label: "Illustrated regional map", embed: "/assets/img/wander-map.png" },
     FOOTER_FUNDER_LOGOS:  { label: "Footer — funder logos", embed: "" },
   },
 
