@@ -281,8 +281,15 @@ p:last-child{margin-bottom:0}
 
 /* Article */
 .article-head{padding-block:clamp(3rem,6vw,5rem) clamp(1.5rem,3vw,2.5rem)}
-.article-head h1{max-width:20ch}
+.article-head h1{max-width:24ch}
+.article-head .dek{margin-top:.9rem;font-size:1.25rem;font-weight:600;letter-spacing:-.01em;max-width:44ch}
 .article-head .meta{margin-top:1.25rem;font-size:.8125rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.article-img{margin:0}
+.article-img img{width:100%;border-radius:6px}
+.article-back{padding-bottom:clamp(2rem,4vw,3rem)}
+.widget-slot--img .widget-slot__grid{grid-template-columns:1fr}
+.widget-slot--img .widget-slot__grid i{aspect-ratio:8/3}
+.prose .widget-slot{margin:1.6em 0}
 .article-hero img{width:100%;max-height:560px;object-fit:cover;border-radius:6px}
 .prose{max-width:680px;padding-block:clamp(2.5rem,5vw,4rem)}
 .prose p,.prose ul,.prose ol{margin:0 0 1.15em;color:var(--ink)}

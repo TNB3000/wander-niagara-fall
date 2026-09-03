@@ -1,17 +1,17 @@
-{# BLOG POST — hyper simple, per the client: "the headline is just the article
-   title, then it's the freaking article, I plug in photos, and then some of the
-   little whereabouts pieces embedded in there as well." #}
+{# BLOG ARTICLE — title, optional dek, hero photo slot, body (client copy
+   verbatim), back link to the audience page, Article structured data. #}
 {% extends "base.njk" %}
 
 {% block head %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
+  "@type": "Article",
   "headline": {{ title | dump | safe }},
-  "image": "{{ site.url }}{{ image }}",
-  "datePublished": "{{ date or '2026-09-07' }}",
+  {% if dek %}"alternativeHeadline": {{ dek | dump | safe }},{% endif %}
+  "datePublished": "{{ date or '2026-09-11' }}",
   "author": { "@type": "Organization", "name": "{{ site.name }}" },
+  "publisher": { "@type": "Organization", "name": "{{ site.name }}", "url": "{{ site.url }}" },
   "mainEntityOfPage": "{{ site.url }}{{ page.url }}"
 }
 </script>
@@ -20,12 +20,15 @@
 {% block content %}
   <div class="wrap article-head">
     <h1>{{ title }}</h1>
-    <p class="meta">{{ category or "Fall" }} · {{ readTime or "5 min read" }} · {{ site.name }}</p>
+    {% if dek %}<p class="dek">{{ dek }}</p>{% endif %}
+    <p class="meta">{{ audienceLabel }} · {{ site.name }}</p>
   </div>
 
-  {% if image %}
+  {% if heroSlotKey %}
   <div class="wrap article-hero">
-    <img src="{{ image }}" alt="{{ heroAlt or title }}" width="1600" height="1000" fetchpriority="high" decoding="async">
+    {% set imgSlotKey = heroSlotKey %}
+    {% set imgSlotAlt = heroAlt %}
+    {% include "partials/img-slot.njk" %}
   </div>
   {% endif %}
 
@@ -33,15 +36,8 @@
     <div class="prose">
       {{ content | safe }}
     </div>
+    <p class="prose article-back"><a class="tlink" href="{{ backHref }}">&larr; {{ backLabel }}</a></p>
   </div>
 
-  <section class="section" id="widget">
-    <div class="wrap">
-      {% set slotLabel = widgetLabel or "Whereabouts — related itineraries & listings widget" %}
-      {% set slotCells = 4 %}
-      {% include "partials/widget-slot.njk" %}
-    </div>
-  </section>
-
-  {% include "partials/newsletter-inline.njk" %}
+  {% include "partials/page-tail.njk" %}
 {% endblock %}

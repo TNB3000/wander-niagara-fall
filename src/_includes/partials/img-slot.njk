@@ -1,0 +1,12 @@
+{# ARTICLE IMAGE SLOT — photos pending from the client.
+   Usage: {% set imgSlotKey = "BLOG_WEEKEND_HERO" %}{% include "partials/img-slot.njk" %}
+   Paste an image path into _data/slots.js articleImages to swap it in. #}
+{% set imgSlot = slots.articleImages[imgSlotKey] %}
+{% if imgSlot.embed %}
+<figure class="article-img"><img src="{{ imgSlot.embed }}" alt="{{ imgSlotAlt or '' }}" loading="lazy" decoding="async"></figure>
+{% elif slots.showPlaceholders %}
+<div class="widget-slot widget-slot--img" data-slot="{{ imgSlotKey }}">
+  <p class="widget-slot__label">{{ imgSlotKey }} · {{ imgSlot.label }}</p>
+  <div class="widget-slot__grid" aria-hidden="true"><i></i></div>
+</div>
+{% endif %}

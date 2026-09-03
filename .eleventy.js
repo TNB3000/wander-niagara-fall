@@ -19,10 +19,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("src/assets/");
 
   // ---- Collections ----
-  // Story articles live in src/stories/articles/*.md
+  // Blog articles live in src/blog/*.md
   eleventyConfig.addCollection("articles", (collectionApi) =>
     collectionApi
-      .getFilteredByGlob("src/stories/articles/*.md")
+      .getFilteredByGlob("src/blog/*.md")
       .sort((a, b) => (a.data.order || 0) - (b.data.order || 0))
   );
 
@@ -45,6 +45,22 @@ module.exports = function (eleventyConfig) {
 
   // Nunjucks-friendly JSON dump for JSON-LD blocks
   eleventyConfig.addFilter("jsonld", (obj) => JSON.stringify(obj));
+
+  // External links in markdown (the blog articles) open in a new tab with
+  // rel="noopener" — per the Sept 3 brief. Internal links are left alone.
+  eleventyConfig.amendLibrary("md", (md) => {
+    const defaultRender =
+      md.renderer.rules.link_open ||
+      ((tokens, idx, options, env, self) => self.renderToken(tokens, idx, options));
+    md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
+      const href = tokens[idx].attrGet("href") || "";
+      if (/^https?:\/\//i.test(href)) {
+        tokens[idx].attrSet("target", "_blank");
+        tokens[idx].attrSet("rel", "noopener");
+      }
+      return defaultRender(tokens, idx, options, env, self);
+    };
+  });
 
   // Inline a file's raw contents (used to inline critical CSS in <head>).
   eleventyConfig.addFilter("readFile", (p) => {
