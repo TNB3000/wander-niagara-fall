@@ -2,43 +2,55 @@
 layout: base.njk
 permalink: /events/
 variant: events
-title: "Fall Events"
-description: "Fall events in St. Catharines & the Benchlands — festivals, studio tours, markets, live music and holiday lightings."
-headerHomeHref: "/"
-headerCtaLabel: "Plan your visit"
-headerCtaHref: "/"
-anchors:
-  - { label: "Events", href: "#events" }
-  - { label: "Families", href: "/families/" }
-  - { label: "Couples & Friends", href: "/couples/" }
-heroImg: /assets/img/photos/biz-concert-park.jpg
-heroAlt: "An evening concert crowd at Montebello Park"
-faqKey: events
+title: "What's on this Fall"
+description: "Fall events in St. Catharines and the Niagara Benchlands — music festivals, live theatre, harvest festivals, family events and so much more."
 ---
-{% set headline = "See what's on this fall" %}
-{% set sub = "Festivals, studio tours, markets, live music and holiday lightings." %}
+{% set heroTitle = "What's on this Fall" %}
+{% set heroSub = "Music festivals, live theatre, family events and so much more" %}
 {% set heroCtaLabel = "Browse the events" %}
 {% set heroCtaHref = "#events" %}
+{% set heroSlot = "EVENTS" %}
 {% include "partials/hero.njk" %}
 
-<section class="section" id="calendar">
+<section class="section" id="events" data-module="events">
   <div class="wrap">
-    {% set slotLabel = "Whereabouts — events calendar widget" %}
-    {% set slotCells = 8 %}
+    {# DRAFT — client to approve: events explainer for visitors + AI/search #}
+    <div class="section__head" style="max-width:62ch">
+      <p>Fall events here happen where the season does: in vineyards, orchards, conservation areas and small-town main streets across St. Catharines and the Niagara Benchlands. Expect harvest festivals with local food and wine, live music indoors and out, studio tours, markets, and family days on working farms. Most run rain or shine — dress in layers, expect grass and gravel underfoot at outdoor venues, and check each listing for dates and tickets. <em class="draft-mark">[DRAFT — client to approve]</em></p>
+    </div>
+    {% set slotKey = "EVENTS" %}
+    {% set slotCells = 12 %}
     {% include "partials/widget-slot.njk" %}
   </div>
 </section>
 
-{% set eventRows = 12 %}
-{% set eventsTitle = "Fall events, dated" %}
-{% set eventsSeeAllHref = "https://www.wanderniagara.com/events/" %}
-{% include "partials/events.njk" %}
+<section class="section section--warm" id="faq" data-module="faq">
+  <div class="wrap">
+    <div class="section__head"><h2>Frequently Asked Questions</h2></div>
+    {% if faqContent %}
+    <div class="faq">{{ faqContent | safe }}</div>
+    {% else %}
+    {% set slotKey = "FAQ_CONTENT" %}
+    {% set slotCells = 3 %}
+    {% include "partials/widget-slot.njk" %}
+    {% endif %}
+  </div>
+</section>
 
-{% set blogHref = "/stories/whats-on-this-fall/" %}
-{% set blogTitle = "What's On This Fall: The Guide" %}
-{% set blogBlurb = "The season's festivals, markets and shows, in one read. [PLACEHOLDER — Mac to provide copy]" %}
-{% set blogImg = "/assets/img/photos/biz-fling-on-king.jpg" %}
-{% include "partials/blog-feature.njk" %}
+{% include "partials/page-tail.njk" %}
 
-{% include "partials/faq.njk" %}
-{% include "partials/newsletter-inline.njk" %}
+{# WebPage structured data for AI/search discoverability (JSON-LD is valid in <body>) #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "What's on this Fall — {{ site.name }}",
+  "description": {{ description | dump | safe }},
+  "url": "{{ site.url }}{{ page.url }}",
+  "isPartOf": { "@type": "WebSite", "name": "{{ site.name }}", "url": "{{ site.url }}" },
+  "about": { "@type": "Place", "name": "St. Catharines and the Niagara Benchlands, Ontario" }
+}
+</script>
+{% if faqContent %}
+{# FAQPage schema is emitted only once real FAQ content lands (FAQ_CONTENT slot) #}
+{% endif %}
