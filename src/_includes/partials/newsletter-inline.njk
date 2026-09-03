@@ -1,26 +1,12 @@
-{# Newsletter — simple inline form, per the client mockup. #}
-<section class="section" id="newsletter">
+{# EMAIL SIGNUP — client heading/copy; Mailchimp embed pending (slot). #}
+<section class="section section--warm" id="newsletter">
   <div class="wrap">
     <div class="nl">
-      <h2>{{ nlTitle or "Get our fall guide in your inbox" }}</h2>
-      {# Builder note: form activates once embeds.mailchimp.actionUrl is pasted in. #}
-      <form data-nl-loc="inline"
-            {% if embeds.mailchimp.actionUrl %}action="{{ embeds.mailchimp.actionUrl }}"{% endif %}
-            method="post" target="_blank" novalidate>
-        <label class="visually-hidden" for="nl-email">Email address</label>
-        <input id="nl-email" type="email" name="EMAIL" placeholder="you@email.com" required autocomplete="email">
-        {% if embeds.mailchimp.honeypot %}
-        <div aria-hidden="true" style="position:absolute;left:-5000px">
-          <input type="text" name="{{ embeds.mailchimp.honeypot }}" tabindex="-1" value="">
-        </div>
-        {% endif %}
-        <button class="btn" type="submit">Send me the guide</button>
-      </form>
-      {% if not embeds.mailchimp.actionUrl %}
-      <p class="fine">[PLACEHOLDER — signup goes live at launch] No spam. Unsubscribe anytime.</p>
-      {% else %}
-      <p class="fine">No spam. Unsubscribe anytime.</p>
-      {% endif %}
+      <h2>Sign Up for More Fall Ideas and Insider Tips</h2>
+      <p>Subscribe to email updates to get the latest news, events, and things to do in St. Catharines and the Benchlands.</p>
+      {% set slotKey = "MAILCHIMP_SIGNUP" %}
+      {% set slotCells = 2 %}
+      {% include "partials/widget-slot.njk" %}
     </div>
   </div>
 </section>

@@ -1,14 +1,40 @@
-{# Getting here — compact drive-time card, per the client mockup. #}
-<section class="section" id="map">
+{# GETTING HERE — directions + GO Transit link, illustrated map slot (pending),
+   and the two region descriptions (client copy, verbatim). #}
+<section class="section" id="getting-here">
   <div class="wrap">
-    <div class="section__head"><h2>Getting here</h2></div>
-    <div class="mapcard">
-      <ul class="drive">
-        {% for o in site.gettingHere.origins %}
-        <li><b>{{ o.from }}</b><span>{{ o.time }} · {{ o.note }}</span></li>
-        {% endfor %}
-      </ul>
-      <p class="note">{{ site.gettingHere.transit }}</p>
+    <div class="section__head"><h2>Getting Here</h2></div>
+
+    <div class="here-grid">
+      <div class="mapcard">
+        <p><!-- DRAFT — client to approve -->St. Catharines and the Benchlands are an easy drive from across the Golden Horseshoe — and you can leave the car at home: <a href="https://www.gotransit.com/" target="_blank" rel="noopener">GO Transit</a> runs train and bus service to St. Catharines. <em>[DRAFT — client to approve]</em></p>
+        <ul class="drive">
+          {% for o in site.gettingHere.origins %}
+          <li><b>{{ o.from }}</b><span>{{ o.time }} · {{ o.note }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="map-slot">
+        {% if slots.widgets.GETTING_HERE_MAP.embed %}
+        <img src="{{ slots.widgets.GETTING_HERE_MAP.embed }}" alt="Illustrated map of St. Catharines and the Niagara Benchlands" loading="lazy" decoding="async">
+        {% elif slots.showPlaceholders %}
+        <div class="widget-slot">
+          <p class="widget-slot__label">GETTING_HERE_MAP · {{ slots.widgets.GETTING_HERE_MAP.label }}</p>
+          <div class="widget-slot__grid" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="regions">
+      <div>
+        <h3>Niagara Benchlands</h3>
+        <p>Explore the stunning Niagara Benchlands, a haven for wine enthusiasts and nature lovers alike. With over 50 craft wineries dotting its steep slopes, orchards, and rural villages, this region boasts award-winning wines and breathtaking landscapes. Discover local markets, hidden shops, and rich history all amidst a food lover's paradise shaped by the unique climate and terroir of the area. Perched on the Niagara Escarpment, the Benchlands offer a wealth of natural wonders, including the renowned Bruce Trail and UNESCO Biosphere.</p>
+      </div>
+      <div>
+        <h3>St. Catharines</h3>
+        <p>Nestled in Ontario's picturesque Niagara Region, St. Catharines is a vibrant destination that perfectly blends culinary excellence, a thriving craft beverage scene, rich cultural experiences, and abundant outdoor activities. Savour farm-to-table delights at local restaurants, explore renowned wineries and craft breweries, and immerse yourself in the arts at theatres and galleries. Outdoor enthusiasts can enjoy scenic parks, hiking the Bruce Trail, and water sports in the historic waterfront neighbourhood of Port Dalhousie. Whether you're a foodie, wine lover, culture aficionado, or adventure seeker, St. Catharines offers something for everyone.</p>
+      </div>
     </div>
   </div>
 </section>
