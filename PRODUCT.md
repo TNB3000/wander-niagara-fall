@@ -74,7 +74,7 @@ Two claims a neighboring destination site could not truthfully copy:
 
 ## Evidence on Hand
 
-- Real listings, events, and itineraries are served by Whereabouts widgets. The Wineries operators widget embed is wired in (`src/_data/embeds.js`); as of 2026-08-19 its GraphQL API returns 500s — user to verify the widget/access IDs with Whereabouts.
+- Real listings, events, and itineraries are served by Whereabouts widgets. Widgets are **origin-restricted**: the Whereabouts API returns 500 / "The widget is invalid" from `localhost` but serves the deployed origin (tnb3000.github.io) — so widgets can only be verified on the deployed preview, never in local dev. The Events widget is live in `src/_data/slots.js` (EVENTS) as of 2026-09-03; the Wineries operators widget embed still sits in `src/_data/embeds.js` ready to be slotted.
 - **Client photo library** (thousands of real regional photos, organized by season/venue): `E:\The New Business Dropbox\The New Business Team Folder\__Client Folders\_Wander Niagara\Visual Assets\Wander Niagara Assets\`. 35 processed selects live in `src/assets/img/photos/` with source paths embedded as provenance.
 - **Fall 2026 article outlines** (client, real businesses and events): three articles built from them in `src/stories/articles/`. Only confirmed event date: Spark Gala ft. National Ballet of Canada, Oct 24, 2026, FirstOntario PAC. All other event dates are marked TBC and must be confirmed before launch.
 - **2026 Fall Paid Media Plan**: $51K total; Flight 1 (Fall) Sept 7–Nov 1 2026, Flight 2 (Holiday/Seasonal) Nov 2–Dec 31 2026. Ads land on themed articles, product-category pages, an events carousel, and the homepage (retargeting). A holiday-flight content refresh (holiday articles + events) is expected for Flight 2.
