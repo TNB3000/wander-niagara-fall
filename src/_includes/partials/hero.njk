@@ -1,13 +1,20 @@
-{# Full-bleed photo hero: one bold headline, one sub, one CTA. #}
+{# PAGE HERO — full-bleed photo (from slots.PAGE_HEROES via `heroSlot`),
+   centred-left title + subtitle + CTA. Photo pending → labelled placeholder in
+   dev, plain ground in production. #}
+{% set heroImgResolved = slots.PAGE_HEROES[heroSlot] if heroSlot else heroImg %}
 <section class="hero" id="hero">
   <div class="hero__media">
-    <img src="{{ heroImg or '/assets/img/photos/stories-hub.jpg' }}"
-         alt="{{ heroAlt or 'Fall in St. Catharines and the Benchlands' }}"
-         width="1600" height="1000" fetchpriority="high" decoding="async">
+    {% if heroImgResolved %}
+    <img src="{{ heroImgResolved }}" alt="{{ heroAlt or '' }}" width="1600" height="1000" fetchpriority="high" decoding="async">
+    {% elif slots.showPlaceholders and heroSlot %}
+    <div class="hero-slide hero-slide--placeholder is-active" style="position:absolute;inset:0">
+      <span>PAGE_HEROES.{{ heroSlot }} · hero photo — pending from client</span>
+    </div>
+    {% endif %}
   </div>
   <div class="wrap hero__inner">
-    <h1>{{ headline or "Fall, at your pace." }}</h1>
-    <p>{{ sub or "Wine, colour, farms and events across the bench." }}</p>
-    <a class="btn" href="{{ heroCtaHref or '#itineraries' }}" data-module="hero">{{ heroCtaLabel or "See fall itineraries" }}</a>
+    <h1>{{ heroTitle | safe }}</h1>
+    <p>{{ heroSub }}</p>
+    <a class="btn" href="{{ heroCtaHref }}" data-module="hero">{{ heroCtaLabel or "Explore" }}</a>
   </div>
 </section>

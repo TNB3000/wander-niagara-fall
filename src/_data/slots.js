@@ -16,6 +16,13 @@ module.exports = {
   // Add image paths (e.g. "/assets/img/photos/….jpg"); empty = static hero ground.
   HERO_SLIDES: [],
 
+  // Per-page hero photos — pending from the client ("client to supply").
+  PAGE_HEROES: {
+    FAMILIES: "",
+    COUPLES_FRIENDS: "",
+    EVENTS: "",
+  },
+
   // Whereabouts embed codes — pending curated business lists from Mackenzie.
   widgets: {
     HOME_EAT_DRINK:       { label: "Whereabouts — home: eat & drink widget", embed: "" },

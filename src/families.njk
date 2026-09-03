@@ -1,29 +1,100 @@
 ---
-layout: layouts/page.njk
+layout: base.njk
 permalink: /families/
 variant: families
 title: "Families"
-description: "Fall for families in St. Catharines & the Benchlands — colour, farms, corn mazes, easy trails and big days out."
-headline: "Fall colours, farms & big days out"
-sub: "Easy trails, pumpkin patches, corn mazes and family attractions."
-heroImg: /assets/img/photos/biz-balls-falls-hike.jpg
-heroAlt: "Walking a leafy fall trail at Ball's Falls"
-heroCtaLabel: "See fall itineraries"
-heroCtaHref: "#itineraries"
-anchors:
-  - { label: "Itineraries", href: "#itineraries" }
-  - { label: "Explore", href: "#explore" }
-  - { label: "Events", href: "#events" }
-  - { label: "FAQ", href: "#faq" }
-headerCtaLabel: "See family itineraries"
-headerCtaHref: "#itineraries"
-itinerariesTitle: "Fall itineraries, mapped out"
-themesTitle: "Trails, farms & family fun"
-widgetLabel: "Whereabouts — family activities widget"
-blogHref: "/stories/fall-fun-for-every-age-and-stage/"
-blogTitle: "Fall Fun For Every Childhood Age & Stage"
-blogBlurb: "From stroller rides on the canal to haunted walks in Jordan Village — a plan for every kid."
-blogImg: /assets/img/photos/story-family-fall.jpg
-faqKey: families
-eventRows: 3
+description: "Experience fall colours, farms & family fun in St. Catharines and the Niagara Benchlands — Escarpment trails, pumpkin patches, farm markets and family attractions."
 ---
+{% set heroTitle = "Experience fall colours, farms & family fun" %}
+{% set heroSub = "Enjoy walks through Escarpment trails, colourful pumpkin patches, local farm markets, and things to do for the whole family." %}
+{% set heroCtaLabel = "Explore" %}
+{% set heroCtaHref = "#fall-colours" %}
+{% set heroSlot = "FAMILIES" %}
+{% include "partials/hero.njk" %}
+
+<section class="section" id="fall-colours" data-module="families">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Fall Colours &amp; Easy Trails</h2>
+      <p>Explore the magic of the Niagara Escarpment as it comes alive with colour this autumn, with trails, waterfalls, and more to see.</p>
+    </div>
+    {% set slotKey = "FAMILY_OUTDOORS" %}
+    {% set slotCells = 8 %}
+    {% include "partials/widget-slot.njk" %}
+  </div>
+</section>
+
+<section class="section" id="farms-markets" data-module="families">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Farms &amp; Markets</h2>
+      <p>Visit pumpkin patches, corn mazes, farms, and more.</p>
+    </div>
+    {% set slotKey = "FAMILY_FARMS_MARKETS" %}
+    {% set slotCells = 8 %}
+    {% include "partials/widget-slot.njk" %}
+  </div>
+</section>
+
+<section class="section" id="attractions" data-module="families">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Museums and Attractions</h2>
+      <p>Travel through time at unique heritage landmarks, family-friendly museums, and fun for kids of all ages.</p>
+    </div>
+    {% set slotKey = "FAMILY_ATTRACTIONS" %}
+    {% set slotCells = 8 %}
+    {% include "partials/widget-slot.njk" %}
+  </div>
+</section>
+
+<section class="section section--warm" id="stay" data-module="families">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Spend the Night at Unique Accommodations</h2>
+      <p>Stay at charming boutique hotels, winery guesthouses, and more.</p>
+    </div>
+    {% set slotKey = "WHERE_TO_STAY" %}
+    {% set slotCells = 4 %}
+    {% include "partials/widget-slot.njk" %}
+  </div>
+</section>
+
+<section class="section" id="itineraries" data-module="itinerary">
+  <div class="wrap">
+    <div class="section__head"><h2>Plan it for me</h2><p><em class="draft-mark">[DRAFT heading — client to approve]</em> Ready-made fall itineraries, stop by stop.</p></div>
+    {% set slotKey = "ITINERARIES_FAMILIES" %}
+    {% set slotCells = 6 %}
+    {% include "partials/widget-slot.njk" %}
+  </div>
+</section>
+
+<section class="section section--green" id="events" data-module="events">
+  <div class="wrap">
+    <div class="section__head head-row">
+      <div>
+        <h2>What's on this Fall</h2>
+        <p>Music festivals, live theatre, family events and so much more</p>
+      </div>
+      <a class="tlink" href="/events/" data-module="events" data-card-label="All events">See all fall events</a>
+    </div>
+    {% set slotKey = "EVENTS" %}
+    {% set slotCells = 6 %}
+    {% include "partials/widget-slot.njk" %}
+  </div>
+</section>
+
+<section class="section" id="reading" data-module="stories">
+  <div class="wrap">
+    <div class="grid-3">
+      <a class="itin" href="/blog/family-fall-fun-guide/" data-module="stories" data-card-label="Family Fall Fun Guide">
+        <p class="itin__meta">Fall Reading</p>
+        <h3>Niagara Fall Fun Guide for Families</h3>
+        <p>Top family activities in Niagara for kids of all ages.</p>
+        <span class="tlink"><span>Read the article</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% include "partials/page-tail.njk" %}
