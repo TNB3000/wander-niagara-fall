@@ -280,6 +280,36 @@
     }
   });
 
+  // ---------------------------------------------------------------------------
+  // 11. Mobile menu — accessible hamburger for the 3-item global nav.
+  //     aria-expanded, Escape closes and returns focus, closes on link click
+  //     and on outside click. Button is [hidden] until JS arms it (no-JS keeps
+  //     the inline nav via CSS).
+  // ---------------------------------------------------------------------------
+  var menuBtn = document.querySelector(".menu-btn");
+  var headerEl = document.getElementById("site-header");
+  if (menuBtn && headerEl) {
+    menuBtn.hidden = false;
+    function setMenu(open){
+      headerEl.classList.toggle("menu-open", open);
+      menuBtn.setAttribute("aria-expanded", String(open));
+    }
+    menuBtn.addEventListener("click", function(){
+      setMenu(menuBtn.getAttribute("aria-expanded") !== "true");
+    });
+    document.addEventListener("keydown", function(e){
+      if (e.key === "Escape" && menuBtn.getAttribute("aria-expanded") === "true") {
+        setMenu(false); menuBtn.focus();
+      }
+    });
+    document.addEventListener("click", function(e){
+      if (menuBtn.getAttribute("aria-expanded") === "true" && !headerEl.contains(e.target)) setMenu(false);
+    });
+    headerEl.querySelectorAll(".nav a").forEach(function(a){
+      a.addEventListener("click", function(){ setMenu(false); });
+    });
+  }
+
   // ---- utils ----
   function throttle(fn, wait){
     var t = 0, timer = null;

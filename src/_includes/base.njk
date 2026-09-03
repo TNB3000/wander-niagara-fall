@@ -32,6 +32,9 @@
 
   {% if heroImg %}<link rel="preload" as="image" href="{{ heroImg }}" fetchpriority="high">{% endif %}
 
+  <!-- JS gate for progressive behaviors (mobile menu, slideshow) -->
+  <script>document.documentElement.classList.add('js')</script>
+
   <!-- Single stylesheet, inlined -->
   <style>{{ "src/assets/css/critical.css" | readFile | safe }}</style>
 

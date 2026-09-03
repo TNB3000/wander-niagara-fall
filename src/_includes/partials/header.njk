@@ -1,13 +1,19 @@
-{# Yellow sticky header — brand, on-page nav, one CTA. Per the client mockup. #}
-<header class="site-header">
+{# Yellow sticky header — logo home link + 3-item global nav (Sept 3 call).
+   Collapses to an accessible hamburger on mobile; no pill CTA. #}
+<header class="site-header" id="site-header">
   <div class="wrap">
-    <a class="brand" href="{{ headerHomeHref or '/' }}">Wander Niagara</a>
-    {% if anchors %}
-    <nav class="nav" aria-label="On this page">
-      {% for a in anchors %}<a href="{{ a.href }}">{{ a.label }}</a>{% endfor %}
+    <a class="brand-logo" href="/" aria-label="{{ site.name }} — home">
+      <img src="/assets/img/logos/wander-black.png" alt="Wander — St. Catharines &amp; Niagara Benchlands" width="273" height="120">
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="global-nav" hidden>
+      <span class="menu-btn__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="menu-btn__label">Menu</span>
+    </button>
+    <nav class="nav" id="global-nav" aria-label="Main">
+      {% for item in site.nav %}
+      <a href="{{ item.href }}"{% if page.url == item.href %} aria-current="page"{% endif %}>{{ item.label }}</a>
+      {% endfor %}
     </nav>
-    {% endif %}
-    <a class="btn btn--sm header-cta" href="{{ headerCtaHref or '#itineraries' }}" data-module="header">{{ headerCtaLabel or "See itineraries" }}</a>
   </div>
 </header>
 <span id="top"></span>

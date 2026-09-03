@@ -87,11 +87,44 @@ p:last-child{margin-bottom:0}
 }
 .site-header .wrap{display:flex;align-items:center;gap:2rem;min-height:72px}
 .brand{font-size:1.15rem;font-weight:700;text-decoration:none;letter-spacing:-.02em;color:var(--black)}
+.brand-logo{display:flex;align-items:center}
+.brand-logo img{height:44px;width:auto}
 .nav{display:flex;gap:1.5rem;margin-left:auto;font-size:.9375rem}
-.nav a{text-decoration:none;color:var(--black);opacity:.72}
-.nav a:hover{opacity:1}
-.header-cta{margin-left:auto}
-.nav + .header-cta{margin-left:0}
+.nav a{text-decoration:none;color:var(--black);opacity:.72;padding:.5rem 0}
+.nav a:hover,.nav a[aria-current="page"]{opacity:1}
+.nav a[aria-current="page"]{font-weight:600}
+
+/* Hamburger (mobile) */
+.menu-btn{
+  display:none;margin-left:auto;
+  min-width:44px;min-height:44px;padding:.5rem .25rem;
+  background:none;border:0;cursor:pointer;color:var(--black);
+  align-items:center;gap:.5rem;font:600 .9375rem var(--sans);
+}
+.menu-btn__bars{display:inline-flex;flex-direction:column;gap:5px;width:22px}
+.menu-btn__bars i{display:block;height:2px;background:var(--black);transition:transform .15s ease,opacity .15s ease}
+.menu-btn[aria-expanded="true"] .menu-btn__bars i:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] .menu-btn__bars i:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] .menu-btn__bars i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+@media (max-width:760px){
+  .menu-btn{display:inline-flex}
+  .menu-btn[hidden]{display:none} /* no-JS: keep the button hidden */
+  .nav{
+    display:none;
+    position:absolute;left:0;right:0;top:100%;
+    background:var(--yellow);
+    border-bottom:1px solid rgba(0,0,0,.12);
+    flex-direction:column;gap:0;
+    padding:.5rem clamp(1.25rem,4vw,2.5rem) 1rem;
+  }
+  .nav a{padding:.85rem 0;font-size:1.0625rem;border-top:1px solid rgba(0,0,0,.08);min-height:44px;display:flex;align-items:center}
+  .nav a:first-child{border-top:0}
+  .site-header.menu-open .nav{display:flex}
+  /* no-JS fallback: keep nav visible inline when the button never activates */
+  html:not(.js) .nav{display:flex;position:static;border:0;padding:0;flex-direction:row;gap:1rem;margin-left:auto}
+  html:not(.js) .nav a{border:0;font-size:.875rem;padding:.5rem 0}
+}
 
 /* Hero */
 .hero{position:relative;min-height:min(78vh,680px);display:flex;align-items:flex-end;color:#fff}
