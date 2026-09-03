@@ -30,7 +30,10 @@ jobs:
       # Client preview lives at the GitHub Pages project URL (no custom domain
       # yet), so the build needs the repo-name path prefix. When a custom
       # domain is wired up later: restore src/CNAME and drop the --pathprefix.
+      # SHOW_PLACEHOLDERS renders labelled slot placeholders in the client preview
       - run: npx @11ty/eleventy --pathprefix=/wander-niagara-fall/
+        env:
+          SHOW_PLACEHOLDERS: "1"
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
