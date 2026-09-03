@@ -40,15 +40,14 @@ Two claims a neighboring destination site could not truthfully copy:
 - Live regional data (businesses, events, itineraries) comes from Whereabouts widgets; the site does not maintain its own listings database.
 - Widget embed codes are not yet on hand — pending from the user.
 
-## Site Architecture (client-confirmed 2026-08-21)
+## Site Architecture (updated from the Sept 3 call)
 
-Seven pages, per the client (Mackenzie Keast, Wander Niagara) on the Aug 21 call and follow-up email:
-1. Landing page ("Fall") — segments visitors into two audience paths
-2. /families/ + one aligned family blog post
-3. /couples/ + aligned couples blog post(s)
-4. /events/ + one aligned events blog post
-
-No stories hub, no directory page. Audience pages share one template — same layout, audience-specific content. Ads A/B test audience page vs. aligned blog post. Creative goes live **September 11, 2026** (Globe & Mail).
+- Global nav: **Families · Couples & Friends · Events** (hamburger on mobile); logo links home.
+- Routes: `/` (hero slideshow + widget-first sections), `/families/`, `/couples-and-friends/`, `/events/` (full events widget + FAQ + Event/WebPage schema), `/privacy/`, and three native blog articles at `/blog/one-weekend-two-ways/`, `/blog/fall-flavours/`, `/blog/family-fall-fun-guide/`.
+- Sections are copy + a **Whereabouts widget** (curated lists; category granularity via the widget's filters) — not category cards. Itinerary widgets come **after** listing widgets.
+- Homepage flow after the audience sections: events widget → Crowdriff gallery → blog links → Getting Here (map + GO Transit) → email signup → footer (mirrors wanderniagara.com's, minus partner links).
+- All pending assets land through **`src/_data/slots.js`** — one named slot per embed/photo.
+- Ads A/B test audience page vs. aligned blog post. Creative goes live **September 11, 2026** (Globe & Mail).
 
 ## Design Direction (client-pinned 2026-08-21, supersedes all prior visual work)
 

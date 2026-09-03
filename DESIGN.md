@@ -53,12 +53,12 @@ at 800/-.035em; h2 700/-.03em; h3 700/-.02em; body 1.0625rem/1.6. Meta lines are
 - **`.site-footer`** — ink ground, text links only (no icons).
 - **Article**: `.article-head` (h1 + meta), `.article-hero` (radius-6 photo, max 560px), `.prose` (680px measure), widget slot, newsletter.
 
-## Rules
+## Rules (updated for the Sept 3 call)
 
 1. **The mockup wins.** Divergence needs a reason in the mockup's own system or the client's words.
-2. **No motion** beyond hover transforms already in the mockup.
-3. **Photography carries the page.** Real photos only (client library, provenance in EXIF); no illustration, no icons.
-4. **Widget zones are wireframe grids** until the real embed is pasted into `_data/embeds.js` and wired via `slotEmbed`/`slotEmbedCode`.
-5. **Copy is Mac's.** Anything we wrote is `[PLACEHOLDER]`-marked or held over from the client's article outlines.
-6. **Architecture is fixed**: `/`, `/families/`, `/couples/`, `/events/`, plus one aligned blog post per audience at `/stories/<slug>/`. No stories hub, no directory page.
+2. **No motion** beyond hover transforms and the client-decided hero slideshow crossfade (auto-advance off under `prefers-reduced-motion`).
+3. **Photography carries the page** — photos pending from the client land via `_data/slots.js` (HERO_SLIDES, PAGE_HEROES, articleImages).
+4. **Widget zones are wireframe grids** until the embed is pasted into `_data/slots.js`; empty slots render labelled placeholders in dev (`--serve` / `SHOW_PLACEHOLDERS=1`) and collapse in production.
+5. **Copy is the client's, verbatim.** Anything we drafted carries a visible `[DRAFT — client to approve]` marker (grep: `DRAFT — client to approve`).
+6. **Architecture (Sept 3)**: `/`, `/families/`, `/couples-and-friends/`, `/events/` (with FAQ), `/privacy/`, three articles at `/blog/<slug>/`. Global nav is exactly Families · Couples & Friends · Events (labels are constants in `_data/site.js`), hamburger on mobile.
 7. Tracking (`assets/js/app.js`, `data-module`/`data-card-label`) is product behavior — preserve it through any edit.
