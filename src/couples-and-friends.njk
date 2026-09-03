@@ -1,0 +1,118 @@
+---
+layout: base.njk
+permalink: /couples-and-friends/
+variant: couples
+title: "Couples & Friends"
+description: "Your fall getaway to eat, drink, and play — award-winning wineries and breweries, elevated dining, shopping and nights out in St. Catharines and the Niagara Benchlands."
+---
+{% set heroTitle = "Your fall getaway to eat, drink, and play" %}
+{% set heroSub = "Visit award-winning wineries and breweries, enjoy elevated dining experiences, and spend the night out." %}
+{% set heroCtaLabel = "Explore" %}
+{% set heroCtaHref = "#wineries" %}
+{% set heroSlot = "COUPLES_FRIENDS" %}
+{% include "partials/hero.njk" %}
+
+<section class="section" id="wineries" data-module="couples">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Wineries, Breweries, and Craft Beverages</h2>
+      <p>Sip your way through award-winning wineries and enjoy local craft beer and wine.</p>
+    </div>
+    {% set slotKey = "CRAFT_BEVERAGE" %}
+    {% set slotCells = 8 %}
+    {% include "partials/widget-slot.njk" %}
+  </div>
+</section>
+
+<section class="section" id="dining" data-module="couples">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Dining and Cuisine</h2>
+      <p>Eat at Michelin-star restaurants, winery patios, late-night hidden escapes, and more.</p>
+    </div>
+    {% set slotKey = "DINING" %}
+    {% set slotCells = 8 %}
+    {% include "partials/widget-slot.njk" %}
+  </div>
+</section>
+
+<section class="section" id="farms-markets" data-module="couples">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Farms &amp; Markets</h2>
+      <p>Visit pumpkin patches, corn mazes, farms, and more.</p>
+    </div>
+    {% set slotKey = "CF_FARMS_MARKETS" %}
+    {% set slotCells = 8 %}
+    {% include "partials/widget-slot.njk" %}
+  </div>
+</section>
+
+<section class="section" id="shopping" data-module="couples">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Shopping</h2>
+      <p>Explore historic villages, the shops of downtown St. Catharines, and more.</p>
+    </div>
+    {% set slotKey = "SHOPPING" %}
+    {% set slotCells = 8 %}
+    {% include "partials/widget-slot.njk" %}
+  </div>
+</section>
+
+<section class="section section--warm" id="stay" data-module="couples">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Spend the Night at Unique Accommodations</h2>
+      <p>Stay at charming boutique hotels, winery guesthouses, and more.</p>
+    </div>
+    {% set slotKey = "WHERE_TO_STAY" %}
+    {% set slotCells = 4 %}
+    {% include "partials/widget-slot.njk" %}
+  </div>
+</section>
+
+<section class="section" id="itineraries" data-module="itinerary">
+  <div class="wrap">
+    <div class="section__head"><h2>Plan it for me</h2><p><em class="draft-mark">[DRAFT heading — client to approve]</em> Ready-made fall itineraries, stop by stop.</p></div>
+    {% set slotKey = "ITINERARIES_CF" %}
+    {% set slotCells = 6 %}
+    {% include "partials/widget-slot.njk" %}
+  </div>
+</section>
+
+<section class="section section--green" id="events" data-module="events">
+  <div class="wrap">
+    <div class="section__head head-row">
+      <div>
+        <h2>What's on this Fall</h2>
+        <p>Music festivals, live theatre, family events and so much more</p>
+      </div>
+      <a class="tlink" href="/events/" data-module="events" data-card-label="All events">See all fall events</a>
+    </div>
+    {% set slotKey = "EVENTS" %}
+    {% set slotCells = 6 %}
+    {% include "partials/widget-slot.njk" %}
+  </div>
+</section>
+
+<section class="section" id="reading" data-module="stories">
+  <div class="wrap">
+    <div class="grid-3">
+      <a class="itin" href="/blog/one-weekend-two-ways/" data-module="stories" data-card-label="One Weekend. Two Ways.">
+        <p class="itin__meta">Fall Reading</p>
+        <h3>One Weekend. Two Ways.</h3>
+        <p>Wander Niagara for fun fall days and action-packed autumn evenings.</p>
+        <span class="tlink"><span>Read the article</span></span>
+      </a>
+      <a class="itin" href="/blog/fall-flavours/" data-module="stories" data-card-label="9 Tasty Ways">
+        <p class="itin__meta">Fall Reading</p>
+        <h3>9 Tasty Ways To Lose Yourself In Niagara's Fall Flavours</h3>
+        <p>Eat and drink your way through harvest season in Niagara.</p>
+        <span class="tlink"><span>Read the article</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% include "partials/page-tail.njk" %}
