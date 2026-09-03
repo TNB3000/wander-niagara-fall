@@ -63,6 +63,7 @@ module.exports = {
     "https://www.googletagmanager.com",
     "https://connect.facebook.net",
     "https://embed.whereabouts.co",
+    "https://starling.crowdriff.com",
     "https://cdn.crowdriff.com",
     "https://chimpstatic.com",
     "https://list-manage.com",
