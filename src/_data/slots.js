@@ -32,7 +32,7 @@ module.exports = {
     FAMILY_OUTDOORS:      { label: "Whereabouts — family outdoors widget", embed: "" },
     FAMILY_FARMS_MARKETS: { label: "Whereabouts — family farms & markets widget", embed: "" },
     FAMILY_ATTRACTIONS:   { label: "Whereabouts — family attractions widget", embed: "" },
-    CRAFT_BEVERAGE:       { label: "Whereabouts — craft beverage widget", embed: "" },
+    CRAFT_BEVERAGE:       { label: "Whereabouts — craft beverage widget", embed: `<whereabouts-operators-widget widget-id="6a85fa0786787426fc53deae" access-id="6a733c9f069c5aa5556f466c"></whereabouts-operators-widget><script src="https://api.prod.next.whereabouts.tech/embeddable/widget/operator/main.js" type="module"></script>` },
     DINING:               { label: "Whereabouts — dining & cuisine widget", embed: "" },
     CF_FARMS_MARKETS:     { label: "Whereabouts — couples & friends farms & markets widget (defaults to the family list until told otherwise)", embed: "" },
     SHOPPING:             { label: "Whereabouts — shopping widget", embed: "" },
