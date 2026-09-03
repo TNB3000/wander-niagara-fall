@@ -310,6 +310,41 @@
     });
   }
 
+  // ---------------------------------------------------------------------------
+  // 12. Hero slideshow — gentle crossfade, auto-advance unless
+  //     prefers-reduced-motion; pause on hover/focus; swipe on touch.
+  //     First slide is server-rendered active, so no JS = static hero.
+  // ---------------------------------------------------------------------------
+  var slidesWrap = document.querySelector("[data-slideshow]");
+  if (slidesWrap) {
+    var slides = [].slice.call(slidesWrap.children);
+    if (slides.length > 1) {
+      var idx = 0, timer = null, paused = false;
+      var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      function show(n){
+        idx = (n + slides.length) % slides.length;
+        slides.forEach(function(s, i){
+          s.classList.toggle("is-active", i === idx);
+          if (i === idx) s.removeAttribute("aria-hidden");
+          else s.setAttribute("aria-hidden", "true");
+        });
+      }
+      function tick(){ if (!paused) show(idx + 1); }
+      function arm(){ if (!reduced && !timer) timer = window.setInterval(tick, 6000); }
+      var hero = slidesWrap.closest(".hero") || slidesWrap;
+      ["mouseenter", "focusin"].forEach(function(ev){ hero.addEventListener(ev, function(){ paused = true; }); });
+      ["mouseleave", "focusout"].forEach(function(ev){ hero.addEventListener(ev, function(){ paused = false; }); });
+      var x0 = null;
+      hero.addEventListener("touchstart", function(e){ x0 = e.touches[0].clientX; }, { passive: true });
+      hero.addEventListener("touchend", function(e){
+        if (x0 === null) return;
+        var dx = e.changedTouches[0].clientX - x0; x0 = null;
+        if (Math.abs(dx) > 40) show(idx + (dx < 0 ? 1 : -1));
+      }, { passive: true });
+      arm();
+    }
+  }
+
   // ---- utils ----
   function throttle(fn, wait){
     var t = 0, timer = null;

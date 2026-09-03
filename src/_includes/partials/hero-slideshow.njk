@@ -1,0 +1,33 @@
+{# HERO SLIDESHOW — 3 photos, gentle crossfade, constant overlay (Sept 3 call).
+   Photos come from slots.HERO_SLIDES (pending from Mackenzie); while empty,
+   dev shows labelled placeholder slides and production shows the plain ground.
+   First slide is active in markup so the hero renders without JS.
+   app.js: auto-advance (disabled by prefers-reduced-motion), pause on
+   hover/focus, swipe on touch. #}
+<section class="hero" id="hero">
+  <div class="hero__media">
+    {% if slots.HERO_SLIDES.length %}
+    <div class="hero-slides" data-slideshow>
+      {% for img in slots.HERO_SLIDES %}
+      <div class="hero-slide{% if loop.first %} is-active{% endif %}" {% if not loop.first %}aria-hidden="true"{% endif %}>
+        <img src="{{ img }}" alt="" width="1600" height="1000"
+             {% if loop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async">
+      </div>
+      {% endfor %}
+    </div>
+    {% elif slots.showPlaceholders %}
+    <div class="hero-slides" data-slideshow>
+      {% for i in [1, 2, 3] %}
+      <div class="hero-slide hero-slide--placeholder{% if loop.first %} is-active{% endif %}" {% if not loop.first %}aria-hidden="true"{% endif %}>
+        <span>HERO_SLIDES · photo {{ i }} of 3 — pending from client</span>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  <div class="wrap hero__inner">
+    <h1>{{ heroTitle | safe }}</h1>
+    <p>{{ heroSub }}</p>
+    <a class="btn" href="{{ heroCtaHref }}" data-module="hero">{{ heroCtaLabel }}</a>
+  </div>
+</section>
