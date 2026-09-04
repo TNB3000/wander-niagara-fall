@@ -229,6 +229,34 @@ whereabouts-operators-widget::part(card__btn-details){
   font-family:var(--sans);font-weight:600;font-size:1rem;padding:10px 18px;
 }
 whereabouts-operators-widget::part(card__btn-details):hover{background:var(--black);color:#fff}
+
+/* Tripper (itinerary) widget — themed through its --tripper-* host variables */
+whereabouts-tripper-widget{
+  --body-font:var(--sans);
+  --tripper-font-family:var(--sans);
+  --tripper-bg:#FFFFFF;
+  --tripper-bg-secondary:var(--grey);
+  --tripper-bg-subtlest:var(--grey);
+  --tripper-bg-inverted:var(--black);
+  --tripper-surface:#FFFFFF;
+  --tripper-text:var(--ink);
+  --tripper-text-subtle:var(--ink-soft);
+  --tripper-text-subtlest:#888888;
+  --tripper-icon-normal:var(--ink);
+  --tripper-icon-subtle:var(--ink-soft);
+  --tripper-icon-inverse:#FFFFFF;
+  --tripper-border:#DDDDDD;
+  --tripper-border-bold:#888888;
+  --tripper-accent-bold:var(--black);
+  --tripper-accent-text:var(--ink);
+  --tripper-accent-bg:var(--yellow);
+  --tripper-accent-border:var(--ink);
+  --tripper-link:var(--link);
+  --tripper-radius-badge:0px;
+  --tripper-shadow-card:none;
+  --tripper-shadow-badge:none;
+  display:block;
+}
 whereabouts-events-widget::part(carousel__gradient){background:linear-gradient(to right,transparent,var(--paper))}
 .section--warm whereabouts-events-widget::part(carousel__gradient){background:linear-gradient(to right,transparent,var(--grey))}
 
