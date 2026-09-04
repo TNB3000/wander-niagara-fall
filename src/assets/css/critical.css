@@ -222,6 +222,12 @@ whereabouts-operators-widget::part(card__venue){font-family:var(--sans);color:va
 whereabouts-events-widget::part(card__tag),
 whereabouts-operators-widget::part(card__tag){background:var(--yellow);color:var(--black);border-radius:0;font-family:var(--sans);font-weight:700}
 whereabouts-events-widget::part(card__tag__tag-text){color:var(--black)}
+whereabouts-operators-widget::part(card__description){font-family:var(--sans);color:var(--ink);font-size:1rem;line-height:1.5}
+whereabouts-operators-widget::part(card__btn-details){
+  background:var(--yellow);color:var(--black);border:0;border-radius:0;
+  font-family:var(--sans);font-weight:600;font-size:1rem;padding:10px 18px;
+}
+whereabouts-operators-widget::part(card__btn-details):hover{background:var(--black);color:#fff}
 whereabouts-events-widget::part(carousel__gradient){background:linear-gradient(to right,transparent,var(--paper))}
 .section--warm whereabouts-events-widget::part(carousel__gradient){background:linear-gradient(to right,transparent,var(--grey))}
 
