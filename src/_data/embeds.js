@@ -49,11 +49,13 @@ module.exports = {
   mailchimp: {
     // The full form action URL, e.g.
     // "https://thenewbusiness.us21.list-manage.com/subscribe/post?u=XXXX&id=YYYY"
-    actionUrl: "",
+    actionUrl: "https://wanderniagara.us14.list-manage.com/subscribe/post?u=5c9980c2b101d254a2bab94af&id=da5bfb6035&f_id=00eca0e0f0",
     // Mailchimp's anti-bot honeypot field name is derived from u & id:
     // b_<u>_<id>. Paste it here so the hidden field is correct. Optional but
     // recommended. e.g. "b_XXXX_YYYY"
-    honeypot: "",
+    honeypot: "b_5c9980c2b101d254a2bab94af_da5bfb6035",
+    // Audience tag applied to signups from this site (from the embed snippet)
+    tags: "7335926",
   },
 
   // ---- Preconnect origins --------------------------------------------------
