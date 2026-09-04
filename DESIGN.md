@@ -58,7 +58,7 @@ supplies all the richness.
 2. **Headings live in the yellow box.** Every section h2, the hero h1 and article h1 — never a bare heading at section level.
 3. **Square corners, no shadows, no gradients** except the photo scrims.
 4. **No motion** beyond hover state changes and the hero slideshow crossfade (auto-advance off under `prefers-reduced-motion`).
-5. **Widgets are themed, never rebuilt** — only through `::part()` and `--global-font-body`; if a widget exposes no hook for something, leave it.
+5. **Widgets are themed, never rebuilt** — only through `::part()` and `--global-font-body`; if a widget exposes no hook for something, leave it. The **tripper** (itinerary) widget exposes no hooks and re-declares its `--tripper-*` theme internally — its colours/font are set in the Whereabouts widget config, not here.
 6. **Copy is the client's, verbatim.** Anything we drafted carries a visible `[DRAFT — client to approve]` marker (grep: `client to approve`).
 7. **Architecture (Sept 3)**: `/`, `/families/`, `/couples-and-friends/`, `/events/` (with FAQ), `/privacy/`, three articles at `/blog/<slug>/`. Nav labels are constants in `_data/site.js`; pending assets all land in `_data/slots.js`.
 8. Tracking (`assets/js/app.js`, `data-module`/`data-card-label`) is product behavior — preserve it through any edit.
