@@ -282,7 +282,8 @@ whereabouts-events-widget::part(carousel__gradient){background:linear-gradient(t
 .faq summary::-webkit-details-marker{display:none}
 .faq summary::after{content:"+";position:absolute;right:0;top:1.1rem;font-size:1.3rem;color:var(--ink-soft)}
 .faq details[open] summary::after{content:"–"}
-.faq p{padding:0 0 1.35rem;color:var(--ink);max-width:62ch}
+.faq p,.faq__a{padding:0 0 1.35rem;color:var(--ink);max-width:62ch}
+.faq__a a{color:var(--link)}
 
 /* Newsletter */
 .nl{max-width:600px}

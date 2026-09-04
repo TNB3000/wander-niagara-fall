@@ -27,8 +27,16 @@ description: "Fall events in St. Catharines and the Niagara Benchlands — music
 <section class="section section--warm" id="faq" data-module="faq">
   <div class="wrap">
     <div class="section__head"><h2>Frequently Asked Questions</h2></div>
-    {% if faqContent %}
-    <div class="faq">{{ faqContent | safe }}</div>
+    {% if faq and faq.length %}
+    {# Client-authorized FAQ, verbatim from wanderniagara.com's events guide (see _data/faq.js) #}
+    <div class="faq">
+      {% for qa in faq %}
+      <details{% if loop.first %} open{% endif %}>
+        <summary>{{ qa.q }}</summary>
+        <div class="faq__a">{{ qa.a | safe }}</div>
+      </details>
+      {% endfor %}
+    </div>
     {% else %}
     {% set slotKey = "FAQ_CONTENT" %}
     {% set slotCells = 3 %}
@@ -51,6 +59,19 @@ description: "Fall events in St. Catharines and the Niagara Benchlands — music
   "about": { "@type": "Place", "name": "St. Catharines and the Niagara Benchlands, Ontario" }
 }
 </script>
-{% if faqContent %}
-{# FAQPage schema is emitted only once real FAQ content lands (FAQ_CONTENT slot) #}
+{% if faq and faq.length %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for qa in faq %}{
+      "@type": "Question",
+      "name": {{ qa.q | dump | safe }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ (qa.a | striptags) | dump | safe }} }
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
 {% endif %}
