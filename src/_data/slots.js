@@ -37,7 +37,7 @@ module.exports = {
     CF_FARMS_MARKETS:     { label: "Whereabouts — couples & friends farms & markets widget (defaults to the family list until told otherwise)", embed: "" },
     SHOPPING:             { label: "Whereabouts — shopping widget", embed: "" },
     ITINERARIES_FAMILIES: { label: "Whereabouts — family itineraries widget", embed: "" },
-    ITINERARIES_CF:       { label: "Whereabouts — couples & friends itineraries widget", embed: "" },
+    ITINERARIES_CF:       { label: "Whereabouts — couples & friends itineraries widget", embed: `<whereabouts-tripper-widget widget-id="6a9b034786787426fc4bd7ed" access-id="6a733c9f069c5aa5556f466c"></whereabouts-tripper-widget><script src="https://next.whereabouts.tech/widget/tripper/v1/main.js" type="module" crossorigin="anonymous"></script>` },
     CROWDRIFF_GALLERY:    { label: "Crowdriff — curated fall photography gallery", embed: `<script id="cr-init__d2e2cf176049ac4f" src="https://starling.crowdriff.com/js/crowdriff.js" async></script>` },
     MAILCHIMP_SIGNUP:     { label: "Mailchimp — email signup embed", embed: "" },
     FAQ_CONTENT:          { label: "FAQ — content pending from the client (reused from the current site's events guide)", embed: "" },

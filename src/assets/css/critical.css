@@ -202,13 +202,14 @@ main a:not(.btn):not(.tlink):not(.itin):not(.path):not(.card):not(.social a){col
 .widget-slot__grid i{display:block;aspect-ratio:4/3;border:1px solid var(--line);background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(0,0,0,.04) 10px,rgba(0,0,0,.04) 20px)}
 
 /* Whereabouts widgets — restyled to the brand through their ::part() hooks */
-whereabouts-events-widget,whereabouts-operators-widget,whereabouts-itineraries-widget{
+whereabouts-events-widget,whereabouts-operators-widget,whereabouts-itineraries-widget,whereabouts-tripper-widget{
   --global-font-body:var(--sans);
   font-family:var(--sans);display:block;
 }
 whereabouts-events-widget::part(card__surface),
 whereabouts-operators-widget::part(card__surface),
-whereabouts-itineraries-widget::part(card__surface){border-radius:0;border:0;background:#fff;box-shadow:none}
+whereabouts-itineraries-widget::part(card__surface),
+whereabouts-tripper-widget::part(card__surface){border-radius:0;border:0;background:#fff;box-shadow:none}
 .section--warm whereabouts-events-widget::part(card__surface),
 .section--warm whereabouts-operators-widget::part(card__surface){background:#fff}
 whereabouts-events-widget::part(card__hero),whereabouts-events-widget::part(card__image-frame),

@@ -60,6 +60,7 @@ module.exports = {
   // Hosts we hint the browser to connect to early. Trim any you don't use.
   preconnect: [
     "https://api.prod.next.whereabouts.tech",
+    "https://next.whereabouts.tech",
     "https://www.googletagmanager.com",
     "https://connect.facebook.net",
     "https://embed.whereabouts.co",
