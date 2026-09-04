@@ -1,34 +1,122 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-21T00:00:00Z",
-  "title": "Design System: Wander Niagara — Fall Campaign (Wireframe v3, client-pinned)",
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "title": "Design System: Wander Niagara \u2014 Fall Campaign (Brand-matched v4)",
   "extensions": {
     "colorMeta": {
-      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#ffffff", "tonalRamp": ["#ffffff", "#f7f3ed", "#ece6dc", "#ddd4c4"] },
-      "paper-warm": { "role": "neutral", "displayName": "Warm Paper", "canonical": "#f7f3ed" },
-      "ink": { "role": "neutral", "displayName": "Ink Green", "canonical": "#243910", "tonalRamp": ["#0e1606", "#1a2a0b", "#243910", "#3a5522", "#5a6b48", "#7d8f68", "#a8b694", "#d4dcc6"] },
-      "ink-soft": { "role": "neutral", "displayName": "Soft Ink", "canonical": "#5a6b48" },
-      "green": { "role": "secondary", "displayName": "Events Green", "canonical": "#243910" },
-      "yellow": { "role": "primary", "displayName": "Wander Yellow", "canonical": "#efef45", "tonalRamp": ["#4d4d0a", "#7a7a14", "#a8a81f", "#d0d02e", "#efef45", "#f4f472", "#f8f8a3", "#fcfcd2"] },
-      "black": { "role": "primary", "displayName": "Button Black", "canonical": "#000000", "tonalRamp": ["#000000", "#2e2e2e", "#555555", "#808080"] },
-      "orange": { "role": "secondary", "displayName": "Focus Orange", "canonical": "#f26a2e" },
-      "line": { "role": "neutral", "displayName": "Hairline", "canonical": "rgba(36,57,16,.16)" },
-      "white-on-dark": { "role": "neutral", "displayName": "White on dark grounds", "canonical": "#ffffff" },
-      "white-soft": { "role": "neutral", "displayName": "White 62-90% on dark", "canonical": "rgba(255,255,255,.62)" },
-      "white-88": { "role": "neutral", "displayName": "White 88%", "canonical": "rgba(255,255,255,.88)" },
-      "white-9": { "role": "neutral", "displayName": "White 90%", "canonical": "rgba(255,255,255,.9)" },
-      "white-72": { "role": "neutral", "displayName": "White 72%", "canonical": "rgba(255,255,255,.72)" },
-      "white-line": { "role": "neutral", "displayName": "White hairline 25-35%", "canonical": "rgba(255,255,255,.25)" },
-      "scrim": { "role": "neutral", "displayName": "Photo scrim", "canonical": "rgba(14,22,6,.75)" },
-      "header-line": { "role": "neutral", "displayName": "Header hairline", "canonical": "rgba(0,0,0,.12)" }
+      "yellow": {
+        "role": "primary",
+        "displayName": "Wander Yellow",
+        "canonical": "#ffd300",
+        "tonalRamp": [
+          "#5c4c00",
+          "#8a7200",
+          "#b89800",
+          "#e6bd00",
+          "#ffd300",
+          "#ffdc33",
+          "#ffe566",
+          "#fff0b3"
+        ]
+      },
+      "black": {
+        "role": "primary",
+        "displayName": "Black",
+        "canonical": "#000000",
+        "tonalRamp": [
+          "#000000",
+          "#222222",
+          "#555555",
+          "#888888"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#222222"
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#555555"
+      },
+      "grey": {
+        "role": "neutral",
+        "displayName": "Section Grey",
+        "canonical": "#eeeeee",
+        "tonalRamp": [
+          "#cccccc",
+          "#dddddd",
+          "#eeeeee",
+          "#f7f7f7",
+          "#ffffff"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#ffffff"
+      },
+      "link": {
+        "role": "secondary",
+        "displayName": "Link Orange",
+        "canonical": "#d16726"
+      },
+      "orange": {
+        "role": "secondary",
+        "displayName": "Draft Orange",
+        "canonical": "#f26a2e"
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "rgba(0,0,0,.12)"
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White on dark",
+        "canonical": "#ffffff"
+      },
+      "white-soft": {
+        "role": "neutral",
+        "displayName": "White 85%",
+        "canonical": "rgba(255,255,255,.85)"
+      },
+      "white-line": {
+        "role": "neutral",
+        "displayName": "White hairline",
+        "canonical": "rgba(255,255,255,.15)"
+      },
+      "scrim": {
+        "role": "neutral",
+        "displayName": "Photo scrim",
+        "canonical": "rgba(0,0,0,.75)"
+      },
+      "placeholder-stripe": {
+        "role": "neutral",
+        "displayName": "Placeholder stripes",
+        "canonical": "#333333"
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Inter 800", "purpose": "h1 only — clamp(2.5rem,6vw,4.25rem), -.035em." },
-      "headline": { "displayName": "Inter 700", "purpose": "h2/h3 section titles." },
-      "body": { "displayName": "Inter 400", "purpose": "Copy at 1.0625rem/1.6." },
-      "label": { "displayName": "Inter 600 caps", "purpose": "Meta lines, widget-slot labels, event dates — .8125rem, +.08em." }
+      "display": {
+        "displayName": "Inter 900 uppercase",
+        "purpose": "h1/h2 in the yellow box; 1px tracking."
+      },
+      "headline": {
+        "displayName": "Inter 700",
+        "purpose": "h3 section sub-heads, card titles."
+      },
+      "body": {
+        "displayName": "Inter 400",
+        "purpose": "18px/27px body."
+      },
+      "label": {
+        "displayName": "Inter 700 caps",
+        "purpose": "Meta lines, slot labels \u2014 .8125rem, +.08em."
+      }
     },
     "shadows": [],
-    "notes": "Client-pinned wireframe system (families-simplified_3.html, 2026-08-21). No motion beyond hover. Widget zones render as wireframe grids, never designed."
+    "notes": "Brand-matched to wanderniagara.com (2026-09-03). Square corners, no shadows. Whereabouts widgets themed via ::part()."
   }
 }

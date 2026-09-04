@@ -1,64 +1,64 @@
-# Design System — Wander Niagara Fall Campaign (Wireframe v3)
+# Design System — Wander Niagara Fall Campaign (Brand-matched v4)
 
-<!-- Source of truth: the client's mockup (families-simplified_3.html, 2026-08-21)
-     and the Aug 21 call. This is a client-pinned system, not an authored world:
-     fidelity to the mockup is the bar, and every rule here is traceable to it.
-     References: tourisme-charlevoix.com, chaudiereappalaches.com. -->
+<!-- Source of truth: wanderniagara.com's live computed styles (2026-09-03) for
+     tokens, type, spacing and devices; the client's simplified mockup
+     (2026-08-21) for layout and section anatomy. Fidelity to the parent brand
+     is the bar; every rule here is traceable to one of those two sources. -->
 
 ## Thesis
 
-Great imagery, clear call-to-action copy, and nothing else. The site should read
-closer to a wireframe than to a "designed" website — explicitly not a brand
-refresh (that comes with the 2027 rebuild). Whereabouts widgets carry the rich
-layer; the page's job is to stay out of their way.
+The parent brand, kept wireframe-simple. Bold photography, yellow boxed
+headings, square black-on-yellow buttons, white/grey section rhythm — and
+nothing else. Whereabouts widgets carry the rich layer and are themed to read
+as the brand; the page's job is to stay out of their way.
 
 ## Palette (tokens in `src/assets/css/critical.css` `:root`)
 
 | Token | Value | Use |
 |---|---|---|
+| `--yellow` | `#FFD300` | Header, boxed headings, buttons, tags, footer accents |
+| `--black` | `#000000` | Button text, mobile MENU block, footer ground, hover fills |
+| `--ink` | `#222222` | Body text, headings |
+| `--ink-soft` | `#555555` | Secondary text, meta |
+| `--grey` | `#EEEEEE` | Alternate section ground, cards, funders band |
 | `--paper` | `#FFFFFF` | Page ground |
-| `--paper-warm` | `#F7F3ED` | Alternate section ground, itinerary cards, mapcard |
-| `--ink` | `#243910` | Text, footer ground |
-| `--ink-soft` | `#5A6B48` | Secondary text |
-| `--green` | `#243910` | Events section ground (white text) |
-| `--yellow` | `#EFEF45` | Header bar, link underlines, selection |
-| `--black` | `#000000` | Buttons, header text |
-| `--orange` | `#F26A2E` | Focus rings only |
-| `--line` | `rgba(36,57,16,.16)` | Hairlines, borders |
+| `--link` | `#D16726` | Inline text links |
+| `--orange` | `#F26A2E` | Draft markers only (dev) |
+| `--line` | `rgba(0,0,0,.12)` | Hairlines |
 
-White (`#fff`, `rgba(255,255,255,*)`) is text/UI on green and ink grounds.
-No other colors. Photography supplies all the richness.
+Square corners everywhere (`border-radius: 0`). No shadows. Photography
+supplies all the richness.
 
-## Type
+## Type (Inter only, 400/500/600/700/800/900 via Google Fonts)
 
-**Inter only** (400/500/600/700/800, Google Fonts). h1 `clamp(2.5rem,6vw,4.25rem)`
-at 800/-.035em; h2 700/-.03em; h3 700/-.02em; body 1.0625rem/1.6. Meta lines are
-.8125rem/600 uppercase +.08em. No display face, no script, no second family.
+- Body `1.125rem/1.5` (18px/27px, as on wanderniagara.com), colour `#222`.
+- **h1/h2** — Inter 900, uppercase, `letter-spacing: 1px`, `line-height: 1.08`; h1 `clamp(2rem,5vw,3.75rem)`, h2 `clamp(1.75rem,4vw,3rem)`. Section h2s, the hero h1 and article h1 sit in the **yellow box** (`.boxed`): inline-block, `#FFD300`, padding ≈ 20px.
+- **h3** — Inter 700, `clamp(1.25rem,1.9vw,1.5625rem)`.
+- Meta lines `.8125rem/700` uppercase +.08em.
+- Article `.prose h2` drops the box (plain uppercase 900).
 
 ## Components (all in critical.css, inlined)
 
-- **`.site-header`** — sticky yellow bar: brand text, on-page nav (hidden <760px), one `.btn--sm` CTA.
-- **`.btn`** — black pill, white text; `.btn--ghost` outline; hover lifts 1px. White-on-photo variant inside `.path__body`.
-- **`.tlink`** — text link with 1.5px yellow underline.
-- **`.hero`** — full-bleed photo, bottom gradient `rgba(14,22,6,…)`, h1 + sub + one btn.
-- **`.paths` / `.path`** — landing's two audience photo cards (min-height 440px, white pill).
-- **`.itin`** — warm-paper text card (meta / h3 / blurb / tlink), radius 6px.
-- **`.scroller` + `.card`** — horizontal snap row of 3:2 photo cards, radius 6px.
-- **`.widget-slot`** — Whereabouts zone: dashed border, uppercase label, hatched wireframe grid cells. **Never design these** — "just put a grid there." The `.embed-slot` inner div is the app.js lazy-loader removal hook.
-- **`.section--green` + `.events` / `.event`** — dark green events list: date column (incl. "SEP TBC"), name, venue.
-- **`.feature`** — aligned blog-post photo card with bottom gradient.
-- **`.mapcard` + `.drive`** — getting-here drive times on warm paper.
-- **`.faq`** — native `<details>`, +/– marker.
-- **`.nl`** — pill input + black pill button.
-- **`.site-footer`** — ink ground, text links only (no icons).
-- **Article**: `.article-head` (h1 + meta), `.article-hero` (radius-6 photo, max 560px), `.prose` (680px measure), widget slot, newsletter.
+- **`.site-header`** — sticky `#FFD300` bar, logo (official black lockup) home link, 3-item nav (Inter 600 17px, black underline on current/hover); `.menu-btn` black uppercase MENU block on mobile; mobile nav panel black with white links.
+- **`.btn`** — black on yellow, square, Inter 600 18px, `12px 22px`; hover inverts to black/white. `.btn--ghost` = black with white text.
+- **`.tlink`** — Inter 600 with a 3px yellow underline. Inline prose/main links are `#D16726` underlined.
+- **`.hero` / `.hero-slides`** — full-bleed photo (or 3-slide crossfade), black bottom gradient, yellow boxed h1, white sub, yellow `.btn`.
+- **`.paths` / `.path`** — landing's two audience photo cards, square, black gradient, yellow button.
+- **`.itin`** — grey text card (white on grey sections), hover turns yellow; blog teasers.
+- **`.widget-slot`** — pending-asset placeholder: 2px dashed grid, uppercase label; collapses in production unless `SHOW_PLACEHOLDERS=1`.
+- **Whereabouts widgets** — themed via `::part()`: `card__surface` square/white/no border, `card__title` Inter 700 18px `#222`, `card__venue`/`card__description` Inter `#555`, `card__tag` yellow/black square, `card__btn-details` = brand button, image parts square; `--global-font-body: Inter` on the host. (Widgets are origin-restricted — verify on the deployed preview only.)
+- **`.mapcard` + `.drive`** — grey block with drive times; `.region-map` full-width illustrated map (WebP + PNG).
+- **`.faq`** — native `<details>`, +/– marker, Inter 700 summaries.
+- **`.nl`** — square 2px-ink input + yellow button (Mailchimp slot replaces the form when it lands).
+- **`.funders` + `.site-footer`** — identical to wanderniagara.com (see partial comments).
 
-## Rules (updated for the Sept 3 call)
+## Rules
 
-1. **The mockup wins.** Divergence needs a reason in the mockup's own system or the client's words.
-2. **No motion** beyond hover transforms and the client-decided hero slideshow crossfade (auto-advance off under `prefers-reduced-motion`).
-3. **Photography carries the page** — photos pending from the client land via `_data/slots.js` (HERO_SLIDES, PAGE_HEROES, articleImages).
-4. **Widget zones are wireframe grids** until the embed is pasted into `_data/slots.js`; empty slots render labelled placeholders in dev (`--serve` / `SHOW_PLACEHOLDERS=1`) and collapse in production.
-5. **Copy is the client's, verbatim.** Anything we drafted carries a visible `[DRAFT — client to approve]` marker (grep: `DRAFT — client to approve`).
-6. **Architecture (Sept 3)**: `/`, `/families/`, `/couples-and-friends/`, `/events/` (with FAQ), `/privacy/`, three articles at `/blog/<slug>/`. Global nav is exactly Families · Couples & Friends · Events (labels are constants in `_data/site.js`), hamburger on mobile.
-7. Tracking (`assets/js/app.js`, `data-module`/`data-card-label`) is product behavior — preserve it through any edit.
+1. **The parent brand wins on tokens; the mockup wins on layout.** Divergence needs a reason in one of the two sources.
+2. **Headings live in the yellow box.** Every section h2, the hero h1 and article h1 — never a bare heading at section level.
+3. **Square corners, no shadows, no gradients** except the photo scrims.
+4. **No motion** beyond hover state changes and the hero slideshow crossfade (auto-advance off under `prefers-reduced-motion`).
+5. **Widgets are themed, never rebuilt** — only through `::part()` and `--global-font-body`; if a widget exposes no hook for something, leave it.
+6. **Copy is the client's, verbatim.** Anything we drafted carries a visible `[DRAFT — client to approve]` marker (grep: `client to approve`).
+7. **Architecture (Sept 3)**: `/`, `/families/`, `/couples-and-friends/`, `/events/` (with FAQ), `/privacy/`, three articles at `/blog/<slug>/`. Nav labels are constants in `_data/site.js`; pending assets all land in `_data/slots.js`.
+8. Tracking (`assets/js/app.js`, `data-module`/`data-card-label`) is product behavior — preserve it through any edit.
