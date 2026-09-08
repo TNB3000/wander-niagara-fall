@@ -27,7 +27,7 @@ module.exports = {
   widgets: {
     HOME_EAT_DRINK:       { label: "Whereabouts — home: eat & drink widget", embed: "" },
     HOME_OUTDOORS:        { label: "Whereabouts — home: outdoors widget", embed: "" },
-    WHERE_TO_STAY:        { label: "Whereabouts — where to stay widget", embed: "" },
+    WHERE_TO_STAY:        { label: "Whereabouts — where to stay widget", embed: `<whereabouts-operators-widget widget-id="6a9f74bbc06fe9442ed4f29f" access-id="6a733c9f069c5aa5556f466c"></whereabouts-operators-widget><script src="https://api.prod.next.whereabouts.tech/embeddable/widget/operator/main.js" type="module"></script>` },
     EVENTS:               { label: "Whereabouts — events widget", embed: `<whereabouts-events-widget organization-id="6a733c9f069c5aa5556f466c" widget-id="6a835cfc86787426fc72ee1b" style="display: block; min-height: 360px"></whereabouts-events-widget><script src="https://api.prod.next.whereabouts.tech/embeddable/widget/event/main.js" type="module"></script>` },
     FAMILY_OUTDOORS:      { label: "Whereabouts — family outdoors widget", embed: "" },
     FAMILY_FARMS_MARKETS: { label: "Whereabouts — family farms & markets widget", embed: "" },
