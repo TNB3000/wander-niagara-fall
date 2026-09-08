@@ -229,6 +229,24 @@ whereabouts-operators-widget::part(card__btn-details){
   font-family:var(--sans);font-weight:600;font-size:1rem;padding:10px 18px;
 }
 whereabouts-operators-widget::part(card__btn-details):hover{background:var(--black);color:#fff}
+/* Operators widget: category filter chips, view toggle, load-more */
+whereabouts-operators-widget::part(filter__btn-tag){
+  font-family:var(--sans);font-weight:600;font-size:.9375rem;border-radius:0;
+  background:#fff;color:var(--ink);border:2px solid var(--ink);
+}
+whereabouts-operators-widget::part(filter__btn-tag):hover{background:var(--yellow)}
+whereabouts-operators-widget::part(filter__view-title){font-family:var(--sans);color:var(--ink-soft)}
+whereabouts-operators-widget::part(filter__view-segment-group){border-radius:0;background:#fff;border:2px solid var(--ink)}
+whereabouts-operators-widget::part(filter__view-segment-item){font-family:var(--sans);color:var(--ink);border-radius:0}
+whereabouts-operators-widget::part(filter__view-segment-item--state-selected){font-family:var(--sans);color:var(--black);border-radius:0}
+whereabouts-operators-widget::part(filter__view-segment-group__indicator){background:var(--yellow);border-radius:0}
+whereabouts-operators-widget::part(widget__btn-load-more){
+  background:var(--yellow);color:var(--black);border:0;border-radius:0;
+  font-family:var(--sans);font-weight:600;font-size:1.125rem;padding:12px 22px;
+}
+whereabouts-operators-widget::part(widget__btn-load-more):hover{background:var(--black);color:#fff}
+.section--warm whereabouts-operators-widget::part(filter__gradient-left){background:linear-gradient(to right,var(--grey),transparent)}
+.section--warm whereabouts-operators-widget::part(filter__gradient-right){background:linear-gradient(to left,var(--grey),transparent)}
 
 /* Tripper (itinerary) widget: no ::part hooks and its internal root re-declares
    every --tripper-* variable, so it cannot be themed from page CSS. Its brand
