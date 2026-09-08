@@ -13,8 +13,8 @@
     {% endif %}
   </div>
   <div class="wrap hero__inner">
-    <h1>{{ heroTitle | safe }}</h1>
-    <p>{{ heroSub }}</p>
+    <h1>{% if heroLine1 %}<span class="hero__l1">{{ heroLine1 }}</span> <span class="hero__l2">{{ heroLine2 }}</span>{% else %}{{ heroTitle | safe }}{% endif %}</h1>
+    <p>{{ heroSub | safe }}</p>
     <a class="btn" href="{{ heroCtaHref }}" data-module="hero">{{ heroCtaLabel or "Explore" }}</a>
   </div>
 </section>

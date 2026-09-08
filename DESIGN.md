@@ -32,7 +32,7 @@ supplies all the richness.
 ## Type (Inter only, 400/500/600/700/800/900 via Google Fonts)
 
 - Body `1.125rem/1.5` (18px/27px, as on wanderniagara.com), colour `#222`.
-- **h1/h2** — Inter 900, uppercase, `letter-spacing: 1px`, `line-height: 1.08`; h1 `clamp(2rem,5vw,3.75rem)`, h2 `clamp(1.75rem,4vw,3rem)`. Section h2s, the hero h1 and article h1 sit in the **yellow box** (`.boxed`): inline-block, `#FFD300`, padding ≈ 20px.
+- **h1/h2** — Inter 900, uppercase, `letter-spacing: 1px`, `line-height: 1.08`; h1 `clamp(2rem,5vw,3.75rem)`, h2 `clamp(1.75rem,4vw,3rem)`. Section h2s and the article h1 sit in the **yellow box** (`.boxed`): inline-block, `#FFD300`, padding ≈ 20px. **Hero h1s are not boxed** (client PDF, 2026-09-08): two lines, white then yellow (`.hero__l1`/`.hero__l2`), white sub with an optional yellow `.hero__accent`, left-aligned on desktop and centred on mobile.
 - **h3** — Inter 700, `clamp(1.25rem,1.9vw,1.5625rem)`.
 - Meta lines `.8125rem/700` uppercase +.08em.
 - Article `.prose h2` drops the box (plain uppercase 900).
@@ -42,7 +42,7 @@ supplies all the richness.
 - **`.site-header`** — sticky `#FFD300` bar, logo (official black lockup) home link, 3-item nav (Inter 600 17px, black underline on current/hover); `.menu-btn` black uppercase MENU block on mobile; mobile nav panel black with white links.
 - **`.btn`** — black on yellow, square, Inter 600 18px, `12px 22px`; hover inverts to black/white. `.btn--ghost` = black with white text.
 - **`.tlink`** — Inter 600 with a 3px yellow underline. Inline prose/main links are `#D16726` underlined.
-- **`.hero` / `.hero-slides`** — full-bleed photo (or 3-slide crossfade), black bottom gradient, yellow boxed h1, white sub, yellow `.btn`.
+- **`.hero` / `.hero-slides`** — full-bleed photo (or 3-slide crossfade), black bottom gradient, two-line white/yellow h1, white sub, yellow `.btn`; centred on mobile.
 - **`.paths` / `.path`** — landing's two audience photo cards, square, black gradient, yellow button.
 - **`.itin`** — grey text card (white on grey sections), hover turns yellow; blog teasers.
 - **`.widget-slot`** — pending-asset placeholder: 2px dashed grid, uppercase label; collapses in production unless `SHOW_PLACEHOLDERS=1`.
@@ -55,7 +55,7 @@ supplies all the richness.
 ## Rules
 
 1. **The parent brand wins on tokens; the mockup wins on layout.** Divergence needs a reason in one of the two sources.
-2. **Headings live in the yellow box.** Every section h2, the hero h1 and article h1 — never a bare heading at section level.
+2. **Section headings live in the yellow box.** Every section h2 and the article h1 — never a bare heading at section level. Hero h1s are the exception: white line + yellow line on the photo, per the client's hero PDF.
 3. **Square corners, no shadows, no gradients** except the photo scrims.
 4. **No motion** beyond hover state changes and the hero slideshow crossfade (auto-advance off under `prefers-reduced-motion`).
 5. **Widgets are themed, never rebuilt** — only through `::part()` and `--global-font-body`; if a widget exposes no hook for something, leave it. The **tripper** (itinerary) widget exposes no hooks and re-declares its `--tripper-*` theme internally — its colours/font are set in the Whereabouts widget config, not here.

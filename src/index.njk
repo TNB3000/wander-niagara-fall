@@ -5,8 +5,9 @@ variant: home
 title: ""
 description: "Fall is made for wandering — plan your autumn escape to St. Catharines and the Niagara Benchlands: wineries, fall colours, farms, events and more."
 ---
-{% set heroTitle %}Fall is made for <em>wandering</em>{% endset %}
-{% set heroSub = "Your perfect autumn escape is closer than you think in St. Catharines and the Benchlands." %}
+{% set heroLine1 = "Fall is made for" %}
+{% set heroLine2 = "wandering" %}
+{% set heroSub %}Your perfect autumn escape is closer than you think in <span class="hero__accent">St. Catharines and the Benchlands.</span>{% endset %}
 {% set heroCtaLabel = "Explore" %}
 {% set heroCtaHref = "#food-drink" %}
 {% include "partials/hero-slideshow.njk" %}
