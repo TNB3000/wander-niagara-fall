@@ -108,6 +108,12 @@ build report links to. Summary:
 
 ## Tracking (this is the product)
 
+> **Same-domain note (Flywheel):** once the site is served from `wanderniagara.com/fall/`, the
+> GA4 measurement ID and Meta pixel ID in `src/_data/embeds.js` sit on the **same domain as the
+> main WordPress site**. The client should decide whether to reuse the main site's GA4 property
+> (unified reporting — filter this microsite by `page_variant`) or keep a separate one. Do not
+> change the IDs without that decision.
+
 Loaded lazily by `src/assets/js/app.js` (never blocks LCP). Uses **event
 delegation** on `a[href^="http"]` — no per-link handlers.
 
@@ -245,6 +251,60 @@ Before DNS is live, the raw Pages URL is
 (`/assets/…`) so they resolve correctly once served from the custom-domain root.
 
 ---
+
+## Deploying to Flywheel (production — `wanderniagara.com/fall/`)
+
+The campaign site ships as a **static folder inside the client's Flywheel WordPress host**,
+served directly by Nginx (WordPress never sees it). GitHub Pages stays the preview/staging
+environment; both targets coexist and are selected with `DEPLOY_TARGET`.
+
+| | `ghpages` (default) | `flywheel` |
+|---|---|---|
+| command | `npm run build` (CI adds `--pathprefix=/wander-niagara-fall/`) | `npm run build:flywheel` |
+| output | `_site/` | `dist-flywheel/fall/` |
+| path prefix | `/wander-niagara-fall/` (CI) | `/fall/` |
+| absolute URLs | `https://fall.wanderniagara.com` | `https://wanderniagara.com/fall` (bare domain, no `www`) |
+| pages | `index.html` | **`index.php`** |
+| `robots.txt` | shipped | **not shipped** (WordPress owns `/robots.txt`) |
+
+**Why `index.php`:** Flywheel's Nginx `index` directive only recognises `index.php`, so
+`/fall/` returned 403 with `index.html`; the files contain no PHP and are simply echoed —
+do not "fix" them back to `.html`. Internal links stay directory URLs (`/fall/families/`);
+Nginx resolves them to `index.php` itself. The build escapes any stray `<?` (e.g. an
+`<?xml` prolog in pasted embed code) so PHP never parses it.
+
+### Steps
+
+1. `npm run build:flywheel`
+2. Upload — either drag **`dist-flywheel/fall/`** into the WordPress root (alongside
+   `wp-content`) with your SFTP client (`sftp.flywheelsites.com`, port 22), or run
+   `./scripts/deploy-flywheel.sh` (needs `lftp` and `FLYWHEEL_USER` / `FLYWHEEL_PASS` /
+   `FLYWHEEL_SITE_PATH` in your environment or a local `.env` — see `.env.example`; `.env` is
+   gitignored and credentials never live in the repo). The script mirrors into `<root>/fall`
+   only; its `--delete` can never touch `wp-content` or anything else at the root.
+3. **Flush Cache** — Flywheel dashboard → site → **Advanced** → Flush Cache (FlyCache serves
+   stale files otherwise). Required after every upload.
+4. Check **`https://wanderniagara.com/fall/`** in a private window.
+
+**Share URL for Loud & Clear:** `wanderniagara.com/fall/` — no `www`, trailing slash
+(`www` 301s to the bare domain and `/fall` 301s to `/fall/`).
+
+**Sitemap:** the build writes `/fall/sitemap.xml` with `wanderniagara.com/fall/…` URLs. The
+WordPress sitemap will not include it — submit `https://wanderniagara.com/fall/sitemap.xml`
+to Search Console separately.
+
+### Local check before uploading
+
+```bash
+npm run build:flywheel
+php -S localhost:8080 -t dist-flywheel        # preferred: index.php as directory index, like Nginx
+# or, without php:
+python scripts/serve-flywheel-local.py 8080
+```
+
+Open `http://localhost:8080/fall/` and click through every page with the network panel open —
+no 404s, `index.php` everywhere (`find dist-flywheel -name index.html` → nothing), and
+`grep -rl "wander-niagara-fall\|fall.wanderniagara.com" dist-flywheel/` → nothing.
 
 ## Definition-of-done status
 

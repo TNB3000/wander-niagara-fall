@@ -14,7 +14,14 @@ module.exports = {
   // Kicker line required on EVERY page, above the headline.
   kicker: "St. Catharines & the Benchlands",
   // Canonical production origin. Used for absolute URLs in JSON-LD / OG tags.
-  url: "https://fall.wanderniagara.com",
+  // Build target (DEPLOY_TARGET=flywheel|ghpages) — see .eleventy.js.
+  target: process.env.DEPLOY_TARGET === "flywheel" ? "flywheel" : "ghpages",
+  // Absolute site URL for canonicals, og:url/og:image, JSON-LD and the sitemap.
+  //   flywheel: static folder on the client's WordPress host — bare domain, no www.
+  //   ghpages : unchanged preview/staging value.
+  url: process.env.DEPLOY_TARGET === "flywheel"
+    ? "https://wanderniagara.com/fall"
+    : "https://fall.wanderniagara.com",
   description:
     "Fall in St. Catharines and the Benchlands — wine, colour, farms and events across Niagara's bench. Plan your fall getaway.",
 

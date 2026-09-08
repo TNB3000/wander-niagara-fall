@@ -13,3 +13,5 @@ _site/
 .impeccable/origins.txt
 .impeccable/questions/
 .impeccable/fetch/
+dist-flywheel/
+.env

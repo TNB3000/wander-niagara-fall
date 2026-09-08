@@ -1,19 +1,32 @@
 // Eleventy config — Wander Niagara Fall campaign microsite
 // CommonJS (package.json has no "type":"module").
+//
+// Build targets (DEPLOY_TARGET env var, see _data/site.js):
+//   ghpages  (default) — GitHub Pages preview/staging. Output _site/, pathPrefix
+//                        comes from the CLI (--pathprefix=/wander-niagara-fall/ in
+//                        the Actions workflow), index.html files. Unchanged.
+//   flywheel           — static folder on the client's Flywheel WordPress host,
+//                        served by Nginx at https://wanderniagara.com/fall/.
+//                        Output dist-flywheel/fall/, pathPrefix /fall/, every page
+//                        written as index.php (Flywheel's Nginx index directive
+//                        only recognises index.php), no GitHub-Pages-only files.
 const fs = require("fs");
 const path = require("path");
 const { HtmlBasePlugin } = require("@11ty/eleventy");
 
+const TARGET = process.env.DEPLOY_TARGET === "flywheel" ? "flywheel" : "ghpages";
+const FLYWHEEL = TARGET === "flywheel";
+
 module.exports = function (eleventyConfig) {
-  // Rewrites absolute /paths in built HTML when a pathPrefix is set
-  // (GitHub Pages project URL: --pathprefix=/wander-niagara-fall/).
-  // No-op for local dev and for a future custom domain.
+  // Rewrites root-relative /paths (href, src, srcset, meta refresh…) in built
+  // HTML to include the pathPrefix. Templates stay root-relative.
   eleventyConfig.addPlugin(HtmlBasePlugin);
 
   // ---- Passthrough copy (assets ship as-is; keep paths relative) ----
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy("src/favicon.svg");
-  eleventyConfig.addPassthroughCopy("src/robots.txt");
+  // robots.txt is GitHub-Pages-only: on Flywheel the WordPress site owns /robots.txt.
+  if (!FLYWHEEL) eleventyConfig.addPassthroughCopy("src/robots.txt");
 
   // Rebuild when CSS/JS change during --serve
   eleventyConfig.addWatchTarget("src/assets/");
@@ -71,17 +84,56 @@ module.exports = function (eleventyConfig) {
     }
   });
 
+  // ---- Flywheel post-build: index.html → index.php, PHP-safety scan, no GH files ----
+  // Done as a mechanical post-build step so templates and page.url stay clean
+  // (a permalink of …/index.php would leak into page.url, canonicals and nav).
+  if (FLYWHEEL) {
+    eleventyConfig.on("eleventy.after", ({ dir }) => {
+      const out = dir.output;
+      const walk = (d, fn) => {
+        for (const entry of fs.readdirSync(d, { withFileTypes: true })) {
+          const p = path.join(d, entry.name);
+          if (entry.isDirectory()) walk(p, fn);
+          else fn(p);
+        }
+      };
+      // GitHub-Pages-only files must not ship.
+      for (const f of ["CNAME", ".nojekyll", "robots.txt"]) {
+        const p = path.join(out, f);
+        if (fs.existsSync(p)) fs.unlinkSync(p);
+      }
+      let renamed = 0;
+      const offenders = [];
+      walk(out, (p) => {
+        if (path.basename(p) !== "index.html") return;
+        const php = path.join(path.dirname(p), "index.php");
+        let html = fs.readFileSync(p, "utf8");
+        // PHP executes these files: any "<?" outside a real PHP tag would be parsed
+        // as PHP (e.g. an <?xml prolog inside copied SVG/embed code). Escape it.
+        if (html.includes("<?")) {
+          offenders.push(path.relative(out, p));
+          html = html.replace(/<\?/g, "&lt;?");
+        }
+        fs.writeFileSync(php, html);
+        fs.unlinkSync(p);
+        renamed++;
+      });
+      console.log(`[flywheel] ${renamed} page(s) written as index.php in ${out}`);
+      if (offenders.length) console.log(`[flywheel] escaped "<?" in: ${offenders.join(", ")}`);
+    });
+  }
+
   // ---- Dirs ----
   return {
     dir: {
       input: "src",
-      output: "_site",
+      output: FLYWHEEL ? "dist-flywheel/fall" : "_site",
       includes: "_includes",
       data: "_data",
     },
-    // Use relative paths everywhere so a custom-domain move (fall.wanderniagara.com)
-    // and GitHub Pages subpath both work without rewriting links.
-    pathPrefix: "/",
+    // ghpages: "/" here, overridden by --pathprefix on the CLI for the Pages URL.
+    // flywheel: the folder lives at wanderniagara.com/fall/.
+    pathPrefix: FLYWHEEL ? "/fall/" : "/",
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
     templateFormats: ["njk", "md", "html"],
