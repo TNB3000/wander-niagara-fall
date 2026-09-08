@@ -136,6 +136,8 @@ main a:not(.btn):not(.tlink):not(.itin):not(.path):not(.card):not(.social a){col
 .hero{position:relative;min-height:min(78vh,680px);display:flex;align-items:flex-end;color:#fff}
 .hero__media{position:absolute;inset:0;overflow:hidden;background:var(--ink)}
 .hero__media img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero--families .hero__media img{object-position:50% 8%}
+.hero--couples_friends .hero__media img{object-position:50% 25%}
 .hero__media::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7),rgba(0,0,0,.15) 55%,rgba(0,0,0,0))}
 .hero__inner{position:relative;padding-block:clamp(3rem,7vw,5rem)}
 .hero h1{max-width:18ch;margin-bottom:1rem}

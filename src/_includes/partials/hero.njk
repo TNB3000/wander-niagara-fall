@@ -2,7 +2,7 @@
    centred-left title + subtitle + CTA. Photo pending → labelled placeholder in
    dev, plain ground in production. #}
 {% set heroImgResolved = slots.PAGE_HEROES[heroSlot] if heroSlot else heroImg %}
-<section class="hero" id="hero">
+<section class="hero{% if heroSlot %} hero--{{ heroSlot | lower }}{% endif %}" id="hero">
   <div class="hero__media">
     {% if heroImgResolved %}
     <img src="{{ heroImgResolved }}" alt="{{ heroAlt or '' }}" width="1600" height="1000" fetchpriority="high" decoding="async">
