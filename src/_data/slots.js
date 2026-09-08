@@ -14,13 +14,17 @@ module.exports = {
 
   // Hero slideshow photos (×3) + tagline — pending from Mackenzie.
   // Add image paths (e.g. "/assets/img/photos/….jpg"); empty = static hero ground.
-  HERO_SLIDES: [],
+  HERO_SLIDES: [
+    "/assets/img/heroes/hero-fall-road.jpg",
+    "/assets/img/heroes/hero-couple-vineyard.jpg",
+    "/assets/img/heroes/hero-family-corn.jpg",
+  ],
 
   // Per-page hero photos — pending from the client ("client to supply").
   PAGE_HEROES: {
-    FAMILIES: "",
-    COUPLES_FRIENDS: "",
-    EVENTS: "",
+    FAMILIES: "/assets/img/heroes/hero-family-corn.jpg",
+    COUPLES_FRIENDS: "/assets/img/heroes/hero-couple-vineyard.jpg",
+    EVENTS: "/assets/img/heroes/hero-concert.jpg",
   },
 
   // Whereabouts embed codes — pending curated business lists from Mackenzie.
