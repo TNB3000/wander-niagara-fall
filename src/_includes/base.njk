@@ -44,6 +44,7 @@
     "ga4Id": {{ (embeds.ga4Id or "") | dump | safe }},
     "metaPixelId": {{ (embeds.metaPixelId or "") | dump | safe }},
     "gtmId": {{ (embeds.gtmId or "") | dump | safe }},
+    "stackAdaptPixelId": {{ (embeds.stackAdaptPixelId or "") | dump | safe }},
     "variant": {{ (variant or "") | dump | safe }},
     "ref": {
       "enabled": {{ "true" if site.outboundRef.enabled else "false" }},

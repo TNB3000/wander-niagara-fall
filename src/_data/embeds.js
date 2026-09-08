@@ -16,6 +16,8 @@ module.exports = {
   // Optional: if Loud & Clear prefer GTM, paste the container id "GTM-XXXXXXX"
   // here and load it instead of gtag (see README). Empty = not used.
   gtmId: "",
+  // StackAdapt retargeting pixel (universal pixel id). Empty = disabled.
+  stackAdaptPixelId: "kfPIwrQ72HRILrPivbDP8g",
 
   // ---- Whereabouts ---------------------------------------------------------
   // The client chose Whereabouts because its widgets load async. Paste embed
@@ -63,6 +65,7 @@ module.exports = {
   preconnect: [
     "https://api.prod.next.whereabouts.tech",
     "https://next.whereabouts.tech",
+    "https://tags.srv.stackadapt.com",
     "https://www.googletagmanager.com",
     "https://connect.facebook.net",
     "https://embed.whereabouts.co",

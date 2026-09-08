@@ -44,6 +44,7 @@
     if (booted) return; booted = true;
     if (cfg.ga4Id) loadGtag(cfg.ga4Id);
     if (cfg.metaPixelId) loadPixel(cfg.metaPixelId);
+    if (cfg.stackAdaptPixelId) loadStackAdapt(cfg.stackAdaptPixelId);
   }
   function loadGtag(id){
     window.dataLayer = window.dataLayer || [];
@@ -62,6 +63,15 @@
       t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
       (window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
     window.fbq("init", id); window.fbq("track", "PageView");
+  }
+  function loadStackAdapt(id){
+    /* StackAdapt universal retargeting pixel (client-supplied snippet) */
+    !function(s,a,e,v,n,t,z){if(s.saq)return;n=s.saq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!s._saq)s._saq=n;
+      n.push=n;n.loaded=!0;n.version='1.0';n.queue=[];t=a.createElement(e);t.async=!0;
+      t.src=v;z=a.getElementsByTagName(e)[0];z.parentNode.insertBefore(t,z)}
+      (window,document,'script','https://tags.srv.stackadapt.com/events.js');
+    window.saq('ts', id);
   }
   ["scroll","pointerdown","keydown","touchstart"].forEach(function(ev){
     window.addEventListener(ev, boot, { once: true, passive: true });
