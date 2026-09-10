@@ -6,6 +6,9 @@
 // (`--serve`, or SHOW_PLACEHOLDERS=1 on a build) and collapses to nothing in
 // production builds.
 // -----------------------------------------------------------------------------
+const fs = require("node:fs");
+const path = require("node:path");
+
 const showPlaceholders =
   process.env.ELEVENTY_RUN_MODE === "serve" || process.env.SHOW_PLACEHOLDERS === "1";
 
@@ -30,15 +33,20 @@ module.exports = {
   },
 
   // Home page "post-page break" block (client-supplied markup, Sept 10).
-  // PUMPKINS and PLATES are the client's own picks, sourced from the Dropbox
-  // library (Fall 2022 pumpkin patch 0001; Fat Rabbit DSC_6756). POUR is the
-  // sparkling-wine pour the client sent as a screenshot — the original isn't
-  // in the Dropbox library, so it falls back to the fall-road hero until the
-  // file is dropped into src/assets/img/break/ and the path updated here.
+  // PUMPKINS and PLATES are the client's picks, sourced from the Dropbox
+  // library (Fall 2022 pumpkin patch 0001; Fat Rabbit DSC_6756). For the wide
+  // slot the client chose a couple toasting in Adirondack chairs above a
+  // Benchlands vineyard in fall colour — sent as a chat image, not in the
+  // Dropbox or WordPress libraries. Drop the original at
+  //   src/assets/img/break/couple-vineyard.jpg
+  // and the next build picks it up automatically; until then the fall-road
+  // hero stands in.
   pageBreak: {
     PUMPKINS: "/assets/img/break/pumpkins.jpg",
     PLATES: "/assets/img/break/shared-plates.jpg",
-    POUR: "/assets/img/heroes/hero-fall-road.jpg", // TODO swap → /assets/img/break/sparkling-pour.jpg
+    POUR: fs.existsSync(path.join(__dirname, "../assets/img/break/couple-vineyard.jpg"))
+      ? "/assets/img/break/couple-vineyard.jpg"
+      : "/assets/img/heroes/hero-fall-road.jpg",
   },
 
   // Whereabouts embed codes — widget ids supplied by the client (Mackenzie).
