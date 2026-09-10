@@ -10,7 +10,7 @@
 module.exports = {
   // ---- Analytics -----------------------------------------------------------
   // GA4 Measurement ID, e.g. "G-XXXXXXXXXX". Empty = analytics disabled.
-  ga4Id: "",
+  ga4Id: "G-1JK9KHWCS3",
   // Meta (Facebook) Pixel ID, e.g. "1234567890". Empty = pixel disabled.
   metaPixelId: "",
   // Optional: if Loud & Clear prefer GTM, paste the container id "GTM-XXXXXXX"
