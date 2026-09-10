@@ -7,8 +7,8 @@ module.exports = {
   // Global nav — three items (Sept 3 call). Labels are constants so a swap
   // (e.g. "Families" → "Family Adventures") is a one-line change.
   nav: [
-    { label: "Families", href: "/families/" },
-    { label: "Couples & Friends", href: "/couples-and-friends/" },
+    { label: "Families", href: "/fallcolors/" },
+    { label: "Couples & Friends", href: "/eatdrinkplay/" },
     { label: "Events", href: "/events/" },
   ],
   // Kicker line required on EVERY page, above the headline.

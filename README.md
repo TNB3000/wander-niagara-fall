@@ -10,8 +10,9 @@ maximum measured click-through.*
 - **Stack:** [Eleventy (11ty)](https://www.11ty.dev/) + Nunjucks. Zero client
   frameworks. ~12 KB of first-party vanilla JS.
 - **Hosting:** GitHub Pages, custom domain `fall.wanderniagara.com`.
-- **Pages:** `/`, `/couples/`, `/families/`, `/events/`, `/stories/`,
-  `/stories/<slug>/` (article), `/directory/` (flagged).
+- **Pages:** `/`, `/eatdrinkplay/` (couples & friends), `/fallcolors/` (families),
+  `/events/`, blog articles under `/blog/<slug>/`. Old slugs (`/couples/`,
+  `/couples-and-friends/`, `/families/`) 301-style redirect to the new ones.
 
 ---
 
@@ -165,7 +166,7 @@ landing URL* for cold traffic:
 
 | Test | Variant A URL | Variant B URL |
 |------|---------------|---------------|
-| Landing type | `/couples/` (or `/families/`, `/events/`) | `/stories/` |
+| Landing type | `/eatdrinkplay/` (or `/fallcolors/`, `/events/`) | a blog article |
 
 `page_variant` is set consistently per page (`couples` / `families` / `events` /
 `stories`), so GA4 comparisons stay clean. `/stories/` is a full standalone
@@ -269,7 +270,7 @@ environment; both targets coexist and are selected with `DEPLOY_TARGET`.
 
 **Why `index.php`:** Flywheel's Nginx `index` directive only recognises `index.php`, so
 `/fall/` returned 403 with `index.html`; the files contain no PHP and are simply echoed —
-do not "fix" them back to `.html`. Internal links stay directory URLs (`/fall/families/`);
+do not "fix" them back to `.html`. Internal links stay directory URLs (`/fall/fallcolors/`);
 Nginx resolves them to `index.php` itself. The build escapes any stray `<?` (e.g. an
 `<?xml` prolog in pasted embed code) so PHP never parses it.
 

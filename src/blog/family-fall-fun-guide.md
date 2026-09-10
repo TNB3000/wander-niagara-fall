@@ -3,7 +3,7 @@ title: "Niagara Fall Fun Guide for Families"
 dek: "Top Family Activities In Niagara For Kids of All Ages"
 date: "2026-09-11"
 audienceLabel: "Families"
-backHref: "/families/"
+backHref: "/fallcolors/"
 backLabel: "Back to Families"
 heroSlotKey: "BLOG_FAMILY_HERO"
 description: "Whether you've got babies, toddlers, grade schoolers or teens, Niagara's got age-appropriate fall activities that will make the trip a blast for everyone."
@@ -51,4 +51,4 @@ Finding engaging activities that will help the older kids forget all about their
 * [Rent an illuminated clear-bottom kayak](https://niagaraboatrentals.com/kayak-rental) and explore Jordan Harbour by moonlight.
 * Go on a family hunt to track down Niagara's best buttertart by making stops at [13th Street Winery's Bakery](https://13thstreetwinery.com/discover/13th-street-bakery/), [Beamsville Bakery](https://www.beamsvillebakery.ca/products.html), [Tay's Treats](https://www.facebook.com/lovetaystreats/), and [Blossom Bakery](http://www.blossombakery.ca/).
 
-Discover even more ideas for your family's autumn adventures in the Niagara Benchlands and St. Catharines in our full [Fall family activities page](/families/) and by browsing our [Culinary](https://wanderniagara.com/culinary/), [Farms and Markets](https://wanderniagara.com/farms-markets/), [Arts and Action](https://wanderniagara.com/arts-action/), [Play Outside](https://wanderniagara.com/outdoor-adventures/), [Culture](https://wanderniagara.com/culture-heritage/), and [Stay](https://wanderniagara.com/accommodations-tours/) pages.
+Discover even more ideas for your family's autumn adventures in the Niagara Benchlands and St. Catharines in our full [Fall family activities page](/fallcolors/) and by browsing our [Culinary](https://wanderniagara.com/culinary/), [Farms and Markets](https://wanderniagara.com/farms-markets/), [Arts and Action](https://wanderniagara.com/arts-action/), [Play Outside](https://wanderniagara.com/outdoor-adventures/), [Culture](https://wanderniagara.com/culture-heritage/), and [Stay](https://wanderniagara.com/accommodations-tours/) pages.

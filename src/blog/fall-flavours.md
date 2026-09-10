@@ -2,7 +2,7 @@
 title: "9 Tasty Ways To Lose Yourself In Niagara's Fall Flavours"
 date: "2026-09-11"
 audienceLabel: "Couples & Friends"
-backHref: "/couples-and-friends/"
+backHref: "/eatdrinkplay/"
 backLabel: "Back to Couples & Friends"
 heroSlotKey: "BLOG_FLAVOURS_HERO"
 description: "Whether you love events and festivals, discovering a new place to sip or dine, or setting out on your own path, here are nine ways to eat and drink your way through Niagara this fall."
