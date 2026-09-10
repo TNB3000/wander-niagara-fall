@@ -15,7 +15,6 @@
   --paper:#FFFFFF;
   --paper-warm:#EEEEEE;       /* alias kept for existing classes */
   --link:#D16726;
-  --orange:#F26A2E;           /* draft markers only */
   --line:rgba(0,0,0,.12);
 
   --wrap:1180px;
@@ -278,9 +277,6 @@ whereabouts-events-widget::part(carousel__gradient){background:linear-gradient(t
 /* Section CTA under a widget */
 .section-cta{margin:1.75rem 0 0}
 
-/* Draft marker — grep: "DRAFT — client to approve" */
-.draft-mark{font-style:normal;font-weight:500;font-size:.8125rem;letter-spacing:.02em;color:var(--orange);vertical-align:middle;text-transform:none}
-.boxed .draft-mark,.section__head h2 .draft-mark{color:var(--orange)}
 
 /* Getting here */
 .region-map{margin:0 0 clamp(2rem,4vw,3rem)}
