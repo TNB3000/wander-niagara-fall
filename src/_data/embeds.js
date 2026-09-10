@@ -18,6 +18,9 @@ module.exports = {
   gtmId: "",
   // StackAdapt retargeting pixel (universal pixel id). Empty = disabled.
   stackAdaptPixelId: "kfPIwrQ72HRILrPivbDP8g",
+  // Plausible (privacy-friendly analytics) — the script src from the client's
+  // snippet. Empty = disabled. Custom events are forwarded alongside GA4.
+  plausibleSrc: "https://plausible.io/js/pa-OBP5InHVvW5mgJGXal8R7.js",
 
   // ---- Whereabouts ---------------------------------------------------------
   // The client chose Whereabouts because its widgets load async. Paste embed
@@ -67,6 +70,7 @@ module.exports = {
     "https://next.whereabouts.tech",
     "https://tags.srv.stackadapt.com",
     "https://www.googletagmanager.com",
+    "https://plausible.io",
     "https://connect.facebook.net",
     "https://embed.whereabouts.co",
     "https://starling.crowdriff.com",

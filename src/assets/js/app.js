@@ -1,5 +1,5 @@
 /* Wander Niagara — Fall campaign. First-party JS (target < 15KB).
- * Responsibilities: analytics bootstrap (GA4 + Meta + StackAdapt), outbound
+ * Responsibilities: analytics bootstrap (GA4 + Plausible + Meta + StackAdapt), outbound
  * click tracking, scroll-depth + engaged-time, lazy embeds, global menu,
  * anchor landings, UTM preservation, outbound ref param. No frameworks. */
 (function () {
@@ -45,6 +45,7 @@
     if (cfg.ga4Id) loadGtag(cfg.ga4Id);
     if (cfg.metaPixelId) loadPixel(cfg.metaPixelId);
     if (cfg.stackAdaptPixelId) loadStackAdapt(cfg.stackAdaptPixelId);
+    if (cfg.plausibleSrc) loadPlausible(cfg.plausibleSrc);
   }
   function loadGtag(id){
     window.dataLayer = window.dataLayer || [];
@@ -73,15 +74,25 @@
       (window,document,'script','https://tags.srv.stackadapt.com/events.js');
     window.saq('ts', id);
   }
+  function loadPlausible(src){
+    /* Plausible snippet (client-supplied): queue stub + init, then the script */
+    window.plausible = window.plausible || function(){ (window.plausible.q = window.plausible.q || []).push(arguments); };
+    window.plausible.init = window.plausible.init || function(i){ window.plausible.o = i || {}; };
+    window.plausible.init();
+    var s = document.createElement("script");
+    s.async = true; s.src = src;
+    document.head.appendChild(s);
+  }
   ["scroll","pointerdown","keydown","touchstart"].forEach(function(ev){
     window.addEventListener(ev, boot, { once: true, passive: true });
   });
   window.setTimeout(boot, 3500);
 
-  // Central event dispatch → GA4 (gtag) and/or GTM dataLayer.
+  // Central event dispatch → GA4 (gtag), Plausible custom events, and/or GTM.
   function track(name, params){
     params = params || {};
     if (window.gtag) window.gtag("event", name, params);
+    if (window.plausible) window.plausible(name, { props: params });
     if (cfg.gtmId && window.dataLayer) window.dataLayer.push(Object.assign({ event: name }, params));
   }
 
