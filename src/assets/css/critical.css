@@ -410,7 +410,7 @@ whereabouts-events-widget::part(carousel__gradient){background:linear-gradient(t
   -webkit-box-decoration-break:clone;
   box-decoration-break:clone;
 }
-.wn-pb__copy{margin:0;text-align:center;font-size:clamp(0.9rem,1.15vw,1rem);line-height:1.5;max-width:46ch;margin-inline:auto}
+.wn-pb__copy{margin:0;text-align:center;font-size:1.125rem;line-height:1.5;max-width:46ch;margin-inline:auto} /* matches body copy (client, Sept 10) */
 .wn-pb__copy strong{font-weight:700}
 @media (max-width:700px){
   .wn-pb__grid{display:flex;flex-direction:column;gap:var(--wn-pb-gap)}
@@ -420,5 +420,5 @@ whereabouts-events-widget::part(carousel__gradient){background:linear-gradient(t
   .wn-pb__fig--a img{aspect-ratio:16/10}
   .wn-pb__fig--b{order:3}
   .wn-pb__fig--b img{aspect-ratio:16/10}
-  .wn-pb__copy{order:4;font-size:1rem}
+  .wn-pb__copy{order:4}
 }
