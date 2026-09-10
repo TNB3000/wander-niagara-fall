@@ -1,0 +1,42 @@
+{# WANDER — POST-PAGE BREAK. Client-developed block (Sept 10), markup kept as
+   supplied; its styles live in critical.css under .wn-pb (prefix preserved).
+   Images come from slots.pageBreak. Sits directly under the home hero. #}
+<section class="wn-pb" aria-labelledby="wn-pb-title" data-module="home">
+  <div class="wn-pb__grid">
+
+    <div class="wn-pb__col">
+      <figure class="wn-pb__fig wn-pb__fig--a">
+        <img src="{{ slots.pageBreak.PUMPKINS }}"
+             alt="Two people lifting pumpkins at a Niagara farm on a fall afternoon."
+             width="1600" height="2400" loading="lazy" decoding="async">
+      </figure>
+
+      <p class="wn-pb__copy">
+        <strong>Follow the colours</strong> through Niagara's scenic vineyards and trails,
+        indulge in award-winning culinary experiences, savour local wines and craft brews
+        while celebrating the season's locally grown harvest bounty. Start your fall wander
+        in the Benchlands and St. Catharines.
+      </p>
+    </div>
+
+    <div class="wn-pb__col">
+      <h2 class="wn-pb__title" id="wn-pb-title">
+        Where <span class="wn-pb__hl">urban</span> energy <em>meets</em>
+        <span class="wn-pb__hl">rural</span> charm.
+      </h2>
+
+      <figure class="wn-pb__fig wn-pb__fig--b">
+        <img src="{{ slots.pageBreak.PLATES }}"
+             alt="Hands reaching across a table spread with shared plates of local food."
+             width="1600" height="1067" loading="lazy" decoding="async">
+      </figure>
+    </div>
+
+  </div>
+
+  <figure class="wn-pb__fig wn-pb__fig--wide">
+    <img src="{{ slots.pageBreak.POUR }}"
+         alt="{% if 'sparkling' in slots.pageBreak.POUR %}Sparkling wine being poured into two glasses at a Benchlands winery.{% else %}A country road through the Niagara Benchlands in fall colour.{% endif %}"
+         width="1920" height="1200" loading="lazy" decoding="async">
+  </figure>
+</section>

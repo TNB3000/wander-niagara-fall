@@ -9,12 +9,13 @@ description: "Experience fall colours, farms & family fun in St. Catharines and 
 {% set heroLine2 = "family fun" %}
 {% set heroSub = "Enjoy walks through Escarpment trails, colourful pumpkin patches, local farm markets, and things to do for the whole family." %}
 {% set heroCtaLabel = "Explore" %}
-{% set heroCtaHref = "#fall-colours" %}
+{% set heroCtaHref = "#hiking-and-trails" %}
 {% set heroSlot = "FAMILIES" %}
 {% set heroAlt = "A young child biting into a cob of roasted corn at the Ball's Falls Thanksgiving Festival" %}
 {% include "partials/hero.njk" %}
 
-<section class="section" id="fall-colours" data-module="families">
+{# Section ids are the global menu's anchor targets — keep in sync with _data/site.js nav #}
+<section class="section" id="hiking-and-trails" data-module="families">
   <div class="wrap">
     <div class="section__head">
       <h2>Fall Colours &amp; Easy Trails</h2>
@@ -26,7 +27,7 @@ description: "Experience fall colours, farms & family fun in St. Catharines and 
   </div>
 </section>
 
-<section class="section" id="farms-markets" data-module="families">
+<section class="section" id="farms-and-markets" data-module="families">
   <div class="wrap">
     <div class="section__head">
       <h2>Farms &amp; Markets</h2>
@@ -38,7 +39,7 @@ description: "Experience fall colours, farms & family fun in St. Catharines and 
   </div>
 </section>
 
-<section class="section" id="attractions" data-module="families">
+<section class="section" id="museums-and-attractions" data-module="families">
   <div class="wrap">
     <div class="section__head">
       <h2>Museums and Attractions</h2>
@@ -50,10 +51,10 @@ description: "Experience fall colours, farms & family fun in St. Catharines and 
   </div>
 </section>
 
-<section class="section section--warm" id="stay" data-module="families">
+<section class="section section--warm" id="accommodations" data-module="families">
   <div class="wrap">
     <div class="section__head">
-      <h2>Spend the Night at Unique Accommodations</h2>
+      <h2>Stay the Night</h2>
       <p>Stay at charming boutique hotels, winery guesthouses, and more.</p>
     </div>
     {% set slotKey = "WHERE_TO_STAY" %}
@@ -64,7 +65,7 @@ description: "Experience fall colours, farms & family fun in St. Catharines and 
 
 <section class="section" id="itineraries" data-module="itinerary">
   <div class="wrap">
-    <div class="section__head"><h2>Plan it for me</h2><p><em class="draft-mark">[DRAFT heading — client to approve]</em> Ready-made fall itineraries, stop by stop.</p></div>
+    <div class="section__head"><h2>Itineraries</h2></div>
     {% set slotKey = "ITINERARIES_FAMILIES" %}
     {% set slotCells = 6 %}
     {% include "partials/widget-slot.njk" %}

@@ -9,12 +9,16 @@ description: "Your fall getaway to eat, drink, and play — award-winning wineri
 {% set heroLine2 = "eat, drink, and play" %}
 {% set heroSub = "Visit award-winning wineries and breweries, enjoy elevated dining experiences, and spend the night out." %}
 {% set heroCtaLabel = "Explore" %}
-{% set heroCtaHref = "#wineries" %}
+{% set heroCtaHref = "#wine" %}
 {% set heroSlot = "COUPLES_FRIENDS" %}
 {% set heroAlt = "A couple walking between rows of autumn vines with glasses of wine at a Benchlands winery" %}
 {% include "partials/hero.njk" %}
 
-<section class="section" id="wineries" data-module="couples">
+{# Section ids are the global menu's anchor targets — keep in sync with _data/site.js nav.
+   "Wine" and "Beer and Cider" both land on the combined wine & craft beverage
+   widget (one widget from the client, Sept 10) — #beer-and-cider is an in-section anchor. #}
+<section class="section" id="wine" data-module="couples">
+  <span class="anchor" id="beer-and-cider"></span>
   <div class="wrap">
     <div class="section__head">
       <h2>Wineries, Breweries, and Craft Beverages</h2>
@@ -38,7 +42,7 @@ description: "Your fall getaway to eat, drink, and play — award-winning wineri
   </div>
 </section>
 
-<section class="section" id="farms-markets" data-module="couples">
+<section class="section" id="farms-and-markets" data-module="couples">
   <div class="wrap">
     <div class="section__head">
       <h2>Farms &amp; Markets</h2>
@@ -62,10 +66,10 @@ description: "Your fall getaway to eat, drink, and play — award-winning wineri
   </div>
 </section>
 
-<section class="section section--warm" id="stay" data-module="couples">
+<section class="section section--warm" id="accommodations" data-module="couples">
   <div class="wrap">
     <div class="section__head">
-      <h2>Spend the Night at Unique Accommodations</h2>
+      <h2>Stay the Night</h2>
       <p>Stay at charming boutique hotels, winery guesthouses, and more.</p>
     </div>
     {% set slotKey = "WHERE_TO_STAY" %}
@@ -76,7 +80,7 @@ description: "Your fall getaway to eat, drink, and play — award-winning wineri
 
 <section class="section" id="itineraries" data-module="itinerary">
   <div class="wrap">
-    <div class="section__head"><h2>Plan it for me</h2><p><em class="draft-mark">[DRAFT heading — client to approve]</em> Ready-made fall itineraries, stop by stop.</p></div>
+    <div class="section__head"><h2>Itineraries</h2></div>
     {% set slotKey = "ITINERARIES_CF" %}
     {% set slotCells = 6 %}
     {% include "partials/widget-slot.njk" %}

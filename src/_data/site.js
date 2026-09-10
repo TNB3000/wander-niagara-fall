@@ -4,12 +4,17 @@ module.exports = {
   name: "Wander Niagara",
   campaign: "Fall in St. Catharines & the Benchlands",
 
-  // Global nav — three items (Sept 3 call). Labels are constants so a swap
-  // (e.g. "Families" → "Family Adventures") is a one-line change.
+  // Global nav — anchor-based hamburger menu on every viewport (client, Sept 10).
+  // Each item opens the audience page and scrolls to that section's widget.
   nav: [
-    { label: "Families", href: "/fallcolors/" },
-    { label: "Couples & Friends", href: "/eatdrinkplay/" },
-    { label: "Events", href: "/events/" },
+    { label: "Dining",                  href: "/eatdrinkplay/#dining" },
+    { label: "Wine",                    href: "/eatdrinkplay/#wine" },
+    { label: "Beer and Cider",          href: "/eatdrinkplay/#beer-and-cider" },
+    { label: "Farms and Markets",       href: "/fallcolors/#farms-and-markets" },
+    { label: "Museums and Attractions", href: "/fallcolors/#museums-and-attractions" },
+    { label: "Hiking and Trails",       href: "/fallcolors/#hiking-and-trails" },
+    { label: "Shopping",                href: "/eatdrinkplay/#shopping" },
+    { label: "Accommodations",          href: "/eatdrinkplay/#accommodations" },
   ],
   // Kicker line required on EVERY page, above the headline.
   kicker: "St. Catharines & the Benchlands",
@@ -68,5 +73,7 @@ module.exports = {
   ],
 
   privacyUrl: "https://www.wanderniagara.com/privacy/",
+  // Footer copyright holder (client, Sept 10).
+  copyrightHolder: "St. Catharines Lincoln Destination Partnership",
   year: 2026,
 };

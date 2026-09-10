@@ -16,6 +16,34 @@ maximum measured click-through.*
 
 ---
 
+## Sept 10 client round — what changed
+
+- **Menu:** hamburger on every viewport (desktop too). Eight anchor items in
+  `src/_data/site.js` → `nav`; each is `page#section`. Section ids on
+  `/eatdrinkplay/` (`wine`, `beer-and-cider`, `dining`, `shopping`,
+  `accommodations`) and `/fallcolors/` (`farms-and-markets`,
+  `museums-and-attractions`, `hiking-and-trails`) are the targets — keep them in
+  sync. `app.js` §12 re-aligns the landing while lazy widgets above it load.
+  "Wine" and "Beer and Cider" both land on the single wine & craft beverage
+  widget the client supplied. Events is not in the menu (client's list).
+- **Home:** static hero (slideshow removed); the client-developed
+  "post-page break" block (`partials/page-break.njk`, `.wn-pb` styles) sits
+  under it. Images in `slots.js` → `pageBreak` (POUR still falls back to a
+  hero photo — see comment there).
+- **Widgets:** wine & craft beverage + dining on `/eatdrinkplay/`; family and
+  couples tripper itineraries under a plain "Itineraries" heading; new
+  CrowdRiff gallery id.
+- **Everywhere:** "Stay the Night" accommodations heading; FAQ
+  (`partials/faq.njk`) before the newsletter on every content page; footer
+  copyright to St. Catharines Lincoln Destination Partnership, Benchlands logo
+  linked, site-design credit removed.
+- **Style:** Montserrat globally; no yellow boxes behind titles; 4px radius on
+  buttons (incl. widget buttons via `::part()`).
+- **Articles:** photos pulled from the live WordPress posts into
+  `src/assets/img/articles/` and wired through `slots.js` → `articleImages`.
+
+---
+
 ## Quick start (local preview)
 
 ```bash

@@ -10,7 +10,11 @@ description: "Fall is made for wandering — plan your autumn escape to St. Cath
 {% set heroSub %}Your perfect autumn escape is closer than you think in <span class="hero__accent">St. Catharines and the Benchlands.</span>{% endset %}
 {% set heroCtaLabel = "Explore" %}
 {% set heroCtaHref = "#food-drink" %}
-{% include "partials/hero-slideshow.njk" %}
+{% set heroSlot = "HOME" %}
+{% set heroAlt = "A country road winding through the Niagara Benchlands in full fall colour" %}
+{% include "partials/hero.njk" %}
+
+{% include "partials/page-break.njk" %}
 
 <section class="section" id="food-drink" data-module="home">
   <div class="wrap">
@@ -38,10 +42,10 @@ description: "Fall is made for wandering — plan your autumn escape to St. Cath
   </div>
 </section>
 
-<section class="section section--warm" id="stay" data-module="home">
+<section class="section section--warm" id="accommodations" data-module="home">
   <div class="wrap">
     <div class="section__head">
-      <h2>Spend the Night at Unique Accommodations</h2>
+      <h2>Stay the Night</h2>
       <p>Stay at charming boutique hotels, winery guesthouses, and more.</p>
     </div>
     {% set slotKey = "WHERE_TO_STAY" %}

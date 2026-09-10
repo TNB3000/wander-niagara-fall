@@ -26,27 +26,6 @@ description: "Fall events in St. Catharines and the Niagara Benchlands — music
   </div>
 </section>
 
-<section class="section section--warm" id="faq" data-module="faq">
-  <div class="wrap">
-    <div class="section__head"><h2>Frequently Asked Questions</h2></div>
-    {% if faq and faq.length %}
-    {# Client-authorized FAQ, verbatim from wanderniagara.com's events guide (see _data/faq.js) #}
-    <div class="faq">
-      {% for qa in faq %}
-      <details{% if loop.first %} open{% endif %}>
-        <summary>{{ qa.q }}</summary>
-        <div class="faq__a">{{ qa.a | safe }}</div>
-      </details>
-      {% endfor %}
-    </div>
-    {% else %}
-    {% set slotKey = "FAQ_CONTENT" %}
-    {% set slotCells = 3 %}
-    {% include "partials/widget-slot.njk" %}
-    {% endif %}
-  </div>
-</section>
-
 {% include "partials/page-tail.njk" %}
 
 {# WebPage structured data for AI/search discoverability (JSON-LD is valid in <body>) #}

@@ -1,7 +1,7 @@
 /* Wander Niagara — Fall campaign. First-party JS (target < 15KB).
- * Responsibilities: analytics bootstrap (GA4 + Meta), outbound click tracking,
- * scroll-depth + engaged-time, sticky CTA, video hero, exit-intent newsletter,
- * UTM preservation, outbound ref param. No frameworks. */
+ * Responsibilities: analytics bootstrap (GA4 + Meta + StackAdapt), outbound
+ * click tracking, scroll-depth + engaged-time, lazy embeds, global menu,
+ * anchor landings, UTM preservation, outbound ref param. No frameworks. */
 (function () {
   "use strict";
 
@@ -291,10 +291,11 @@
   });
 
   // ---------------------------------------------------------------------------
-  // 11. Mobile menu — accessible hamburger for the 3-item global nav.
+  // 11. Global menu — accessible hamburger on every viewport (client, Sept 10).
   //     aria-expanded, Escape closes and returns focus, closes on link click
   //     and on outside click. Button is [hidden] until JS arms it (no-JS keeps
-  //     the inline nav via CSS).
+  //     the inline nav via CSS). Items are page#section anchors; a same-page
+  //     item just scrolls (the browser handles the hash).
   // ---------------------------------------------------------------------------
   var menuBtn = document.querySelector(".menu-btn");
   var headerEl = document.getElementById("site-header");
@@ -321,39 +322,27 @@
   }
 
   // ---------------------------------------------------------------------------
-  // 12. Hero slideshow — gentle crossfade, auto-advance unless
-  //     prefers-reduced-motion; pause on hover/focus; swipe on touch.
-  //     First slide is server-rendered active, so no JS = static hero.
+  // 12. Anchor landings — menu items open a page at #section. Widgets above the
+  //     target load lazily and grow after the browser's initial jump, which
+  //     would push the target down the page; re-align to it a few times while
+  //     content settles, unless the visitor has started scrolling themselves.
   // ---------------------------------------------------------------------------
-  var slidesWrap = document.querySelector("[data-slideshow]");
-  if (slidesWrap) {
-    var slides = [].slice.call(slidesWrap.children);
-    if (slides.length > 1) {
-      var idx = 0, timer = null, paused = false;
-      var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      function show(n){
-        idx = (n + slides.length) % slides.length;
-        slides.forEach(function(s, i){
-          s.classList.toggle("is-active", i === idx);
-          if (i === idx) s.removeAttribute("aria-hidden");
-          else s.setAttribute("aria-hidden", "true");
-        });
-      }
-      function tick(){ if (!paused) show(idx + 1); }
-      function arm(){ if (!reduced && !timer) timer = window.setInterval(tick, 6000); }
-      var hero = slidesWrap.closest(".hero") || slidesWrap;
-      ["mouseenter", "focusin"].forEach(function(ev){ hero.addEventListener(ev, function(){ paused = true; }); });
-      ["mouseleave", "focusout"].forEach(function(ev){ hero.addEventListener(ev, function(){ paused = false; }); });
-      var x0 = null;
-      hero.addEventListener("touchstart", function(e){ x0 = e.touches[0].clientX; }, { passive: true });
-      hero.addEventListener("touchend", function(e){
-        if (x0 === null) return;
-        var dx = e.changedTouches[0].clientX - x0; x0 = null;
-        if (Math.abs(dx) > 40) show(idx + (dx < 0 ? 1 : -1));
-      }, { passive: true });
-      arm();
+  (function anchorLanding(){
+    if (!location.hash || location.hash.length < 2) return;
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (!target) return;
+    var userScrolled = false;
+    ["wheel","touchstart","keydown"].forEach(function(ev){
+      window.addEventListener(ev, function(){ userScrolled = true; }, { once: true, passive: true });
+    });
+    function realign(){ if (!userScrolled) target.scrollIntoView({ block: "start" }); }
+    [0, 400, 1200, 2500].forEach(function(ms){ window.setTimeout(realign, ms); });
+    if ("ResizeObserver" in window) {
+      var ro = new ResizeObserver(function(){ realign(); });
+      ro.observe(document.getElementById("main") || document.body);
+      window.setTimeout(function(){ ro.disconnect(); }, 4000);
     }
-  }
+  })();
 
   // ---- utils ----
   function throttle(fn, wait){
