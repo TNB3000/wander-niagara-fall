@@ -64,7 +64,6 @@ module.exports = {
       { from: "Buffalo, NY", time: "45 min", note: "via QEW / Peace Bridge" },
       { from: "Niagara Falls", time: "20 min", note: "via QEW" },
     ],
-    transit: "GO Transit runs seasonal weekend rail + bus to St. Catharines. [PLACEHOLDER — confirm 2026 fall schedule]",
   },
 
   social: [
