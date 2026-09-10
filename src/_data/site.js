@@ -15,6 +15,7 @@ module.exports = {
     { label: "Hiking and Trails",       href: "/fallcolors/#hiking-and-trails" },
     { label: "Shopping",                href: "/eatdrinkplay/#shopping" },
     { label: "Accommodations",          href: "/eatdrinkplay/#accommodations" },
+    { label: "Events",                  href: "/events/" },
   ],
   // Kicker line required on EVERY page, above the headline.
   kicker: "St. Catharines & the Benchlands",

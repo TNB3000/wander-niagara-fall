@@ -25,7 +25,7 @@ maximum measured click-through.*
   `museums-and-attractions`, `hiking-and-trails`) are the targets — keep them in
   sync. `app.js` §12 re-aligns the landing while lazy widgets above it load.
   "Wine" and "Beer and Cider" both land on the single wine & craft beverage
-  widget the client supplied. Events is not in the menu (client's list).
+  widget the client supplied (client-confirmed). Events is the ninth item.
 - **Home:** static hero (slideshow removed); the client-developed
   "post-page break" block (`partials/page-break.njk`, `.wn-pb` styles) sits
   under it. Images in `slots.js` → `pageBreak` (POUR still falls back to a
