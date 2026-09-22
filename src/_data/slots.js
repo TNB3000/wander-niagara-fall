@@ -22,19 +22,27 @@ const tripper = (id) => `<whereabouts-tripper-widget widget-id="${id}" access-id
 module.exports = {
   showPlaceholders,
 
-  // Per-page hero photos (client photography, Sept 2026). The home hero is a
-  // single static image — the slideshow was removed at the client's request
-  // (Sept 10).
+  // Home hero slideshow — four photos in the client's order (Sept 22).
+  HERO_SLIDES: [
+    { src: "/assets/img/heroes/hero-vineyard-barn.jpg", alt: "A couple walking hand in hand down a lane between autumn vineyards toward a wooden barn in the Niagara Benchlands" },
+    { src: "/assets/img/heroes/hero-fall-road.jpg",     alt: "A country road winding through the Niagara Benchlands in full fall colour" },
+    { src: "/assets/img/heroes/hero-cider-cheers.jpg",  alt: "Friends clinking glasses of Niagara Cider Company cider over a shared table" },
+    { src: "/assets/img/heroes/hero-shared-plates.jpg", alt: "A table of small plates, wine and cocktails at Les Incompétents in St. Catharines" },
+  ],
+
+  // Per-page hero photos (client photography, Sept 2026). HOME is the first
+  // slideshow frame, used for the home page's og:image and preload.
   PAGE_HEROES: {
-    HOME: "/assets/img/heroes/hero-fall-road.jpg",
+    HOME: "/assets/img/heroes/hero-vineyard-barn.jpg",
     FAMILIES: "/assets/img/heroes/hero-family-corn.jpg",
     COUPLES_FRIENDS: "/assets/img/heroes/hero-couple-vineyard.jpg",
     EVENTS: "/assets/img/heroes/hero-concert.jpg",
   },
 
   // Home page "post-page break" block (client-supplied markup, Sept 10).
-  // PUMPKINS and PLATES are the client's picks, sourced from the Dropbox
-  // library (Fall 2022 pumpkin patch 0001; Fat Rabbit DSC_6756). For the wide
+  // PUMPKINS is from the Dropbox library (Fall 2022 pumpkin patch 0001).
+  // PLATES was the Fat Rabbit shared-plates overhead (DSC_6756) until Sept 22,
+  // when the client swapped in the Fat Rabbit steak photo. For the wide
   // slot the client chose a couple toasting in Adirondack chairs above a
   // Benchlands vineyard in fall colour — sent as a chat image, not in the
   // Dropbox or WordPress libraries. Drop the original at
@@ -43,7 +51,7 @@ module.exports = {
   // hero stands in.
   pageBreak: {
     PUMPKINS: "/assets/img/break/pumpkins.jpg",
-    PLATES: "/assets/img/break/shared-plates.jpg",
+    PLATES: "/assets/img/break/fat-rabbit-steak.jpg",
     POUR: fs.existsSync(path.join(__dirname, "../assets/img/break/couple-vineyard.jpg"))
       ? "/assets/img/break/couple-vineyard.jpg"
       : "/assets/img/heroes/hero-fall-road.jpg",
@@ -80,8 +88,8 @@ module.exports = {
     BLOG_FLAVOURS_HERO:  { label: "Photo — 9 Tasty Ways (hero)", embed: "/assets/img/articles/flavours-hero.jpg", alt: "Apple orchard in the Niagara Benchlands in fall colour" },
     BLOG_FLAVOURS_1:     { label: "Photo — 9 Tasty Ways (inline 1)", embed: "/assets/img/articles/flavours-1.jpg", alt: "Fresh produce at the St. Catharines Farmers Market" },
     BLOG_FLAVOURS_2:     { label: "Photo — 9 Tasty Ways (inline 2)", embed: "/assets/img/articles/flavours-2.jpg", alt: "Pastries and coffee at Pique-Nique café" },
-    BLOG_FAMILY_HERO:    { label: "Photo — Family Fall Fun Guide (hero)", embed: "/assets/img/articles/family-hero.jpg", alt: "A family on the beach at Charles Daley Park" },
+    BLOG_FAMILY_HERO:    { label: "Photo — Family Fall Fun Guide (hero)", embed: "/assets/img/articles/family-hero.jpg", alt: "Children riding a barrel train past the white chapel at the Ball's Falls Thanksgiving Festival" },
     BLOG_FAMILY_1:       { label: "Photo — Family Fall Fun Guide (inline 1)", embed: "/assets/img/articles/family-1.jpg", alt: "Farm animals at Happy Rolph's Animal Farm" },
-    BLOG_FAMILY_2:       { label: "Photo — Family Fall Fun Guide (inline 2)", embed: "/assets/img/articles/family-2.jpg", alt: "Families at the Ball's Falls Thanksgiving Festival" },
+    BLOG_FAMILY_2:       { label: "Photo — Family Fall Fun Guide (inline 2)", embed: "/assets/img/articles/family-2.jpg", alt: "A young child riding a pony at a fall festival in the Niagara Benchlands" },
   },
 };

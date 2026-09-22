@@ -149,6 +149,13 @@ html:not(.js) .nav a{color:var(--ink);border:0;font-size:.875rem;padding:.5rem 0
   .hero p{font-size:1rem}
 }
 
+/* Hero slideshow (home) — stacked slides, crossfade, zero layout shift */
+.hero-slides{position:absolute;inset:0}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.1s ease}
+.hero-slide.is-active{opacity:1}
+.hero-slide img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+@media (prefers-reduced-motion:reduce){.hero-slide{transition:none}}
+
 /* Hero placeholder (dev only, when a page photo is missing) */
 .hero-slide--placeholder{
   display:grid;place-items:center;

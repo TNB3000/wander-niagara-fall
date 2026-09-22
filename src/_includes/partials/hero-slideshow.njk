@@ -1,0 +1,22 @@
+{# HOME HERO SLIDESHOW — restored Sept 22 at the client's request (four
+   photos in a fixed order, gentle crossfade, constant overlay). Slides come
+   from slots.HERO_SLIDES. First slide is active in markup so the hero renders
+   without JS; app.js auto-advances (disabled by prefers-reduced-motion),
+   pauses on hover/focus, swipes on touch. #}
+<section class="hero hero--home" id="hero">
+  <div class="hero__media">
+    <div class="hero-slides" data-slideshow>
+      {% for s in slots.HERO_SLIDES %}
+      <div class="hero-slide{% if loop.first %} is-active{% endif %}"{% if not loop.first %} aria-hidden="true"{% endif %}>
+        <img src="{{ s.src }}" alt="{{ s.alt }}" width="1920" height="1200"
+             {% if loop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async">
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="wrap hero__inner">
+    <h1>{% if heroLine1 %}<span class="hero__l1">{{ heroLine1 }}</span> <span class="hero__l2">{{ heroLine2 }}</span>{% else %}{{ heroTitle | safe }}{% endif %}</h1>
+    <p>{{ heroSub | safe }}</p>
+    <a class="btn" href="{{ heroCtaHref }}" data-module="hero">{{ heroCtaLabel or "Explore" }}</a>
+  </div>
+</section>
