@@ -42,6 +42,19 @@ heroSlot: COUPLES_FRIENDS
   </div>
 </section>
 
+<section class="section section--warm" id="michelin" data-module="couples">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>MICHELIN Guide Restaurants</h2>
+      <p>Two MICHELIN Stars, two Bib Gourmands and two MICHELIN Recommended restaurants, all a short drive apart in St. Catharines and the Niagara Benchlands.</p>
+    </div>
+    {% set slotKey = "MICHELIN" %}
+    {% set slotCells = 8 %}
+    {% include "partials/widget-slot.njk" %}
+    <p class="section-cta"><a class="btn btn--ghost" href="/blog/michelin-guide/" data-module="couples" data-card-label="Read — MICHELIN Guide article">Read the MICHELIN Guide story</a></p>
+  </div>
+</section>
+
 <section class="section" id="farms-and-markets" data-module="couples">
   <div class="wrap">
     <div class="section__head">
@@ -115,6 +128,12 @@ heroSlot: COUPLES_FRIENDS
         <p class="itin__meta">Fall Reading</p>
         <h3>9 Tasty Ways To Lose Yourself In Niagara's Fall Flavours</h3>
         <p>Eat and drink your way through harvest season in Niagara.</p>
+        <span class="tlink"><span>Read the article</span></span>
+      </a>
+      <a class="itin" href="/blog/michelin-guide/" data-module="stories" data-card-label="MICHELIN Guide">
+        <p class="itin__meta">Fall Reading</p>
+        <h3>MICHELIN Guide Fuels St. Catharines and Niagara Benchlands Food Scene Buzz</h3>
+        <p>Two Stars, two new Bib Gourmands and more MICHELIN praise for Niagara restaurants.</p>
         <span class="tlink"><span>Read the article</span></span>
       </a>
     </div>

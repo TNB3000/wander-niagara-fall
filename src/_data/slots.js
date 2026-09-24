@@ -70,6 +70,10 @@ module.exports = {
     // wineries-only widget 6a85fa0786787426fc53deae).
     CRAFT_BEVERAGE:       { label: "Whereabouts — wine & craft beverage widget", embed: operators("6aa2d233126a0c45b21934a0") },
     DINING:               { label: "Whereabouts — dining widget", embed: operators("6aa2d2b9126a0c45b21a8f71") },
+    // Sept 24: MICHELIN Guide-recognized restaurants (client). Shown on the
+    // couples page after Dining, on the home page after Food and Drink, and
+    // under the MICHELIN Guide article.
+    MICHELIN:             { label: "Whereabouts — MICHELIN Guide restaurants widget", embed: operators("6ab52f69885200b8f2219dbd") },
     CF_FARMS_MARKETS:     { label: "Whereabouts — couples & friends farms & markets widget (shares the family list)", embed: operators("6aa192fec6852ea15eb8664e") },
     SHOPPING:             { label: "Whereabouts — shopping widget", embed: operators("6aa03361c06fe9442ef7527e") },
     ITINERARIES_FAMILIES: { label: "Whereabouts — family itineraries (tripper)", embed: tripper("6aa2baf6126a0c45b2ed840b") },
@@ -91,5 +95,13 @@ module.exports = {
     BLOG_FAMILY_HERO:    { label: "Photo — Family Fall Fun Guide (hero)", embed: "/assets/img/articles/family-hero.jpg", alt: "Children riding a barrel train past the white chapel at the Ball's Falls Thanksgiving Festival" },
     BLOG_FAMILY_1:       { label: "Photo — Family Fall Fun Guide (inline 1)", embed: "/assets/img/articles/family-1.jpg", alt: "Farm animals at Happy Rolph's Animal Farm" },
     BLOG_FAMILY_2:       { label: "Photo — Family Fall Fun Guide (inline 2)", embed: "/assets/img/articles/family-2.jpg", alt: "A young child riding a pony at a fall festival in the Niagara Benchlands" },
+    // MICHELIN Guide article (Sept 24) — photos from the WordPress post, except
+    // #2, where the client swapped the raw-bar shot for the table spread.
+    BLOG_MICHELIN_1:     { label: "Photo — MICHELIN article (Pearl Morissette plating)", embed: "/assets/img/articles/michelin-1.jpg", alt: "A diner photographing a plated dish at Restaurant Pearl Morissette" },
+    BLOG_MICHELIN_2:     { label: "Photo — MICHELIN article (Les Incompétents table)", embed: "/assets/img/articles/michelin-2.jpg", alt: "A table of small plates, wine and cocktails at Les Incompétents in St. Catharines" },
+    BLOG_MICHELIN_3:     { label: "Photo — MICHELIN article (RPM Bakehouse)", embed: "/assets/img/articles/michelin-3.jpg", alt: "Loaves of dough proofing in baskets at RPM Bakehouse" },
+    BLOG_MICHELIN_4:     { label: "Photo — MICHELIN article (OddBird)", embed: "/assets/img/articles/michelin-4.jpg", alt: "A spread of dishes at OddBird in St. Catharines" },
+    BLOG_MICHELIN_5:     { label: "Photo — MICHELIN article (Pearl Morissette dining room)", embed: "/assets/img/articles/michelin-5.jpg", alt: "The dining room at Restaurant Pearl Morissette with floor-to-ceiling windows" },
+    BLOG_MICHELIN_6:     { label: "Photo — MICHELIN article (Fat Rabbit)", embed: "/assets/img/articles/michelin-6.jpg", alt: "Cutting into a plate of sausage and mash at Fat Rabbit" },
   },
 };

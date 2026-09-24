@@ -39,5 +39,16 @@
     <p class="prose article-back"><a class="tlink" href="{{ backHref }}">&larr; {{ backLabel }}</a></p>
   </div>
 
+  {% if widgetSlotKey %}
+  <section class="section section--warm" id="{{ widgetSlotKey | lower }}" data-module="article">
+    <div class="wrap">
+      <div class="section__head"><h2>{{ widgetHeading or "Explore" }}</h2></div>
+      {% set slotKey = widgetSlotKey %}
+      {% set slotCells = 8 %}
+      {% include "partials/widget-slot.njk" %}
+    </div>
+  </section>
+  {% endif %}
+
   {% include "partials/page-tail.njk" %}
 {% endblock %}
