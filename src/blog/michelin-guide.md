@@ -5,8 +5,6 @@ audienceLabel: "Couples & Friends"
 backHref: "/eatdrinkplay/"
 backLabel: "Back to Couples & Friends"
 heroImg: "/assets/img/articles/michelin-2.jpg"
-widgetSlotKey: "MICHELIN"
-widgetHeading: "MICHELIN Guide Restaurants"
 description: "Niagara Benchlands and St. Catharines restaurants are continuing to win the hearts and stomachs of MICHELIN Guide Inspectors — two Stars, two new Bib Gourmands and more in the 2026 Toronto & Region Guide."
 ---
 
@@ -38,13 +36,17 @@ In identifying “great food beyond Toronto proper” as a 2026 trend defining t
 
 **Build Your St. Catharines and Niagara Benchlands MICHELIN Guide Map**
 
+<div class="prose-wide" data-module="article">
+{% set slotKey = "MICHELIN" %}{% set slotCells = 8 %}{% include "partials/widget-slot.njk" %}
+</div>
+
 **Two MICHELIN Stars:** [Restaurant Pearl Morissette](https://restaurantpearlmorissette.com/) 
 
 **MICHELIN Bib Gourmand Award Winners:** [Les Incompetents](https://www.barlesincompetents.ca/) and [RPM Bakehouse](https://rpmbakehouse.com/) 
 
 **MICHELIN Recommended:** [Fat Rabbit](https://fat-rabbit.ca/) and [OddBird](https://oddbird.ca/index.php/menu-oddbird/)
 
-Looking for even more delicious destination dining to add to your next Niagara foodie foray? Other excellent options in the Niagara Benchlands include [Vineland Estates Winery Restaurant](https://vineland.com/the-restaurant/), [The Good Earth Food and Wine Co.](https://goodearthfoodandwine.com/bistro/lunch/), [The Restaurant at Peninsula Ridge](https://peninsularidge.com/restaurant/), [Megalomaniac Food+Drink](https://megalomaniacwine.com/winery/visit), [Revalee Brunch Cafe](https://revalee.ca/), and [Inn On The Twenty Restaurant](https://www.vintage-hotels.com/inn-on-the-twenty/inn-on-the-twenty-restaurant/). Additional buzz-worthy restaurants and cafés in St. Catharines to add to your to-try list include [Restaurant Capelin](https://www.restaurantcapelin.com/), [Valley Restaurant](https://www.valleyrestaurant.net/), [The Mule](https://www.themulestcatharines.ca/), [Wellington Court](https://wellington-court.com/), [Pique-Nique cafe and wine bar](https://www.piqueniquecafe.ca/), [Beechwood Doughnuts](https://www.beechwooddoughnuts.com/), and [Brindle](https://brindlefoodco.ca/).’
+Looking for even more delicious destination dining to add to your next Niagara foodie foray? Other excellent options in the Niagara Benchlands include [Vineland Estates Winery Restaurant](https://vineland.com/the-restaurant/), [The Good Earth Food and Wine Co.](https://goodearthfoodandwine.com/bistro/lunch/), [The Restaurant at Peninsula Ridge](https://peninsularidge.com/restaurant/), [Megalomaniac Food+Drink](https://megalomaniacwine.com/winery/visit), [Revalee Brunch Cafe](https://revalee.ca/), and [Inn On The Twenty Restaurant](https://www.vintage-hotels.com/inn-on-the-twenty/inn-on-the-twenty-restaurant/). Additional buzz-worthy restaurants and cafés in St. Catharines to add to your to-try list include [Restaurant Capelin](https://www.restaurantcapelin.com/), [Valley Restaurant](https://www.valleyrestaurant.net/), [The Mule](https://www.themulestcatharines.ca/), [Wellington Court](https://wellington-court.com/), [Pique-Nique cafe and wine bar](https://www.piqueniquecafe.ca/), [Beechwood Doughnuts](https://www.beechwooddoughnuts.com/), and [Brindle](https://brindlefoodco.ca/).
 
 Browse our [Culinary](https://wanderniagara.com/culinary/), [Wine and Craft Beverages](https://wanderniagara.com/wine-craft-beverages/), and [Farms and Markets](https://wanderniagara.com/farms-markets/) pages for even more food-focused stops to incorporate into your trip. Add a cozy [place to stay](https://wanderniagara.com/accommodations-tours/), and you’ve got a recipe for a winning gourmet trip to St. Catharines and the Niagara Benchlands.
 

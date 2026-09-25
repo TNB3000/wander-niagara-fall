@@ -9,7 +9,13 @@ maximum measured click-through.*
 
 - **Stack:** [Eleventy (11ty)](https://www.11ty.dev/) + Nunjucks. Zero client
   frameworks. ~12 KB of first-party vanilla JS.
-- **Hosting:** GitHub Pages, custom domain `fall.wanderniagara.com`.
+- **Hosting (production):** static folder on the client's Flywheel WordPress host,
+  live at <https://wanderniagara.com/fall/> (see *Deploying to Flywheel*).
+- **Preview:** GitHub Pages from the agency repo,
+  <https://tnb3000.github.io/wander-niagara-fall/> (same code, deploys on every push).
+- **Repos:** agency `TNB3000/wander-niagara-fall` (remote `origin`) and the client's
+  `Wander-Niagara/fall` (remote `client`) — keep both in sync:
+  `git push origin main && git push client main`.
 - **Pages:** `/`, `/eatdrinkplay/` (couples & friends), `/fallcolors/` (families),
   `/events/`, blog articles under `/blog/<slug>/`. Old slugs (`/couples/`,
   `/couples-and-friends/`, `/families/`) 301-style redirect to the new ones.
@@ -41,6 +47,12 @@ maximum measured click-through.*
   buttons (incl. widget buttons via `::part()`).
 - **Articles:** photos pulled from the live WordPress posts into
   `src/assets/img/articles/` and wired through `slots.js` → `articleImages`.
+- **Sept 16–25 follow-ups:** FAQ fall copy + leaf-colour question; draft markers
+  removed; four-slide home hero (`slots.js` → `HERO_SLIDES`); Fat Rabbit steak in the
+  page-break; MICHELIN Guide article (`src/blog/michelin-guide.md`) with the MICHELIN
+  operators widget inline under its "Build Your … Map" line and in a
+  "MICHELIN Guide Restaurants" section on the home and couples pages; GA4
+  (`G-1JK9KHWCS3`, shared with the main site), Plausible and StackAdapt all live.
 
 ---
 
@@ -51,7 +63,7 @@ npm install
 npx @11ty/eleventy --serve
 ```
 
-Then open <http://localhost:8080/couples/>. Edits to templates, data, CSS and JS
+Then open <http://localhost:8080/>. Edits to templates, data, CSS and JS
 hot-rebuild. Build to `_site/` without serving:
 
 ```bash
@@ -258,26 +270,20 @@ markup already carries `width`/`height`; add `srcset`/`sizes` when real assets l
 
 ---
 
-## Deployment (GitHub Pages)
+## Deployment (GitHub Pages preview)
 
-Push to `main` → `.github/workflows/deploy.yml` builds Eleventy and deploys
-`_site` to Pages. PRs get a build check (`.github/workflows/ci.yml`).
+Push to `main` on `TNB3000/wander-niagara-fall` → `.github/workflows/deploy.yml` builds
+Eleventy with `--pathprefix=/wander-niagara-fall/` and deploys `_site` to Pages at
+<https://tnb3000.github.io/wander-niagara-fall/>. PRs get a build check
+(`.github/workflows/ci.yml`).
 
-**One-time GitHub setup:** repo → Settings → Pages → *Build and deployment* →
-Source = **GitHub Actions**.
+This is the **preview** environment only. Production is Flywheel (next section). The
+earlier `fall.wanderniagara.com` custom-domain plan was dropped in favour of
+`wanderniagara.com/fall/`; `src/robots.txt` still carries that hostname for the Pages
+build and is not shipped to Flywheel.
 
-### DNS cutover for `fall.wanderniagara.com`
-
-1. `src/CNAME` (→ `_site/CNAME`) already contains `fall.wanderniagara.com`.
-2. On **wanderniagara.com's DNS**, add a **CNAME record**:
-   `fall` → `tnb3000.github.io`  *(host `fall`, value `tnb3000.github.io`)*.
-3. In repo → Settings → Pages, set the custom domain to
-   `fall.wanderniagara.com` and wait for the check to pass.
-4. Tick **Enforce HTTPS** once the certificate is issued.
-
-Before DNS is live, the raw Pages URL is
-`https://tnb3000.github.io/wander-niagara-fall/`. Asset paths are root-absolute
-(`/assets/…`) so they resolve correctly once served from the custom-domain root.
+Pages is **not** enabled on the client repo (`Wander-Niagara/fall`). If it ever is, change
+the workflow's `--pathprefix` to `/fall/` to match that repo's name.
 
 ---
 

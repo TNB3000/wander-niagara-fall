@@ -329,6 +329,8 @@ whereabouts-events-widget::part(carousel__gradient){background:linear-gradient(t
 .widget-slot--img .widget-slot__grid{grid-template-columns:1fr}
 .widget-slot--img .widget-slot__grid i{aspect-ratio:8/3}
 .prose .widget-slot{margin:1.6em 0}
+/* Inline widget inside an article: spans the full content width, not the 720px measure */
+.prose-wide{width:calc(min(100vw,var(--wrap)) - 40px);margin:1.75em 0 2.25em}
 .article-hero img{width:100%;max-height:560px;object-fit:cover}
 .prose{max-width:720px;padding-block:clamp(2.5rem,5vw,4rem)}
 .prose p,.prose ul,.prose ol{margin:0 0 1.15em;color:var(--ink)}
